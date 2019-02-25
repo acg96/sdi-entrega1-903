@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments/head" />
+<body>
+	<!-- Barra de Navegación superior -->
+	<nav th:replace="fragments/nav" />
+	<div class="container">
+		<h2 th:text="#{user.listUsers.title}"></h2>
+		<p th:text="#{user.listUsers.description}"></p>
+		<form method="post" th:action="${'/user/remove'}" th:object="${userToDelete}">
+			<div class="table-responsive">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th class="col-md-1"></th>
+							<th th:text="#{user.listUsers.title.email}"></th>
+							<th th:text="#{user.listUsers.title.name}"></th>
+							<th th:text="#{user.listUsers.title.lastName}"></th>							
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="user : ${usersList}">
+							<td><input type="checkbox" class="form-check-input"
+								th:id="${'check-' + user.id}" th:field="*{users}" th:value="${user.id}"></td>
+							<td th:text="${user.email}"></td>
+							<td th:text="${user.name}"></td>
+							<td th:text="${user.lastName}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<p class="text-danger" th:if='${deleted == 0}' th:text="${user.listUsers.shouldSelectOption}"></p>
+			<p class="text-danger" th:if='${deleted == 1}' th:text="${user.listUsers.deleteCorrect}"></p>
+			<button type="submit" class="btn btn-primary"
+				th:text="#{user.listUsers.removeButton}"></button>
+		</form>
+	</div>
+	<footer th:replace="fragments/footer" />
+</body>
+</html>

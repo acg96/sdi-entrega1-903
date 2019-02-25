@@ -13,10 +13,10 @@
 				<li><a href="/" th:text="#{nav.menu.home}"></a></li>
 				<li id="offers-menu" class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#"
-					th:text="#{nav.menu.offersManagement}"><span class="caret"></span>
+					th:text="#{nav.menu.offersManagement}" sec:authorize="hasRole('ROLE_USER')"><span class="caret"></span>
 				</a>
 					<ul class="dropdown-menu">
-						<li sec:authorize="hasRole('ROLE_USER')"><a href="/offer/add" th:text="#{nav.menu.addOffer}"></a></li>
+						<li><a href="/offer/add" th:text="#{nav.menu.addOffer}"></a></li>
 						<li><a href="/offer/list" th:text="#{nav.menu.showOffers}"></a></li>
 						<li><a href="/offer/search" th:text="#{nav.menu.searchOffers}"></a></li>
 						<li><a href="/offer/bought" th:text="#{nav.menu.boughtOffers}"></a></li>
@@ -27,8 +27,7 @@
 					th:text="#{nav.menu.userManagement}"><span class="caret"></span>
 				</a>
 					<ul class="dropdown-menu">
-						<li><a href="/user/list" th:text="#{nav.menu.showUsers}"></a></li>
-						<li><a href="/user/remove" th:text="#{nav.menu.removeUsers}"></a></li>
+						<li><a href="/user/list/2" th:text="#{nav.menu.showUsers}"></a></li>
 					</ul></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
