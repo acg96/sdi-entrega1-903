@@ -1,5 +1,6 @@
 package com.uniovi.entities;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -20,6 +21,9 @@ public class User {
 	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private Set<Offer> offers;
+	
+	@OneToMany(mappedBy = "buyer", cascade = CascadeType.ALL)
+	private Set<Purchase> purchases;
 
 	private String password;
 
@@ -32,10 +36,20 @@ public class User {
 		this.name = name;
 		this.lastName = lastName;
 		this.money= DEFAULT_MONEY;
+		this.purchases= new HashSet<Purchase>();
+		this.offers= new HashSet<Offer>();
 	}
 	
 	public void setOffers(Set<Offer> offers) {
 		this.offers = offers;
+	}
+
+	public Set<Purchase> getPurchases() {
+		return purchases;
+	}
+
+	public void setPurchases(Set<Purchase> purchases) {
+		this.purchases = purchases;
 	}
 
 	public Set<Offer> getOffers() {
@@ -43,6 +57,7 @@ public class User {
 	}
 
 	public User() {
+		this.money= DEFAULT_MONEY;
 	}
 
 	public long getId() {

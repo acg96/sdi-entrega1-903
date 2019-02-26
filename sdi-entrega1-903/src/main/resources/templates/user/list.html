@@ -23,7 +23,7 @@
 						<tr th:each="user : ${usersList}">
 							<td><input type="checkbox" class="form-check-input"
 								th:id="${'check-' + user.id}" th:field="*{users}"
-								th:value="${user.id}"></td>
+								th:value="${user.id}" th:if="${email != user.email}"></td>
 							<td th:text="${user.email}"></td>
 							<td th:text="${user.name}"></td>
 							<td th:text="${user.lastName}"></td>

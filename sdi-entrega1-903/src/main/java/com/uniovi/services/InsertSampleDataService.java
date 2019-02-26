@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.uniovi.entities.Offer;
+import com.uniovi.entities.Purchase;
 import com.uniovi.entities.User;
 
 @Service
@@ -17,6 +18,9 @@ public class InsertSampleDataService {
 
 	@Autowired
 	private RolesService rolesService;
+	
+	@Autowired
+	private PurchasesService purchasesService;
 
 	@PostConstruct
 	public void init() {
@@ -38,6 +42,7 @@ public class InsertSampleDataService {
 		User user6 = new User("admin@email.com", "Andrés", "Casillas");
 		user6.setPassword("admin");
 		user6.setRole(rolesService.getRoles()[0]);
+		
 		usersService.addUser(user1);
 		usersService.addUser(user2);
 		usersService.addUser(user3);
@@ -45,24 +50,15 @@ public class InsertSampleDataService {
 		usersService.addUser(user5);
 		usersService.addUser(user6);
 		
-		Offer offer1= new Offer("Producto 1", "Hecho de madera", "26-02-2019", 2.40);
-		Offer offer2= new Offer("Producto 2", "Hecho de metal", "15-01-2018", 0.90);
-		Offer offer3= new Offer("Producto 3", "Hecho de hierro", "31-12-2017", 49.90);
-		Offer offer4= new Offer("Producto 4", "Hecho de plastico", "15-01-2019", 14.59);
-		Offer offer5= new Offer("Producto 5", "Hecho de papel", "18-01-2019", 370.10);
-		Offer offer6= new Offer("Producto 6", "Hecho de cartón", "24-02-2019", 4500.50);
-		Offer offer7= new Offer("Producto 7", "Hecho de cristal", "02-05-2018", 1200.0);
-		Offer offer8= new Offer("Producto 8", "Hecho de cerámica", "26-02-2019", 13.90);
-		Offer offer9= new Offer("Producto 9", "Hecho de barro", "21-02-2019", 12.43);
-		offer1.setUser(user1);
-		offer2.setUser(user1);
-		offer3.setUser(user1);
-		offer4.setUser(user1);
-		offer5.setUser(user2);
-		offer6.setUser(user2);
-		offer7.setUser(user2);
-		offer8.setUser(user2);
-		offer9.setUser(user2);
+		Offer offer1= new Offer("Producto 1", "Hecho de madera", "26-02-2019", 2.40, user1);
+		Offer offer2= new Offer("Producto 2", "Hecho de metal", "15-01-2018", 0.90, user1);
+		Offer offer3= new Offer("Producto 3", "Hecho de hierro", "31-12-2017", 49.90, user1);
+		Offer offer4= new Offer("Producto 4", "Hecho de plastico", "15-01-2019", 14.59, user1);
+		Offer offer5= new Offer("Producto 5", "Hecho de papel", "18-01-2019", 370.10, user2);
+		Offer offer6= new Offer("Producto 6", "Hecho de cartón", "24-02-2019", 4.50, user2);
+		Offer offer7= new Offer("Producto 7", "Hecho de cristal", "02-05-2018", 1200.0, user2);
+		Offer offer8= new Offer("Producto 8", "Hecho de cerámica", "26-02-2019", 13.90, user2);
+		Offer offer9= new Offer("Producto 9", "Hecho de barro", "21-02-2019", 12.43, user3);
 		
 		offersService.addOffer(offer1);
 		offersService.addOffer(offer2);
@@ -73,5 +69,25 @@ public class InsertSampleDataService {
 		offersService.addOffer(offer7);
 		offersService.addOffer(offer8);
 		offersService.addOffer(offer9);
+		
+		Purchase purchase1= new Purchase(user3, offer2);
+		Purchase purchase2= new Purchase(user3, offer4);
+		Purchase purchase3= new Purchase(user3, offer8);
+		Purchase purchase4= new Purchase(user2, offer1);
+		Purchase purchase5= new Purchase(user2, offer9);
+		
+		purchasesService.addPurchase(purchase1);
+		purchasesService.addPurchase(purchase2);
+		purchasesService.addPurchase(purchase3);
+		purchasesService.addPurchase(purchase4);
+		purchasesService.addPurchase(purchase5);
+		
+		//Para que se actualice el dinero del monedero
+		usersService.updateUser(user1);
+		usersService.updateUser(user2);
+		usersService.updateUser(user3);
+		usersService.updateUser(user4);
+		usersService.updateUser(user5);
+		usersService.updateUser(user6);
 	}
 }

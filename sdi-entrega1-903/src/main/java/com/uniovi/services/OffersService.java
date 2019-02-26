@@ -26,6 +26,10 @@ public class OffersService {
 		offersRepository.findAllByUser(user).forEach(offer::add);
 		return offer;
 	}
+	
+	public Offer getOffer(Long id) {
+		return offersRepository.findById(id).get();
+	}
 
 	public void addOffer(Offer offer) {
 		offersRepository.save(offer);

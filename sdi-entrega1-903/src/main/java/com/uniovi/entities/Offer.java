@@ -17,6 +17,8 @@ public class Offer {
 	@Transient
 	private Date availableDate;
 	
+	@OneToOne(mappedBy = "offer", cascade = CascadeType.ALL)
+	private Purchase purchase;
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
@@ -25,15 +27,24 @@ public class Offer {
 	public Offer() {
 	}
 	
-	public Offer(String title, String details, String date, Double price) {
+	public Offer(String title, String details, String date, Double price, User user) {
 		this.setTitle(title);
 		this.setDetails(details);
 		this.setDate(date);
 		this.setPrice(price);
+		this.setUser(user);
 	}
 	
 	public String getDate() {
 		return date;
+	}
+
+	public Purchase getPurchase() {
+		return purchase;
+	}
+
+	public void setPurchase(Purchase purchase) {
+		this.purchase = purchase;
 	}
 
 	public void setDate(String date) {
@@ -95,7 +106,7 @@ public class Offer {
 	}
 
 	public void setPrice(Double price) {
-		this.price = price;
+		this.price = Math.round(price*100)/100.0;
 	}
 
 	@Override
