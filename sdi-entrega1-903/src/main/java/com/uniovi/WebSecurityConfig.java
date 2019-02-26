@@ -31,7 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.hasAuthority("ROLE_ADMIN").antMatchers("/offer/list").hasAuthority("ROLE_USER")
 				.antMatchers("/offer/search").hasAuthority("ROLE_USER").antMatchers("/offer/bought")
 				.hasAuthority("ROLE_USER").anyRequest().authenticated().and().formLogin()
-				.loginPage("/login").permitAll().defaultSuccessUrl("/home").and().logout().permitAll();
+				.loginPage("/login").failureUrl("/login/error").permitAll().defaultSuccessUrl("/home").and().logout().permitAll();
 	}
 
 	@Autowired

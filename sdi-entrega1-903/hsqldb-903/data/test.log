@@ -1,600 +1,1032 @@
-/*C1*/SET SCHEMA SYSTEM_LOBS
-INSERT INTO BLOCKS VALUES(0,2147483647,0)
-COMMIT
-/*C2*/SET SCHEMA PUBLIC
+/*C172*/SET SCHEMA PUBLIC
 drop table user if exists
 drop sequence hibernate_sequence if exists
 create sequence hibernate_sequence start with 1 increment by 1
 create table user (id bigint not null, email varchar(255), last_name varchar(255), money double not null, name varchar(255), password varchar(255), role varchar(255), primary key (id))
 alter table user add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
-INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$qXyzpTPaFv4FS5S.wouGlOp0IvffCSw2XDbsBRwSai7UN31BeqkMG','ROLE_USER')
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$CHp6rIUWZx0VXtoTjr5c2.afcp5veRJoGKfYRDCb0BVDn5crtz7ca','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
 COMMIT
-INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$05xHzTYpM5mvUlz.3S3PpuhsrnhfjjAqjQzTcQyC0OGNcxlRo6d3y','ROLE_USER')
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$Jt.1lpQS6UQkKEpw7lxe3.4E5vqvnvajbfgidpHHIkIvdm1EWGHc2','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
 COMMIT
-INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$zzbBz57Jtyg2pJfDITOMaONUfYfkbwvX03FfWK7fEcF9n5daqbkJi','ROLE_USER')
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$o0KdodxRBV8NKbWMmucc1eD/RWSN0ENi8cFZYfTVYzijfCzAYt0sG','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
 COMMIT
-INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$XvfjcrGElu487gJnYzhc6ui1frvYLJ//L1CRBmUYmSjy.TSM.PRlC','ROLE_USER')
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$bkQkZnhiWed6G3T32wYYZez6zXuWnJuqAwXOBCsCX23mrMA3ujF3a','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
 COMMIT
-INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$VjTe7MwGkyWq1ufbNojuu.ChdGy0R3atxpJbxtEMJUBqd.ObxTTiO','ROLE_USER')
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$EsIzKFHTw.ODwHB/yprzNebcVTq76gTXDWIgT76MJ5nvooQh7QeuS','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
 COMMIT
-INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$/6nl7MGHlGrMfKtpi/ai4ONC/P9J6dSyzzk09Cnll.aOwkgv55V/e','ROLE_ADMIN')
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$5QMJkHxKXQAOMhsyZoXuwe056ITckMqd8IAEQn0JgNZGsC3xoUpo6','ROLE_ADMIN')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
 COMMIT
-DISCONNECT
-/*C6*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C10*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C5*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C8*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C7*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C3*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C11*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C4*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C9*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C12*/SET SCHEMA PUBLIC
+/*C182*/SET SCHEMA PUBLIC
 drop table user if exists
 drop sequence hibernate_sequence if exists
 create sequence hibernate_sequence start with 1 increment by 1
 create table user (id bigint not null, email varchar(255), last_name varchar(255), money double not null, name varchar(255), password varchar(255), role varchar(255), primary key (id))
 alter table user add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
-INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$a1Ch5tLgE7izdJytPI4Bq.vIsDL1w8wN1rtvzfhaiNFTo92IKB6Yy','ROLE_USER')
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$NGvKRnl77DL/3y2EWP87ZujnzYSliJhEf4lB4ZpTaxrhVecBSgwEq','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
 COMMIT
-INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$T3VRP98cm6VXI.r9pDiAHOMkWYPU6LptEMsOmW0/1FsaPjVvE6EHC','ROLE_USER')
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$CrR6El7s0TQIuUP47oT/ieZ/mAKOxZBP1.pz4yE0cvt/nrLtSIQl2','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
 COMMIT
-INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$XUpLLxVd3YgdmEGNJqFdJe/thBabhsuGuQM7z/UISYdotJQgodO4y','ROLE_USER')
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$CV0WXsv4fU.Dr8UsCt8nHeX88y7kBLjjXWfMfxIzQlpx9O3l3U3Ji','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
 COMMIT
-INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$wLgMHuihPtVV6FMIlKnCJuruJQzIFW/Fo/XCO7i/hlZUGfg0pZzjq','ROLE_USER')
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$LJcKqykpu/3V.THfFrpPgeCAptogFZUZvHyhfd30M4RMBFvvw9sX.','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
 COMMIT
-INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$z3EIdyBjEgLAWqMMFn7fPejoQ2G5fNL/QtgbGkIxmnynkZ.CcA5g2','ROLE_USER')
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$eiCShDrPCrcUrnRGCOiWxuG4qMybWmOQcYYcgy6xJnhiQupgzaJga','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
 COMMIT
-INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$GwUXyR2OwKU19IqheXzPWuAYdmQQlvOAmRBarn8g4WyJMA/hRa3UK','ROLE_ADMIN')
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$EoUNMmU4lw8Th0c.wDnOy..iXnetbigwHj3urmtuOWACfhA6SCUCm','ROLE_ADMIN')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
 COMMIT
-/*C17*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C21*/SET SCHEMA PUBLIC
+/*C183*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C15*/SET SCHEMA PUBLIC
+/*C184*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C12*/DISCONNECT
-/*C18*/SET SCHEMA PUBLIC
+/*C185*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C16*/SET SCHEMA PUBLIC
+/*C186*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C14*/SET SCHEMA PUBLIC
+/*C187*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C20*/SET SCHEMA PUBLIC
+/*C188*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C19*/SET SCHEMA PUBLIC
+/*C189*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C13*/SET SCHEMA PUBLIC
+/*C190*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C22*/SET SCHEMA PUBLIC
+/*C191*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C173*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C172*/DISCONNECT
+/*C180*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C179*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C174*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C176*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C175*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C178*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C177*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C181*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C192*/SET SCHEMA PUBLIC
 drop table user if exists
 drop sequence hibernate_sequence if exists
 create sequence hibernate_sequence start with 1 increment by 1
 create table user (id bigint not null, email varchar(255), last_name varchar(255), money double not null, name varchar(255), password varchar(255), role varchar(255), primary key (id))
 alter table user add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
-INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$v.c0EBKWtWYlaGBkM91X0u6X3sEzCS5vct5qHkv9vCFgEyLLk9rDS','ROLE_USER')
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$yuAznj06xtIU7B6H1vZZcu4VLwEmWmcBRP5Y6DyUNIxUibiOiEBDq','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
 COMMIT
-INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$WiJaL5cQ.k5K5aFffvcoBe1oFllEckkV6F8561XWr.xvFupbLvSvK','ROLE_USER')
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$6XLgopsG./eW.kuAzGGoWudoD8B0FOIRj1X8H03V76XbEXZ2lmdbu','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
 COMMIT
-INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$GykFEcAAvf4.mhTdlh6S0.nS4LAoBG38p22tUfYLzYvE5lYljFyGq','ROLE_USER')
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$maFB5gCAKXhFXdUPoWW5w.s.zfyriF1LRmZrKW1RxjUASjgl1ys4q','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
 COMMIT
-INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$PCdhx6Va3WaU3DwivBeR0Ow3Bzr.GkvkjBXFBNAoSBik6U0rkNDF2','ROLE_USER')
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$.4n8xRHBPRRW/W2nn.HAquQqCAT8JWUuNposey1hq9IJCtAuHwQLa','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
 COMMIT
-INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$5cqgxDigtuPwB1ZPW9asSOxafhlbC9ZbqlPYcKU5KCqSzf/9HGrBu','ROLE_USER')
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$wipmIGcK5TcETtXtGVf.FeITNLywPz/UWkFHNIJONXPN7h1/0U5TC','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
 COMMIT
-INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$pGkoUBOYszn6kOOn2KDbzeoOKBDiklPJAO1P7/NKhEvtwRgLCPkoO','ROLE_ADMIN')
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$lKxPHUXVgA9Yna3qb0NEK.2LNdu0U38QVMxW7lUVkFDn3mhPpHo6a','ROLE_ADMIN')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
 COMMIT
-/*C27*/SET SCHEMA PUBLIC
+/*C199*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C24*/SET SCHEMA PUBLIC
+/*C195*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C25*/SET SCHEMA PUBLIC
+/*C200*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C26*/SET SCHEMA PUBLIC
+/*C198*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C23*/SET SCHEMA PUBLIC
+/*C194*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C31*/SET SCHEMA PUBLIC
+/*C192*/DISCONNECT
+/*C197*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C22*/DISCONNECT
-/*C28*/SET SCHEMA PUBLIC
+/*C201*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C29*/SET SCHEMA PUBLIC
+/*C196*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C30*/SET SCHEMA PUBLIC
+/*C193*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C32*/SET SCHEMA PUBLIC
+/*C202*/SET SCHEMA PUBLIC
 drop table user if exists
 drop sequence hibernate_sequence if exists
 create sequence hibernate_sequence start with 1 increment by 1
 create table user (id bigint not null, email varchar(255), last_name varchar(255), money double not null, name varchar(255), password varchar(255), role varchar(255), primary key (id))
 alter table user add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
-INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$13QQ7Gk0MlyEAsdxsBj1n.TXQrBoWZz.CzO51oMQOOQmtNamibrv.','ROLE_USER')
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$wKt./jx7XgcWz5Uny6OLr.t6MYWsWoqym95HdLFsukksNAZNmhL/.','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
 COMMIT
-INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$PMptKnzdlx7O6de8F9j4iu.4rJuRK5Bh.WzNf7xZAihqVXhktZzca','ROLE_USER')
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$5U835MrBHA6wrsW0Oq6XU.p0PIABpfq7O3k8b8umWjxVKENAonz2u','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
 COMMIT
-INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$uR9AHYinAOLOCPtvr2j3UOKNi6jJVgiwOx//L4UZlrno9xdjxR3um','ROLE_USER')
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$R3ICoO.gbvnEvICv0Ew/BecJw0XGcMwXKFczG1iJsA/OZ52GoMh9.','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
 COMMIT
-INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$pqlBsohfO52Du/EeyNt0MefrLyxl/.8so4V9A7ep1h1Fq5FK5B0a6','ROLE_USER')
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$j8oHHH9LIFBv6WyBZzhShe7h4VBYszpzuzGUhyGxvQpeNizz8yepy','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
 COMMIT
-INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$KThA.Koa7Oa8IV1LHKu1f.5Ws6bZ7yDbvB/G4Zpu8vgelRh3nxEmG','ROLE_USER')
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$u17CovqdT5rnHX9hEebHE.MyaOvvBDpgjMGBPFkjToR3jU2REhcQG','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
 COMMIT
-INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$q.uFDeJY1YKvkqWiqeoGPeizE5KePQJWwzTkigpcGa8Ryqw29vjtG','ROLE_ADMIN')
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$BK8M4ejFopWCjwfrR4dKV.tP.mKHjSw3ZTcZ8KYx6Mmy3ImvfSB2q','ROLE_ADMIN')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
 COMMIT
-/*C36*/SET SCHEMA PUBLIC
+/*C210*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C33*/SET SCHEMA PUBLIC
+/*C208*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C34*/SET SCHEMA PUBLIC
+/*C202*/DISCONNECT
+/*C206*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C35*/SET SCHEMA PUBLIC
+/*C207*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C32*/DISCONNECT
-/*C40*/SET SCHEMA PUBLIC
+/*C203*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C38*/SET SCHEMA PUBLIC
+/*C204*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C41*/SET SCHEMA PUBLIC
+/*C205*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C37*/SET SCHEMA PUBLIC
+/*C211*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C39*/SET SCHEMA PUBLIC
+/*C209*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C42*/SET SCHEMA PUBLIC
+/*C212*/SET SCHEMA PUBLIC
 drop table user if exists
 drop sequence hibernate_sequence if exists
 create sequence hibernate_sequence start with 1 increment by 1
 create table user (id bigint not null, email varchar(255), last_name varchar(255), money double not null, name varchar(255), password varchar(255), role varchar(255), primary key (id))
 alter table user add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
-INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$jkwqi9kcOamjPDNHVY8IGeZhlCf0Vrde8BNkgywqbWVh9oA.Jlnyq','ROLE_USER')
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$Nd11dgKgd4BT3ko0t0zEEuyTYEphuqBokj74mbrTY0Qstmi8c3lJe','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
 COMMIT
-INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$vELZ6BkukQPq1wPDpGyUfOXzbrMzsoXR2pVwA785OravkQo7K0n4m','ROLE_USER')
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$f/7JHAuzf7xyDXJ8LWAgYufIM7m4L1vMtb5VpHlQIKeT6YTRqkVWe','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
 COMMIT
-INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$pVVYTJ1ku6OHmDVcdaWYSeKxNp6.aUpVmFXLQypnd6wHGv4iV3cK6','ROLE_USER')
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$9FLi.TNm9Ht304xJviQdPeDUpkI1IXhNr6qY6snW8NaisocterBeG','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
 COMMIT
-INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$okLsr9sGpq7gO0nGGkSk4.S55Yh5iaYYL0D67gldSvprviYfOO4ty','ROLE_USER')
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$bgtqmSlzDW.kfK/7jNhZguUuvLQa6IFCck80Ip64D0pQKOIZv0tK2','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
 COMMIT
-INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$uSfRCkVD24G215mkl1snRekG.Ijd7SZlTNdLlj0BGMkeK5b30MCCu','ROLE_USER')
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$tzqBS/olTMHzCCM5yHYSEufx9t3zi3odohV4k.OyjRxWAg1U/eSry','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
 COMMIT
-INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$guCov5LC7whtAQesjaW3Meb0Up4jNQoLN4Y/3VRx8YOcFhmf/CEVe','ROLE_ADMIN')
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$UqEDMXGWn/.AD6TBRGoqQ.pm3j24H3bhlA0Nrpzr8hlYEs4ImiWia','ROLE_ADMIN')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
 COMMIT
+/*C218*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C45*/SET SCHEMA PUBLIC
+/*C212*/DISCONNECT
+/*C214*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C44*/SET SCHEMA PUBLIC
+/*C215*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C43*/SET SCHEMA PUBLIC
+/*C216*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C51*/SET SCHEMA PUBLIC
+/*C217*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C47*/SET SCHEMA PUBLIC
+/*C213*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C46*/SET SCHEMA PUBLIC
+/*C220*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C49*/SET SCHEMA PUBLIC
+/*C219*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C50*/SET SCHEMA PUBLIC
+/*C221*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C48*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C52*/SET SCHEMA PUBLIC
+/*C222*/SET SCHEMA PUBLIC
 drop table user if exists
 drop sequence hibernate_sequence if exists
 create sequence hibernate_sequence start with 1 increment by 1
-create table user (id bigint not null, email varchar(255), last_name varchar(255), money double not null, name varchar(255), password varchar(255), role varchar(255), primary key (id))
+create table user (id bigint not null, email varchar(255), last_name varchar(255), money double, name varchar(255), password varchar(255), role varchar(255), primary key (id))
 alter table user add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
-INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$e6m0xJTnXJCD6obT20K7l.ErAC9wVZIceFBiRYdlqdnKVrX58GpgO','ROLE_USER')
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$EaDzxayzLWSW82PIlcWxpe50ZZZzTbwoEsU.24FlIBHKdMlHBXy9K','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
 COMMIT
-INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$kvrfgHqftcIZ5sY4eJY6Wu2HVXg/ytpZ8y97qih.ZQ5poHn98z5tG','ROLE_USER')
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$Fu/6IVaeYWkwcTBdblZe8.ORn8B2/Ay.zLYgoEejsG4LV25O/MyJW','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
 COMMIT
-INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$wD5r0iIVUIpYf.UAIs.OJOTnzUe.XepoPWlhXWOt321coV701fJo6','ROLE_USER')
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$eJWcv8HpURpdghZiYjwCtewmiFhb9nZi2p1DeWm8G36i4dmhhBYoa','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
 COMMIT
-INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$VYyI/iA7hWcyNJcMwQ29N.1Mug.2xzLpelQtSEoscmN9Dxz1e9teC','ROLE_USER')
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$5wG6yRn3l.sd5mJAQiwOBOGdUv34lwjDGB26QZ4kLgJ0vhGKnikAe','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
 COMMIT
-INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$nVPcrf.PLwynUzydJTdTTOyoQRtU9VCEu4HqQE2CZqYtuXa0DNLYC','ROLE_USER')
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$3UKsIYROPKSoNQAsQZObz.7xdCRe3CHESagOd1JcfcyRWsBCBE7d.','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
 COMMIT
-INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$Sp3QnsNc5MjoI02wd5kkG.Pq/fgFNMfZTV27jwHbl0P6e6IRdF7C2','ROLE_ADMIN')
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$3H/byWuHTEp6/hnDtg7dAuH6VfLyGm0fPA69QtZvhG/98tJG1Ed.S','ROLE_ADMIN')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
 COMMIT
 DISCONNECT
-/*C55*/SET SCHEMA PUBLIC
+/*C223*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C53*/SET SCHEMA PUBLIC
+/*C228*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C61*/SET SCHEMA PUBLIC
+/*C229*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C54*/SET SCHEMA PUBLIC
+/*C224*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C56*/SET SCHEMA PUBLIC
+/*C227*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C58*/SET SCHEMA PUBLIC
+/*C226*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C60*/SET SCHEMA PUBLIC
+/*C231*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C57*/SET SCHEMA PUBLIC
+/*C225*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C59*/SET SCHEMA PUBLIC
+/*C230*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C62*/SET SCHEMA PUBLIC
+/*C232*/SET SCHEMA PUBLIC
 drop table user if exists
 drop sequence hibernate_sequence if exists
 create sequence hibernate_sequence start with 1 increment by 1
-create table user (id bigint not null, email varchar(255), last_name varchar(255), money double not null, name varchar(255), password varchar(255), role varchar(255), primary key (id))
+create table user (id bigint not null, email varchar(255), last_name varchar(255), money double, name varchar(255), password varchar(255), role varchar(255), primary key (id))
 alter table user add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
-INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$7fmmlWZduZOUeP4Exh0WAuRwvROlyt0CSjANW04h..fa.pK98pyn6','ROLE_USER')
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$L6NJ0eLU4sLCg9ba4RfTo.iRy929KrQlVzNnDHHebiJUj39Z/tfwS','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
 COMMIT
-INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$JUND7wYID1DptXAf1v3Gq.DCKA1lx/LArV5CFNQzpKL9XLIFp.wd6','ROLE_USER')
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$aSFbtB8LqtfKSsFVH6DKTefRvTIuwiK1ztOiVDf3.QO1Y1QHMVy5u','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
 COMMIT
-INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$pLB7BF7yT6j5LKcDkOOjm.l16fBXXKOSQGOB3Jne6b3L6m2RWahuS','ROLE_USER')
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$ks2DN/JcJRYdzVKSeILI8Oeqs7Xwnc7QlR2JAMR9Cm/2agJSwFEOS','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
 COMMIT
-INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$VKhwywN2fhFkbs.pax/GNOOeMrBS66vpAyJaQXfPVEp.l36FJEhaO','ROLE_USER')
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$Lk7.aaHJ9K2ca3Ts6CUKv.Hwsdh/h6HJ4gR08SyjoOjHJ9VDjhU3O','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
 COMMIT
-INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$K7ZkBzAExETcVHSE2PvYoeInchJnA21qGPxiN9/a8trFevtbDIWsG','ROLE_USER')
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$umtQcNE9Xu3eM9c4TxklKOpgtJL3LfxzoVTIYWFyo22t3vmn.eBkK','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
 COMMIT
-INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$ir7fIPtPg7AKfp7wUJqmI.7WSIhG3VSVApXRbsTA6HaGXzCRZCY6u','ROLE_ADMIN')
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$vQOLCTE4ZUgHMKYPLEiJUeBdF4blQa98alzGT7A4jLpnDvhC6fERO','ROLE_ADMIN')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
 COMMIT
-DELETE FROM USER WHERE ID=3
-COMMIT
-DELETE FROM USER WHERE ID=5
-COMMIT
-/*C63*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C65*/SET SCHEMA PUBLIC
+/*C233*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C64*/SET SCHEMA PUBLIC
+/*C234*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C62*/DISCONNECT
-/*C69*/SET SCHEMA PUBLIC
+/*C237*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C66*/SET SCHEMA PUBLIC
+/*C239*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C67*/SET SCHEMA PUBLIC
+/*C236*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C68*/SET SCHEMA PUBLIC
+/*C235*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C70*/SET SCHEMA PUBLIC
+/*C241*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C71*/SET SCHEMA PUBLIC
+/*C238*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C72*/SET SCHEMA PUBLIC
+/*C240*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C242*/SET SCHEMA PUBLIC
 drop table user if exists
 drop sequence hibernate_sequence if exists
 create sequence hibernate_sequence start with 1 increment by 1
-create table user (id bigint not null, email varchar(255), last_name varchar(255), money double not null, name varchar(255), password varchar(255), role varchar(255), primary key (id))
+create table user (id bigint not null, email varchar(255), last_name varchar(255), money double, name varchar(255), password varchar(255), role varchar(255), primary key (id))
 alter table user add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
-INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$wJNbbW07OHvH9vgA51OWd.OXcYY4IRzy4tOVxU9ABBAcmhK4BpZbm','ROLE_USER')
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$aXag572jd4/IxLqVLEdcXelf6gMz0rB8RsuhRrBdVK/KiLRBAYd7m','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
 COMMIT
-INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$iFfXVZZDfE1j2qfastkpHO8J/MwJRM4sTVriP8tAfzd6On92YXUry','ROLE_USER')
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$tEhI1tfeLIcVM..PpBSvLe54aJyFXxIlobPCJK/d9BanvMEQ3uYlq','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
 COMMIT
-INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$YzwdiTeMb35WH7fTAsDEdefFLDcY7x3Y9u17ync6Ss/lE4hZWL6IG','ROLE_USER')
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$NCGRxg.QGXqE2l77VuXovOcsqEV.uO5qoF1o7v3WlMlEuwambkIjq','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
 COMMIT
-INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$1khsoYXKWD5XamxRDjCXF..CErQwpKD8fVVAT9Uq1rRci2pQD1LsC','ROLE_USER')
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$p1Sqr9kQ5QfAqG6xI/pzfeWIyJoLJpy1gdopBqYlw7/FHXNSKjUdu','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
 COMMIT
-INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$aCeD7RjyCP.BLG27fPeWl.qTXu/jaJ.AP0VkrGsDMCTBYMO5JmQNK','ROLE_USER')
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$o4d3hdo51r85iQ6mDscmhuT.Hnwo0B8nfiyShHazk4oMDpUuj4z92','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
 COMMIT
-INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$3YhI41XwtKALQVCHG8YWh.LIw0IbRKZHdCICdPlefpz4PajRkw7Tm','ROLE_ADMIN')
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$0lqUHd5hj/qhONiSdDPP1eapdhBGCuXEspK0j6y0gXWTSla644WlG','ROLE_ADMIN')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
 COMMIT
-DELETE FROM USER WHERE ID=4
-COMMIT
+/*C245*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C75*/SET SCHEMA PUBLIC
+/*C250*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C77*/SET SCHEMA PUBLIC
+/*C242*/DISCONNECT
+/*C243*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C73*/SET SCHEMA PUBLIC
+/*C244*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C74*/SET SCHEMA PUBLIC
+/*C249*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C76*/SET SCHEMA PUBLIC
+/*C246*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C78*/SET SCHEMA PUBLIC
+/*C247*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C79*/SET SCHEMA PUBLIC
+/*C248*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C80*/SET SCHEMA PUBLIC
+/*C251*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C81*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C82*/SET SCHEMA PUBLIC
+/*C252*/SET SCHEMA PUBLIC
 drop table user if exists
 drop sequence hibernate_sequence if exists
 create sequence hibernate_sequence start with 1 increment by 1
-create table user (id bigint not null, email varchar(255), last_name varchar(255), money double not null, name varchar(255), password varchar(255), role varchar(255), primary key (id))
+create table user (id bigint not null, email varchar(255), last_name varchar(255), money double, name varchar(255), password varchar(255), role varchar(255), primary key (id))
 alter table user add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
-INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$WrReHC0cf19OUBh48g160.t6c/8qpvEJ2Ww2pZDJAGX9BNLvaSvXC','ROLE_USER')
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$u2rQIIukr6TLqYXAqijIHOS/61VcUuJroDWbn/4KeR2z3701vb0Xi','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
 COMMIT
-INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$b0gEkO35yML25ooUawd/H.w8lyzEYAZFnxv9uUhcMfjRKDVv7aBri','ROLE_USER')
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$lrm8Mtl5JIGj8qZEBFh98edG.oNsqLScSvYrnt4RnOwx8v5m3T4sS','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
 COMMIT
-INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$utjFoi.1iB3pqM5t3eQYzO3Kh3Wbj3gKHG6fWLXfK1TrlY9Dw6o/W','ROLE_USER')
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$RSumRYqHFIh.MeRf42hKweQazV7hmvhmGK2JpP9snyTiDeNXET5CC','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
 COMMIT
-INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$Wb1GNsOk.v/sP63NXffyEuYBrTg3bkBuVuny8Bgms1WWnHE7FFbyW','ROLE_USER')
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$fnrhEIUipPxGuFKkUrEIs.bv8TGANKo0Cc4B3MgjSZHGrWoKitCiO','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
 COMMIT
-INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$WyaV5hkkihpxLtUfs2jzG.7Y/U5v6lJ7c5Y4QsIe53qABeCzEKOJO','ROLE_USER')
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$hZ8vI4K05IuNNgi/Gp5dU.OLzib02IFa/kYrgs1ozZTDJ01fkLKY6','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
 COMMIT
-INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$i4n30RPieg1NCXw1YXL7SevuLA21OShh4BYL16VhBtCXb3Q.XAVFC','ROLE_ADMIN')
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$M3aozKahM/B259y4uQHg.OusrTf7.RtPcwI7LQf2FcwVGDiMUFR8K','ROLE_ADMIN')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
 COMMIT
-/*C86*/SET SCHEMA PUBLIC
+/*C255*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C82*/DISCONNECT
-/*C89*/SET SCHEMA PUBLIC
+/*C253*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C83*/SET SCHEMA PUBLIC
+/*C252*/DISCONNECT
+/*C261*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C87*/SET SCHEMA PUBLIC
+/*C254*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C90*/SET SCHEMA PUBLIC
+/*C256*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C84*/SET SCHEMA PUBLIC
+/*C260*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C91*/SET SCHEMA PUBLIC
+/*C259*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C85*/SET SCHEMA PUBLIC
+/*C258*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C88*/SET SCHEMA PUBLIC
+/*C257*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C92*/SET SCHEMA PUBLIC
+/*C262*/SET SCHEMA PUBLIC
 drop table user if exists
 drop sequence hibernate_sequence if exists
 create sequence hibernate_sequence start with 1 increment by 1
-create table user (id bigint not null, email varchar(255), last_name varchar(255), money double not null, name varchar(255), password varchar(255), role varchar(255), primary key (id))
+create table user (id bigint not null, email varchar(255), last_name varchar(255), money double, name varchar(255), password varchar(255), role varchar(255), primary key (id))
 alter table user add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
-INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$.5H028TeM8S1qEz7R56hWe78xQeGH2O40LtZBKV10zKmeca3jqP.q','ROLE_USER')
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$/gm7iQzHOG3km9dLC3y8vuE1Pjk3V7tvLPgUJet1YKpn5.J8l8ufq','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
 COMMIT
-INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$ZC./v4dJr4e4s4tHO51/M.6MFXhjGktLNVeYi8LUAyiDYPlDtKfXe','ROLE_USER')
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$lyJkc8xTmyurD8x4HwioTuR73O9XjMALXPyuYXlpr/9Z3tl26oyNi','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
 COMMIT
-INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$gKAQ/M90RkZp.yw4CSIW/.4EzorU5xa9G3arbKI3pZJX34QHG34fG','ROLE_USER')
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$62.8Q6XsBQTT8y8ty7Alr.CpCNY80DZJWjQPU1rkwpkWMuBiNukTK','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
 COMMIT
-INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$hw8LH79R8InyocD849WzIO8iAFj1nTOhCN71HlzYTB2rxmKVU9KiS','ROLE_USER')
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$YeBbV9tH8TN/Lprkr587euTygLcfBpclNkeUXE6mLF1Zue6HY7zSu','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
 COMMIT
-INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$48qG.yik4bhxvfYCqtP6u.va5n/shBLiI6RBv4uKaluo8ZP1aUbP2','ROLE_USER')
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$GmMvaNK78NsMtWT/SPSake02EpRnhnQrpUElAh.qUb3gjvtQSWgf2','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
 COMMIT
-INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$xTR2gcEDraqaA7xHYO3Vs.TCnuqc5.Nscubz7xw9.udfhkToijuoy','ROLE_ADMIN')
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$B7yGbYYDTCQhbX0hNMBaA.fDYt.wHv0JTT9JOuilts6qJrYi2fbc2','ROLE_ADMIN')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
 COMMIT
-/*C94*/SET SCHEMA PUBLIC
+/*C267*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C92*/DISCONNECT
-/*C98*/SET SCHEMA PUBLIC
+/*C262*/DISCONNECT
+/*C263*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C97*/SET SCHEMA PUBLIC
+/*C265*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C95*/SET SCHEMA PUBLIC
+/*C268*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C93*/SET SCHEMA PUBLIC
+/*C264*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C99*/SET SCHEMA PUBLIC
+/*C271*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C100*/SET SCHEMA PUBLIC
+/*C266*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C96*/SET SCHEMA PUBLIC
+/*C269*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C101*/SET SCHEMA PUBLIC
+/*C270*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C102*/SET SCHEMA PUBLIC
+/*C272*/SET SCHEMA PUBLIC
 drop table user if exists
 drop sequence hibernate_sequence if exists
 create sequence hibernate_sequence start with 1 increment by 1
-create table user (id bigint not null, email varchar(255), last_name varchar(255), money double not null, name varchar(255), password varchar(255), role varchar(255), primary key (id))
+create table user (id bigint not null, email varchar(255), last_name varchar(255), money double, name varchar(255), password varchar(255), role varchar(255), primary key (id))
 alter table user add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
-INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$OdMN02UNDQvQfSkrHD1f.e0HiRFusGZ6cyW1HnGNNtJ/KNFvSxy7y','ROLE_USER')
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$.WSVv0pvh1/I1.ccOjO/iuQCIMgWr8hN0XZrz9fRUT/P1v7fqcOYi','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
 COMMIT
-INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$XEnwkZKuvDT8L5hQ6ANoru1UUMgtMk8JzjoR9k8RnLciplC1OAiNy','ROLE_USER')
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$3MoAZaAMl6nD1EAEKqrcx.zcleeUH3.1ysNCe3r2Rd1dnmCUkYZzC','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
 COMMIT
-INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$ODYrcpKG2LP2FjC8wXYbCOuW1fXxddjSIIu54qYe28uwhRiI14SUG','ROLE_USER')
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$KJfm/lijMY/w0nBmnXF8nuZF/Bxqv1g38ltm5iubyYC9sAC4nNx4K','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
 COMMIT
-INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$aiIMr2RmJ7f/G/lNoYFBleDiR0j.D0aqqYFbzT.N2LTS9eb/rYp6a','ROLE_USER')
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$mJ3KI9bkl/arBetxixBpzOJau/nH23zgnCgowT91qu4xxtnWfBgNe','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
 COMMIT
-INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$RYAlAhO8/cCBqJ55O3GoEeNP5CB2tUFK22wleMPjoBrE3NzPSL8GG','ROLE_USER')
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$L//2.1.GoFV/1rw4.umiJe4FgP1iJeC8/foof.jMD.VvH925rtVY6','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
 COMMIT
-INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$Vdt3d7dcX7hcqMyHkPpD6.erZ2L5wZjWUiYJuJ.KSY/f37OJI0d96','ROLE_ADMIN')
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$KkZJYvmpZN/z1Qon6ZzsoeXiIhCnIXxhgV5M3jajXpEV/bWq2EdFi','ROLE_ADMIN')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
 COMMIT
-/*C112*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C273*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C277*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C275*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C274*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C276*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C279*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C280*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C281*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C278*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C282*/SET SCHEMA PUBLIC
 drop table user if exists
 drop sequence hibernate_sequence if exists
 create sequence hibernate_sequence start with 1 increment by 1
-create table user (id bigint not null, email varchar(255), last_name varchar(255), money double not null, name varchar(255), password varchar(255), role varchar(255), primary key (id))
+create table user (id bigint not null, email varchar(255), last_name varchar(255), money double, name varchar(255), password varchar(255), role varchar(255), primary key (id))
 alter table user add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
-INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$.3yUjJmWHM9xLh43rZy05.iE2HKEgPsciZ4hWwv92g75JtUNB4DNS','ROLE_USER')
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$1qUKs9ut5VWfSV3Z/SxgVu2DsxTGnexfZEaGAUM.K1WQH7oAxNoSq','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
 COMMIT
-INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$fk2EJEXCz86D0fgrhV3J.eBr6ga5UIDIJMBGj2Ro7haz4Y5E/AUGe','ROLE_USER')
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$TNXkSXjYAzNsxMYtqPFJIuEY8RFz9DLjpVT0bAQjIpj7JdgD20b2i','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
 COMMIT
-INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$xiyL8m627C5jbMN4V6EXy.1YJVpYvkJpKWZSjIhE81ZCON5x2xDIq','ROLE_USER')
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$nmn/c0duAGOQ0h.MbsaXU.k4RCFjcTHcQWI7HZiAAtHiPK.Xj.AtO','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
 COMMIT
-INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$HJ/eL6fYWcaf3DiYpqiiJuVya5v3q/kdUbvdQl9FKlChZSScSuwGa','ROLE_USER')
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$FhSPbx9cgcjOzorGl8AhEOk7LxuGsVcTwnxDTQK/ZQVk9myn1CDXm','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
 COMMIT
-INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$d9VqkwWIkPiIvrijJVPT8uZ6j9znpwrAJZF9F8MXB4CTEhxAJZ0gm','ROLE_USER')
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$1f6g0qeEU18dQhgK4iXWVOrvnChn4ndhRhESLtTTO.Gcv3ih/SA9O','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
 COMMIT
-INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$QoplxrF322zGEwhkGkZ.HOt/MpGHU.AqJ3.fi7DNEYyDUwSbTwaVm','ROLE_ADMIN')
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$q7.f.9oxf95Pe4FvYfRTjuH/OMiK3DUEwTWZV1S7HoJLOGpi1x2Vq','ROLE_ADMIN')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
 COMMIT
+/*C288*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C113*/SET SCHEMA PUBLIC
+/*C283*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C114*/SET SCHEMA PUBLIC
+/*C282*/DISCONNECT
+/*C284*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C115*/SET SCHEMA PUBLIC
+/*C290*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C116*/SET SCHEMA PUBLIC
+/*C285*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C117*/SET SCHEMA PUBLIC
+/*C289*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C118*/SET SCHEMA PUBLIC
+/*C286*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C119*/SET SCHEMA PUBLIC
+/*C287*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C120*/SET SCHEMA PUBLIC
+/*C291*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C121*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C102*/DELETE FROM USER WHERE ID=3
-COMMIT
-DELETE FROM USER WHERE ID=5
-COMMIT
-DISCONNECT
-/*C105*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C103*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C106*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C104*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C109*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C110*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C111*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C107*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C108*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C122*/SET SCHEMA PUBLIC
+/*C292*/SET SCHEMA PUBLIC
 drop table user if exists
 drop sequence hibernate_sequence if exists
 create sequence hibernate_sequence start with 1 increment by 1
-create table user (id bigint not null, email varchar(255), last_name varchar(255), money double not null, name varchar(255), password varchar(255), role varchar(255), primary key (id))
+create table user (id bigint not null, email varchar(255), last_name varchar(255), money double, name varchar(255), password varchar(255), role varchar(255), primary key (id))
 alter table user add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
-INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$2aqXZk6UQdu.5cAwRIwPGe0dXzN07Ce1eLF4mKmlQCTKYpmI5I8FW','ROLE_USER')
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$DVJM2RPH0ugKLimoLBc6L.0eXfEJKnPIY01/thpKT5bhs5sMQfJIC','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
 COMMIT
-INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$F8oZwHI579ViuLuHlcMsX.CFGlpOSpOqTsO5PnmxzrZwPxG9FpLu.','ROLE_USER')
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$DqvtCr6ZJ0gx1S8dJ5icwOvGE73mVZqZYtdYik7UTYexQMQ6.BKq2','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
 COMMIT
-INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$6xuRs7O2BwS5OXz6wmbSgOc0L8WOT55p2EgbXfkZm3sLgzOQ18C6G','ROLE_USER')
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$FUWs1Sl1Ff/HX5l7FluldOP0xzV0yxzv88uC.N/1nGXb6kVJHgiHy','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
 COMMIT
-INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$wiTUZbAkjlmU19yxliwJuOWF3mUdN/pjI.54ehMrl5b//DcYcL8nu','ROLE_USER')
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$VuZ7jLtSafCFwh62u6gVVOs3Ulwsri7zkm6.ZJGcPr0b2RL2NW2mS','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
 COMMIT
-INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$pIwNAngkslvR7hFeQqw4/Oe4R4V6lcD3ifz98iWlZy9jhpDn8sI6C','ROLE_USER')
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$OuEtcnCBNDTDRybCd2CU6u6tWa3wt8moqvuGKY.sKpxE1dnWvIlYG','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
 COMMIT
-INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$Qk3GkAzYi3r5QQjSzGVN1O7lGwqgGdEoJYRFPvztJciOTTL6w/d4K','ROLE_ADMIN')
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$JVPdtkJryTwqLkMYuRywtuchCFyOOy7Qk0/scFXfbLZdZ8bRbSAxa','ROLE_ADMIN')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
 COMMIT
+/*C294*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C129*/SET SCHEMA PUBLIC
+/*C292*/DISCONNECT
+/*C301*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C131*/SET SCHEMA PUBLIC
+/*C296*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C125*/SET SCHEMA PUBLIC
+/*C295*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C123*/SET SCHEMA PUBLIC
+/*C293*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C124*/SET SCHEMA PUBLIC
+/*C298*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C126*/SET SCHEMA PUBLIC
+/*C300*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C130*/SET SCHEMA PUBLIC
+/*C297*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C127*/SET SCHEMA PUBLIC
+/*C299*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C128*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C132*/SET SCHEMA PUBLIC
+/*C302*/SET SCHEMA PUBLIC
 drop table user if exists
 drop sequence hibernate_sequence if exists
 create sequence hibernate_sequence start with 1 increment by 1
-create table user (id bigint not null, email varchar(255), last_name varchar(255), money double not null, name varchar(255), password varchar(255), role varchar(255), primary key (id))
+create table user (id bigint not null, email varchar(255), last_name varchar(255), money double, name varchar(255), password varchar(255), role varchar(255), primary key (id))
 alter table user add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
-INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$u6XyddRn2tqt5RC/JS/KLeVfKyIdfdquUM7bQ/pcsmxxEN5pqPHRm','ROLE_USER')
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$JCQBxamzrfa0SntfTYooouOo/RRo8yyC6LERJI7uYrKjRdGBicYqm','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
 COMMIT
-INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$MZJZvTFSOZU7GwoqwNHPWeEBdrhewi8cdpFyCPcQx7rU9ZFgR.t2S','ROLE_USER')
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$IzbfSz2YApGPcPL8H20zy.c0L4QJYrHMZRNnu/G3oeXEOWx2se.ja','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
 COMMIT
-INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$7/F8.Sexn9e29myeQvnQlObuXMkG8pCFSuoVhHvA8DUFV4kk2Kg7q','ROLE_USER')
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$cDh3.P9W4TYwB9L3KF3HT.bqfeD/sRtmJSR1RfLrAy4lUBJ7pYwkm','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
 COMMIT
-INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$Xn0IhYk18TOXNRp.xp4LI.l.x3k3RiSfbGVE8dNuLOf7fsfq/K9NG','ROLE_USER')
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$KJQpEzL6AbMc.fIBmuxOt.Ns0UVaNccKagXfnwMAFagJ.E/M7XzfW','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
 COMMIT
-INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$ZF120i6c5cvfgHarBWa7DeTAaJ2hOvZr4PyvJWslYtAUiNmTq4dLC','ROLE_USER')
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$YL836oH52tobtbjHjRn9I.57JBApKD2bCLRxtMOVWvE4QbSh730TK','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
 COMMIT
-INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$yju.DWNdCEwW0YmrdvBej.lTfCLOnIGK./bJDCCrbrp2wV1qCU03u','ROLE_ADMIN')
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$pIe/Lv83iLiDOEWAcGuLpecIsHex5ntdjEXJ5jEofYgTTIamm0Jqi','ROLE_ADMIN')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
 COMMIT
-DELETE FROM USER WHERE ID=3
+DISCONNECT
+/*C304*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C303*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C308*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C305*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C307*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C306*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C309*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C310*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C311*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C312*/SET SCHEMA PUBLIC
+drop table user if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table user (id bigint not null, email varchar(255), last_name varchar(255), money double, name varchar(255), password varchar(255), role varchar(255), primary key (id))
+alter table user add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$lGLzpGPX4SGifeqwrJFvPuEoUSmpXXKGs5vfAfLIuDP/IN5hFc.AC','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
 COMMIT
-DELETE FROM USER WHERE ID=4
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$qq3k7dM9wd9jIwChgAfWy.WkeUJngXhZHwPDJi9cwWp3fHh7DRWpu','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
 COMMIT
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$nt1xhzQGa7pjLXoz91D6k.WX7k7G/pg3OwecnTpZJPmh7vWxEK6wi','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$Sq06HJFa7N1d4qzSB2GYruMMKaRsklD8c.j2HrZ.j/ErimmH0C5pS','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$39.dco8dVrI/HdOoffLQk.yug4yXPLf.rxFMbXwExlzPCce82eTFO','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$XmDgsaAhdj/VhD0woginyOylA2B0ysR0CfuZrGpO7.4b1yaE6wBZu','ROLE_ADMIN')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+/*C321*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C317*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C319*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C315*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C316*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C312*/DISCONNECT
+/*C313*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C314*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C320*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C318*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C322*/SET SCHEMA PUBLIC
+drop table user if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table user (id bigint not null, email varchar(255), last_name varchar(255), money double, name varchar(255), password varchar(255), role varchar(255), primary key (id))
+alter table user add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$DkQz4AxhcXZtllBi3M/Ur.UFDJZ4WSJCaKvajYpCzte5pQ./i0sPi','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$ab9pCh/aH8dTzeDc2F7JpeW.iSim0TzikaYRz1y3bJykL8lWIN7qi','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$cTy8xmksldayiEMV94nERubOnI6ZrQZTlUy6OcqRLPxjTNCmwZnJi','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$jX1nL84wgokqavVeHhVw8uJba64AQRyDLYQpn.cn1LvOr01n7Ngny','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$WTe4865qz9LWS.m5xWEvMekISFDAd/Mmowu5w.UO2NjE8UMpEd7KK','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$WYQApByBj6Jf1ItV7SEW7.LfcEUnA4iGXh3rImIuRhqwHYLlXqcB2','ROLE_ADMIN')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+DISCONNECT
+/*C323*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C326*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C325*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C329*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C324*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C327*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C330*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C331*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C328*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C332*/SET SCHEMA PUBLIC
+drop table user if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table user (id bigint not null, email varchar(255), last_name varchar(255), money double, name varchar(255), password varchar(255), role varchar(255), primary key (id))
+alter table user add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$hlCEmKP44lGW4vsnRM.oeuwVxEkEh/YS74OrbqbR/DHrtKcIuUCva','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$CMSCdia8fwzzZcYJChYliuRtT71NBht5b77fNfy8e7Jv/WMOyMcA2','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$rVJgcctH2erbHz8WNk/mK.Z9CnVa1wbeRr/mJ21pYBqYM27KqVmTG','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$WLXxDAzavYZ38sMc4B6kN.4SjljZDhDHK8h0xHOVlNxG7vCXbCPXW','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$gJh7SXYWOzJ46wA2LRb2..P/1/cX.YPPNaCRQSMZ3LMyJNm35mSwS','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$DiVdiXQp1NxgzvW9Km5LueT.EuWPz8GVZL7pTnGe3Q5BTxT7Pqmti','ROLE_ADMIN')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+/*C336*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C334*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C332*/DISCONNECT
+/*C335*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C340*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C333*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C338*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C339*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C337*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C341*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C342*/SET SCHEMA PUBLIC
+drop table user if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table user (id bigint not null, email varchar(255), last_name varchar(255), money double, name varchar(255), password varchar(255), role varchar(255), primary key (id))
+alter table user add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$kAaU7gHxq6ltBxWdXZK0wu7vz8Vx80aaTBKwTtRfMRCMZUdqtiZM.','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$.fBO4hg64Ftflaybjw55n.lAw.qXVFrbAftbRshXsqwu/FfKwSI8.','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$nSHc0uwytKWwE2sb8OnrTuu8u4b7.QxkEiQk5kOXMK.wkMHTGqKy.','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$lKSxr1sx/8lEP28lGGvIEu42rwkFW1OCVp3D0zArHumw5ofM4sNt6','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$bI1.uTMZ2qKaHo9n0Ub4SOilbnQj2Q87uYCeki1BeldrNLV5/KItG','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$T6sej318jCcfwKajuKDsMOcEJn3icf.qx1Qz4fhqc08soGuQSnqJy','ROLE_ADMIN')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+DISCONNECT
+/*C350*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C345*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C346*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C344*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C348*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C351*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C343*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C349*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C347*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C352*/SET SCHEMA PUBLIC
+drop table user if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table user (id bigint not null, email varchar(255), last_name varchar(255), money double, name varchar(255), password varchar(255), role varchar(255), primary key (id))
+alter table user add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$RWzXpaP2peSpR8ZRiREWX.ja8q1/alJQXuSR3KYotbJTXNY.i9sGG','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$Z9vwBhDWqJj50rtOB7jqAucKNvgEJhEzAF/6Af9dCAy7Esriip.tm','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$oR1Q3CvM5x8/OoKel9r4EeNvJA/QJVlINIQNOYICYpWSb9.pY41GG','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$OWFbFopsI2/JwFk5i1YOZ.fh1nCaDstiJ9NKCKMj/oK7qI4/1Jbfe','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$TKRAf1dt57YvgmmlhH4l0evATzLQF2AynLUBauNEqkR4uXfbf8N3S','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$BuYPYyZNymm/SqC/9oM19eh8mE9fjyZqwolUOnI3BCNYqxJA1XU7u','ROLE_ADMIN')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+DISCONNECT
+/*C354*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C355*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C356*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C353*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C357*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C358*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C361*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C359*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C360*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C362*/SET SCHEMA PUBLIC
+drop table user if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table user (id bigint not null, email varchar(255), last_name varchar(255), money double, name varchar(255), password varchar(255), role varchar(255), primary key (id))
+alter table user add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$VbU96iDC5gxgveUKpgZp2.VP3aWsiDWsWIe91b4SMpB50.vXqlrQS','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$2RgdK6JrB.qxKnDK0olQ1O/vdaVGi2sDEDbqyoHlcP3mOx.CsdKBK','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$nuM5uOjIVqzINcVQHa9qbOFSNI500Hzc9x2ouavLGUECmUvKKv3Y6','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$mLSQMJ6IbVqyC3snAN3p5OULy8UmUlK3zoI8fywrCDh60Jzy6wOCS','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$g8GGdGMVHaU8EpfOHPBKjeIKLag7sFhnjS65dywwIakHBV7RQo6L2','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$Z7BOy8rEYVLnNNrWU66.t./QEJfsWQIytP7eFf8PGrQqj9iZ.TWCu','ROLE_ADMIN')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+/*C367*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C362*/DISCONNECT
+/*C363*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C366*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C369*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C370*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C364*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C371*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C365*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C368*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C372*/SET SCHEMA PUBLIC
+drop table user if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table user (id bigint not null, email varchar(255), last_name varchar(255), money double, name varchar(255), password varchar(255), role varchar(255), primary key (id))
+alter table user add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$jL63IzB28OxJh3VQcWLJCOZQaqxx1.4KpMP2H4/cay/6PmouxTzKe','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$GdOloPkJvuzxBJlOgEqXFO9NJsfdNWUUTFxU4lXEV8fsiq63/KzJa','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$nyMGaJ6kyQHBDw4FckTfROCCye8Nmklx9yyk9I7vmHjhtvoj9j6lG','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$8ETkuf9GulCnhrTNebR8YODjTC3zUzGQYoRJp8lB0hZTy9KxNJgVi','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$lLMcxDO8L06gYx4YY8aFGe6NdGOx.Wuf4LWHdWXAQ/SAHFtb4Znzq','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$.Vh8Dy6F3olIsgkDXDBAyeeek2R90SsTjq3gBS/jJcbbzcke2bfaW','ROLE_ADMIN')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+DISCONNECT
+/*C373*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C376*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C374*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C378*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C375*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C379*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C380*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C377*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C381*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C382*/SET SCHEMA PUBLIC
+drop table user if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table user (id bigint not null, email varchar(255), last_name varchar(255), money double, name varchar(255), password varchar(255), role varchar(255), primary key (id))
+alter table user add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$nZory3xGYfM9vFxdecBvKurRy9N2yKcqF0dj1Aqi6KDRqwYYHoBZS','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$0GFMLIyBvhX7Q6Ep2vM7veI5wz1JVKpjMiXTej6BdYdn/lyNFgiDi','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$.W8LBaBx1PtzRuQA9CYckOJTNIqdfCUdaYKQLWowAy7q830R2frsa','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$8kF0U.MaVCien082Sk0s..d7Ug62CnhzRL3Cr0NxXWj5Dngg5EokW','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$QY8n1FFKZacb4n3KMGL8SunrgzuuolNVp/uB8XdfPmY2z6LuUm0gW','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$xyj7Kp8d3tM13Kboszh6lOr8ss/6PrlpIqv17gVwA/MgdZStGcU6W','ROLE_ADMIN')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+/*C390*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C389*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C382*/DISCONNECT
+/*C387*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C385*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C383*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C386*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C384*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C388*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C391*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C392*/SET SCHEMA PUBLIC
+drop table user if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table user (id bigint not null, email varchar(255), last_name varchar(255), money double, name varchar(255), password varchar(255), role varchar(255), primary key (id))
+alter table user add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$l14Kpwz81V5MIfA0DdggFeuOE74dQs6vIsP1EcGX7j5myAZFDb4M.','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$Po1iUr65w1wh9H7HXAVuIeOGreMMzuOPj/BCz.1Sep9QrC9j25sve','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$vk1tZN/ZL/3xLEd0zcKwm.GLfx1FMdcVYToqUdIWsoATGZhhDuUy2','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$98g40TPhVZ2oNBqcougbNeg4gOlb0s37pgrSIpd26peVukIWUqLU6','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$Yp0ZIBTivOATUgJrbl1.EuNWOYSEv/XtvfSKt4DYLlxbmlCCd096G','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$7wF5qIWr/cVfv56UJBty7OKvjxFzYT8JIEZaniewvu5OxHwY4idP6','ROLE_ADMIN')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+/*C395*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C400*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C398*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C392*/DISCONNECT
+/*C393*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C396*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C394*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C397*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C399*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C401*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C402*/SET SCHEMA PUBLIC
+drop table user if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table user (id bigint not null, email varchar(255), last_name varchar(255), money double, name varchar(255), password varchar(255), role varchar(255), primary key (id))
+alter table user add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$oa4ukXCKhlDiKtkDqO5iEuXzbms/b28Af32I.tJIi6d5BMNGlzLiS','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$2ql2qqx.ao0VrKif1Z6WsuyHDWHH8ZSL3REFeAg0SwO7VUsGu8gqS','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$9X3B4QYR2pW42ZkUfB1TguJG.UwLX7tzfFtPYnzO.ChL30co9Rp6C','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$hyYU41Mk0xlQFa4v6udaROy3UzsK3t/vTMtSF6xGuhgcnk1LNKuvO','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$1O3tZOfVn3eesXKUsYcNaekbc6Aa5Zbcq.nId3YcK.PmA2rVtRoLK','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$enDJ8xG53fjEGHw4HzaRAePyYxr3vPsmQNgb/Cg7HpORmXjoZm5/2','ROLE_ADMIN')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+/*C410*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C407*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C408*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C405*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C402*/DISCONNECT
+/*C404*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C403*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C409*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C406*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C411*/SET SCHEMA PUBLIC
+DISCONNECT

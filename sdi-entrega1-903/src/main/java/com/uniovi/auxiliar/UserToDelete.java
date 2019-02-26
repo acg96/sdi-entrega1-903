@@ -1,6 +1,8 @@
-package com.uniovi.entities;
+package com.uniovi.auxiliar;
 
 import java.util.List;
+
+import com.uniovi.entities.User;
 
 public class UserToDelete {
 	private Long id;

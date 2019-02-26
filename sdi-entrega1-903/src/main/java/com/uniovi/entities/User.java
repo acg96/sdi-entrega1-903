@@ -14,7 +14,7 @@ public class User {
 	private String name;
 	private String lastName;
 	private String role;
-	private double money;
+	private Double money;
 
 	private String password;
 
@@ -72,11 +72,11 @@ public class User {
 		this.name = name;
 	}
 	
-	public double getMoney() {
+	public Double getMoney() {
 		return this.money;
 	}
 	
-	public void setMoney(double money) {
+	public void setMoney(Double money) {
 		this.money= money;
 	}
 
