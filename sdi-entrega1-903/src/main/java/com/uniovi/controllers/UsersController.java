@@ -1,7 +1,11 @@
 package com.uniovi.controllers;
 
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,9 +21,6 @@ import com.uniovi.validators.SignUpFormValidator;
 
 @Controller
 public class UsersController {
-	private static int DELETED_FALSE = 0;
-	private static int DELETED_TRUE = 1;
-
 	@Autowired
 	private UsersService usersService;
 	@Autowired
@@ -28,9 +29,19 @@ public class UsersController {
 	private SignUpFormValidator signUpFormValidator;
 	@Autowired
 	private RolesService rolesService;
+	
+	private void storeUserInformation(Model model) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user= usersService.getUserByEmail(auth.getName());
+		if (user != null) {
+			model.addAttribute("email", user.getEmail());
+			model.addAttribute("money", user.getMoney());
+		}
+	}
 
 	@RequestMapping("/user/list/{hayBorrado}")
 	public String getListado(Model model, @PathVariable Long hayBorrado) {
+		this.storeUserInformation(model);
 		model.addAttribute("deleted", hayBorrado);
 		model.addAttribute("usersList", usersService.getUsers());
 		model.addAttribute("userToDelete", new UserToDelete()); // utilizado para almacenar los que se van a borrar
@@ -39,16 +50,16 @@ public class UsersController {
 
 	@RequestMapping("/user/remove")
 	public String delete(Model model, @ModelAttribute("userToDelete") UserToDelete users) {
-		int hayBorrado = DELETED_FALSE;
-		for (User u : users.getUsers()) {
-			usersService.deleteUser(u.getId());
-			hayBorrado = DELETED_TRUE;
-		}
+		this.storeUserInformation(model);
+		int hayBorrado= usersService.deleteUsers(users);
 		return "redirect:/user/list/" + hayBorrado;
 	}
 
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
 	public String signup(Model model) {
+		if (securityService.authenticationCorrect(usersService)) {
+			return "redirect:home";
+		}
 		model.addAttribute("user", new User());
 		return "signup";
 	}
@@ -66,18 +77,31 @@ public class UsersController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login(Model model) {
-		return "login";
+	public String login(Model model) {		
+		if (securityService.authenticationCorrect(usersService)) {
+			return "redirect:home";
+		} else {
+			return "login";
+		}		
 	}
 	
 	@RequestMapping(value = "/login/error", method = RequestMethod.GET)
-	public String loginError(Model model) {
-		model.addAttribute("error", 1);
-		return "login";
+	public String loginError(Model model, HttpServletRequest request) {
+		if (securityService.authenticationCorrect(usersService)) {
+			return "redirect:/home";
+		}
+		else {
+			if (request.getHeader("referer") == null) {
+				return "redirect:/login";
+			}
+			model.addAttribute("error", 1);
+			return "login";
+		}
 	}
 
 	@RequestMapping(value = { "/home" }, method = RequestMethod.GET)
 	public String home(Model model) {
+		this.storeUserInformation(model);
 		return "home";
 	}
 
