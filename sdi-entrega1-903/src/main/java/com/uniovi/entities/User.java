@@ -1,5 +1,7 @@
 package com.uniovi.entities;
 
+import java.util.Set;
+
 import javax.persistence.*;
 
 @Entity
@@ -15,6 +17,9 @@ public class User {
 	private String lastName;
 	private String role;
 	private Double money;
+	
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	private Set<Offer> offers;
 
 	private String password;
 
@@ -27,6 +32,14 @@ public class User {
 		this.name = name;
 		this.lastName = lastName;
 		this.money= DEFAULT_MONEY;
+	}
+	
+	public void setOffers(Set<Offer> offers) {
+		this.offers = offers;
+	}
+
+	public Set<Offer> getOffers() {
+		return offers;
 	}
 
 	public User() {

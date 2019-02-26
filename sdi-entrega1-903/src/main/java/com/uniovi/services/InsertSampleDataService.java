@@ -3,12 +3,17 @@ package com.uniovi.services;
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.uniovi.entities.Offer;
 import com.uniovi.entities.User;
 
 @Service
 public class InsertSampleDataService {
 	@Autowired
 	private UsersService usersService;
+	
+	@Autowired
+	private OffersService offersService;
 
 	@Autowired
 	private RolesService rolesService;
@@ -39,5 +44,34 @@ public class InsertSampleDataService {
 		usersService.addUser(user4);
 		usersService.addUser(user5);
 		usersService.addUser(user6);
+		
+		Offer offer1= new Offer("Producto 1", "Hecho de madera", "26-02-2019", 2.40);
+		Offer offer2= new Offer("Producto 2", "Hecho de metal", "15-01-2018", 0.90);
+		Offer offer3= new Offer("Producto 3", "Hecho de hierro", "31-12-2017", 49.90);
+		Offer offer4= new Offer("Producto 4", "Hecho de plastico", "15-01-2019", 14.59);
+		Offer offer5= new Offer("Producto 5", "Hecho de papel", "18-01-2019", 370.10);
+		Offer offer6= new Offer("Producto 6", "Hecho de cartón", "24-02-2019", 4500.50);
+		Offer offer7= new Offer("Producto 7", "Hecho de cristal", "02-05-2018", 1200.0);
+		Offer offer8= new Offer("Producto 8", "Hecho de cerámica", "26-02-2019", 13.90);
+		Offer offer9= new Offer("Producto 9", "Hecho de barro", "21-02-2019", 12.43);
+		offer1.setUser(user1);
+		offer2.setUser(user1);
+		offer3.setUser(user1);
+		offer4.setUser(user1);
+		offer5.setUser(user2);
+		offer6.setUser(user2);
+		offer7.setUser(user2);
+		offer8.setUser(user2);
+		offer9.setUser(user2);
+		
+		offersService.addOffer(offer1);
+		offersService.addOffer(offer2);
+		offersService.addOffer(offer3);
+		offersService.addOffer(offer4);
+		offersService.addOffer(offer5);
+		offersService.addOffer(offer6);
+		offersService.addOffer(offer7);
+		offersService.addOffer(offer8);
+		offersService.addOffer(offer9);
 	}
 }
