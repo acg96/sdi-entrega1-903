@@ -9,8 +9,7 @@ public class Purchase {
 	@GeneratedValue
 	private Long id;	
 	
-	
-	@OneToOne(cascade= CascadeType.REMOVE)
+	@OneToOne
 	@JoinColumn(name = "offer_id")
 	private Offer offer;
 	
@@ -23,7 +22,7 @@ public class Purchase {
 	
 	public Purchase(User buyer, Offer offer) {
 		if (buyer.getMoney() >= offer.getPrice()) {
-			if (offer.getPurchase() == null) {
+			if (offer.getPurchase() == null && offer.getUser().getId() != buyer.getId()) {
 				this.buyer = buyer;
 				buyer.setMoney(Math.round((buyer.getMoney()-offer.getPrice())*100)/100.0);
 				this.offer= offer;

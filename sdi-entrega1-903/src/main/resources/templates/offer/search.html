@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments/head" />
+<body>
+
+	<!-- Barra de Navegación superior -->
+	<nav th:replace="fragments/nav" />
+
+
+
+	<div class="container">
+		<h2 th:text="#{offer.search.title}"></h2>
+		<form class="navbar-form" action="/offer/search">
+			<div class="form-group">
+				<input name="searchText" type="text" class="form-control" size="50"
+					th:placeholder="#{offer.search.searchPlaceHolder}">
+			</div>
+			<button type="submit" class="btn btn-default"
+				th:text="#{offer.search.searchButton}"></button>
+		</form>
+		<span class="text-danger" th:if="${nomoney==1}" th:text="#{offer.search.notmoneyenough}"></span>
+		<div class="table-responsive">
+			<table class="table table-hover" id="tableSearch">
+				<thead>
+					<tr>
+						<th th:text="#{offer.search.title.title}"></th>
+						<th th:text="#{offer.search.title.details}"></th>
+						<th th:text="#{offer.search.title.price}"></th>
+						<th class="col-md-1"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="offer : ${offerList}">
+						<td th:text="${offer.title}"></td>
+						<td th:text="${offer.details}"></td>
+						<td th:text="${offer.price}+€"></td>
+						<td th:if="${offer.purchase == null}"><a
+							th:href="${'/purchase/add/' + offer.id}"
+							th:text="#{offer.search.title.buy}"></a></td>
+						<td th:if="${offer.purchase != null}"><p style="color:red;"
+								th:text="#{offer.search.title.soldout}"></p></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<footer th:replace="fragments/pagination" />
+	</div>
+
+	<footer th:replace="fragments/footer" />
+</body>
+</html>

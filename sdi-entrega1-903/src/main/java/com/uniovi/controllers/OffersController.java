@@ -6,9 +6,15 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import java.security.Principal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,6 +29,9 @@ import com.uniovi.validators.AddOfferFormValidator;
 @Controller
 public class OffersController {
 
+	@Autowired
+	private HttpSession httpSession;
+	
 	@Autowired
 	private OffersService offersService;
 
@@ -69,6 +78,28 @@ public class OffersController {
 		List<Offer> offers= offersService.getUserOffers(user);
 		model.addAttribute("offerList", offers);
 		return "offer/list";
+	}
+	
+	@RequestMapping("/offer/search")
+	public String getProductsToBuy(Model model, Pageable pageable, Principal principal, @RequestParam(value = "", required = false) String searchText) {
+		storeUserInformation(model);
+		String email = principal.getName();
+		User user = usersService.getUserByEmail(email);
+		Page<Offer> offers = new PageImpl<Offer>(new LinkedList<Offer>());
+		
+		if (searchText != null && !searchText.isEmpty()) {
+			offers = offersService.searchOffersByTitle(pageable, searchText, user);
+		} else {
+			offers = offersService.getAllOffers(pageable, user);
+		}
+		Object money= httpSession.getAttribute("money");
+		if (money != null) {
+			httpSession.setAttribute("money", null);
+			model.addAttribute("nomoney", (Integer)money);
+		}
+		model.addAttribute("offerList", offers.getContent());
+		model.addAttribute("page", offers);
+		return "offer/search";
 	}
 
 	@RequestMapping(value = "/offer/add")

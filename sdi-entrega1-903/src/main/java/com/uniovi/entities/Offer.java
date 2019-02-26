@@ -17,7 +17,7 @@ public class Offer {
 	@Transient
 	private Date availableDate;
 	
-	@OneToOne(mappedBy = "offer", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "offer", cascade = CascadeType.REMOVE)
 	private Purchase purchase;
 	
 	@ManyToOne

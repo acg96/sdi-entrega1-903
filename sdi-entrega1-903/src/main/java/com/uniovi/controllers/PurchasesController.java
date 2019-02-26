@@ -6,6 +6,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import java.security.Principal;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +22,9 @@ import com.uniovi.services.UsersService;
 
 @Controller
 public class PurchasesController {
+	
+	@Autowired
+	private HttpSession httpSession;
 
 	@Autowired
 	private OffersService offersService;
@@ -49,8 +54,8 @@ public class PurchasesController {
 			Purchase purchase= new Purchase(buyer, offer);	
 			purchasesService.addPurchase(purchase);
 		}catch(RuntimeException ex) {
-			model.addAttribute("money", 1);
-			return "redirect:/offer/list"; //Sería donde buscas no en esa, pero mientras
+			httpSession.setAttribute("money", (Integer)1);
+			return "redirect:/offer/search";
 		}
 		return "redirect:/purchase/list";
 	}
