@@ -10,9 +10,9 @@
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav" sec:authorize="isAuthenticated()">
-				<li><a style="color:#FFFFFF" th:text="${email}"></a></li>
-				<li><a style="color:#FFFFFF" th:text="#{nav.title.money} + ${money}+€" sec:authorize="hasRole('ROLE_USER')"></a></li>
-				<li><a style="color:#FFFFFF">|</a></li>
+				<li><a style="color:#FFFFFF" th:if="${email!=null}" th:text="${email}"></a></li>
+				<li><a style="color:#FFFFFF" th:if="${money!=null}" th:text="#{nav.title.money} + ${money}+€" sec:authorize="hasRole('ROLE_USER')"></a></li>
+				<li><a style="color:#FFFFFF" th:if="${money!=null || email!=null}">|</a></li>
 				<li><a href="/" th:text="#{nav.menu.home}"></a></li>
 				<li id="offers-menu" class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#"
