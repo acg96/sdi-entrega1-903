@@ -10,8 +10,8 @@
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav" sec:authorize="isAuthenticated()">
-				<li><a style="color:#FFFFFF" th:if="${email!=null}" th:text="${email}"></a></li>
-				<li><a style="color:#FFFFFF" th:if="${money!=null}" th:text="#{nav.title.money} + ${money}+€" sec:authorize="hasRole('ROLE_USER')"></a></li>
+				<li><a style="color:#FFFFFF" id="navEmail" th:if="${email!=null}" th:text="${email}"></a></li>
+				<li><a style="color:#FFFFFF" id="navMoney" th:if="${money!=null}" th:text="#{nav.title.money} + ${money}+€" sec:authorize="hasRole('ROLE_USER')"></a></li>
 				<li><a style="color:#FFFFFF" th:if="${money!=null || email!=null}">|</a></li>
 				<li><a href="/" th:text="#{nav.menu.home}"></a></li>
 				<li id="offers-menu" class="dropdown"><a class="dropdown-toggle"
@@ -52,14 +52,14 @@
 						</a></li>
 					</ul></li>
 				<li sec:authorize="!isAuthenticated()"><a href="/signup"
-					th:text="#{signup.message}"> <span
+					th:text="#{signup.message}" id="navSignup"> <span
 						class="glyphicon glyphicon-user"></span>
 				</a></li>
 				<li sec:authorize="!isAuthenticated()"><a href="/login"
-					th:text="#{login.message}"> <span
+					th:text="#{login.message}" id="navLogin"> <span
 						class="glyphicon glyphicon-log-in"></span>
 				</a></li>
-				<li sec:authorize="isAuthenticated()"><a href="/logout" th:text="#{logout.message}"> <span
+				<li sec:authorize="isAuthenticated()"><a href="/logout" th:text="#{logout.message}" id="navLogout"> <span
 						class="glyphicon glyphicon-log-out"></span>
 				</a></li>
 			</ul>
