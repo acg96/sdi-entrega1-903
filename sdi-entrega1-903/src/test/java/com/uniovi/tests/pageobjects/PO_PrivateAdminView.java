@@ -23,6 +23,24 @@ public class PO_PrivateAdminView extends PO_PrivateView {
 	}
 	
 	/**
+	 * Comprueba al cambiar el idioma en listado usuarios
+	 * @param driver
+	 */
+	public static void checkChangeIdiomAddOffer(WebDriver driver) {
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("user.listUsers.title", PO_Properties.SPANISH), getTimeout());
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("user.listUsers.description", PO_Properties.SPANISH), getTimeout());
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("user.listUsers.title.name", PO_Properties.SPANISH), getTimeout());
+		changeIdiom(driver, "btnEnglish");
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("user.listUsers.title", PO_Properties.ENGLISH), getTimeout());
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("user.listUsers.description", PO_Properties.ENGLISH), getTimeout());
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("user.listUsers.title.name", PO_Properties.ENGLISH), getTimeout());
+		changeIdiom(driver, "btnSpanish");
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("user.listUsers.title", PO_Properties.SPANISH), getTimeout());
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("user.listUsers.description", PO_Properties.SPANISH), getTimeout());
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("user.listUsers.title.name", PO_Properties.SPANISH), getTimeout());
+	}
+	
+	/**
 	 * Comprobar que un usuario, dado su email, está presente en la página con el listado
 	 * de usuarios
 	 * @param driver

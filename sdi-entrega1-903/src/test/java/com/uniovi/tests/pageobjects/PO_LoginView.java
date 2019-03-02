@@ -77,8 +77,6 @@ public class PO_LoginView extends PO_NavView {
 	 * @param driver
 	 */
 	public static void inicioDeSesionAdmin(WebDriver driver) {
-		// Se comprueba que esté en la ventana principal
-		PO_HomeView.checkWelcome(driver, PO_Properties.getSPANISH());
 		// Se comprueba que esté el menú correcto
 		PO_NavView.checkMenuNotBeingInLogged(driver);
 		// Se clica sobre la opción de menú y se comprueba que va donde debe

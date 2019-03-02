@@ -37,6 +37,58 @@ public class PO_PrivateUserView extends PO_PrivateView {
 		elementos = SeleniumUtils.EsperaCargaPagina(driver, "text", nameOption, getTimeout());
 		elementos.get(0).click();
 	}
+	
+	
+	/**
+	 * Comprueba al cambiar el idioma en añadir oferta
+	 * @param driver
+	 */
+	public static void checkChangeIdiomAddOffer(WebDriver driver) {
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("offer.add.title", PO_Properties.SPANISH), getTimeout());
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("offer.add.title.title", PO_Properties.SPANISH), getTimeout());
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("offer.add.title.details", PO_Properties.SPANISH), getTimeout());
+		changeIdiom(driver, "btnEnglish");
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("offer.add.title", PO_Properties.ENGLISH), getTimeout());
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("offer.add.title.title", PO_Properties.ENGLISH), getTimeout());
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("offer.add.title.details", PO_Properties.ENGLISH), getTimeout());
+		changeIdiom(driver, "btnSpanish");
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("offer.add.title", PO_Properties.SPANISH), getTimeout());
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("offer.add.title.title", PO_Properties.SPANISH), getTimeout());
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("offer.add.title.details", PO_Properties.SPANISH), getTimeout());
+	}
+	
+	/**
+	 * Comprueba al cambiar el idioma en el listado de opciones de menú del usuario
+	 * @param driver
+	 */
+	public static void checkChangeIdiomUserMenu(WebDriver driver) {
+		List<WebElement> elementos = SeleniumUtils.EsperaCargaPagina(driver, "id", "btnOffersManagement", getTimeout());
+		elementos.get(0).click();
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("nav.menu.addOffer", PO_Properties.SPANISH), getTimeout());
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("nav.menu.showOffers", PO_Properties.SPANISH), getTimeout());
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("nav.menu.searchOffers", PO_Properties.SPANISH), getTimeout());
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("nav.menu.boughtOffers", PO_Properties.SPANISH), getTimeout());
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("nav.menu.offersManagement", PO_Properties.SPANISH), getTimeout());
+		changeIdiom(driver, "btnEnglish");
+		elementos = SeleniumUtils.EsperaCargaPagina(driver, "id", "btnOffersManagement", getTimeout());
+		elementos.get(0).click();
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("nav.menu.addOffer", PO_Properties.ENGLISH), getTimeout());
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("nav.menu.showOffers", PO_Properties.ENGLISH), getTimeout());
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("nav.menu.searchOffers", PO_Properties.ENGLISH), getTimeout());
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("nav.menu.boughtOffers", PO_Properties.ENGLISH), getTimeout());
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("nav.menu.offersManagement", PO_Properties.ENGLISH), getTimeout());
+		changeIdiom(driver, "btnSpanish");
+		elementos = SeleniumUtils.EsperaCargaPagina(driver, "id", "btnOffersManagement", getTimeout());
+		elementos.get(0).click();
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("nav.menu.addOffer", PO_Properties.SPANISH), getTimeout());
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("nav.menu.showOffers", PO_Properties.SPANISH), getTimeout());
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("nav.menu.searchOffers", PO_Properties.SPANISH), getTimeout());
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("nav.menu.boughtOffers", PO_Properties.SPANISH), getTimeout());
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("nav.menu.offersManagement", PO_Properties.SPANISH), getTimeout());
+		elementos = SeleniumUtils.EsperaCargaPagina(driver, "id", "btnOffersManagement", getTimeout());
+		elementos.get(0).click();
+	}
+
 
 	/**
 	 * Rellenar el formulario de alta de un producto

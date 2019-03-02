@@ -17,18 +17,13 @@ public class PO_HomeView extends PO_NavView {
 	/**
 	 * Comprueba al cambiar el idioma
 	 * @param driver
-	 * @param textIdiom1 Idioma inicial
-	 * @param textIdiom2 Idioma final
-	 * @param locale1 fichero de propiedades del idioma 1
-	 * @param locale2 fichero de propiedades del idioma 2
 	 */
-	public static void checkChangeIdiom(WebDriver driver, String textIdiom1, String textIdiom2, int locale1,
-			int locale2) {
-		PO_HomeView.checkWelcome(driver, locale1);
-		PO_HomeView.changeIdiom(driver, textIdiom2);
-		PO_HomeView.checkWelcome(driver, locale2);
-		PO_HomeView.changeIdiom(driver, textIdiom1);
-		PO_HomeView.checkWelcome(driver, locale1);
+	public static void checkChangeIdiom(WebDriver driver) {
+		PO_HomeView.checkWelcome(driver, PO_Properties.SPANISH);
+		PO_HomeView.changeIdiom(driver, "btnEnglish");
+		PO_HomeView.checkWelcome(driver, PO_Properties.ENGLISH);
+		PO_HomeView.changeIdiom(driver, "btnSpanish");
+		PO_HomeView.checkWelcome(driver, PO_Properties.SPANISH);
 	}
 
 	/**

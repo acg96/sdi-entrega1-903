@@ -24,7 +24,10 @@ public class MyWallapopTests {
 	static String PathFirefox64 = "C:\\Program Files\\Mozilla Firefox\\firefox.exe";
 	static String Geckdriver024 = "C:\\Selenium\\geckodriver024win64.exe";
 	static WebDriver driver = getDriver(PathFirefox64, Geckdriver024);
+	
+	//*****************CAMBIAR AQUÍ POR OTRA URL*******************
 	static String URL = URL_LOCAL; // Cambiar por URL_AMAZON
+	//*****************CAMBIAR AQUÍ POR OTRA URL*******************
 
 	private static List<String> emails = new ArrayList<String>();
 
@@ -484,11 +487,76 @@ public class MyWallapopTests {
 		PO_PrivateUserView.clickOpcionMenu(driver,
 				PO_View.getP().getString("nav.menu.boughtOffers", PO_Properties.getSPANISH()));
 		// Se obtiene el número de compras y se comprueba (2 deben ser)
-		int totalCompras= PO_PrivateUserView.buscarCompras(driver);
+		int totalCompras = PO_PrivateUserView.buscarCompras(driver);
 		assertTrue("Deberían ser 2 compras", totalCompras == 2);
-		//Se comprueba que se muestren
+		// Se comprueba que se muestren
 		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto 11", PO_View.getTimeout());
 		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto 12", PO_View.getTimeout());
 	}
-	
+
+	// PR27. Comprobar internacionalización en 4 páginas (Index, alta de oferta,
+	// listado usuarios, home)
+	@Test
+	public void PR27() {
+		// Se comprueba el index
+		PO_HomeView.checkChangeIdiom(driver);
+
+		// Se comprueba el home y el listado de opciones de menú del usuario
+		PO_LoginView.inicioDeSesionUser2(driver);
+		PO_PrivateView.checkChangeIdiomHome(driver);
+		PO_PrivateUserView.checkChangeIdiomUserMenu(driver);
+
+		// Se comprueba el alta de oferta
+		PO_PrivateUserView.clickOpcionMenu(driver,
+				PO_View.getP().getString("nav.menu.addOffer", PO_Properties.getSPANISH()));
+		PO_PrivateUserView.checkChangeIdiomAddOffer(driver);
+
+		// Se comprueba el listado de usuarios de administrador
+		PO_NavView.clickOption(driver, "/logout", "text",
+				PO_NavView.getP().getString("login.title", PO_Properties.getSPANISH()));
+		PO_LoginView.inicioDeSesionAdmin(driver);
+		PO_PrivateAdminView.clickOpcionMenu(driver,
+				PO_View.getP().getString("nav.menu.showUsers", PO_Properties.getSPANISH()));
+		PO_PrivateAdminView.checkChangeIdiomAddOffer(driver);
+	}
+
+	// PR28. Intentar acceder al listado de usuarios sin estar autenticado
+	@Test
+	public void PR28() {
+		// Se comprueba que el menú está en estado de no estar logueado
+		PO_NavView.checkMenuNotBeingInLogged(driver);
+		// Se dirige a la página del listado de usuarios
+		driver.navigate().to(URL+"/user/list/2");
+		// Se comprueba que se está en la página de login
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver,
+				PO_View.getP().getString("login.title", PO_Properties.getSPANISH()), PO_View.getTimeout());
+	}
+
+	// PR29. Intentar acceder al listado de ofertas propias del usuario sin estar
+	// autenticado
+	@Test
+	public void PR29() {
+		// Se comprueba que el menú está en estado de no estar logueado
+		PO_NavView.checkMenuNotBeingInLogged(driver);
+		// Se dirige a la página del listado de ofertas propias
+		driver.navigate().to(URL+"/offer/list");
+		// Se comprueba que se está en la página de login
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver,
+				PO_View.getP().getString("login.title", PO_Properties.getSPANISH()), PO_View.getTimeout());
+	}
+
+	// PR30. Estando autenticado como usuario estándar intentar acceder al listado de usuarios
+	@Test
+	public void PR30() {
+		//Se inicia sesión como usuario estándar
+		PO_LoginView.inicioDeSesionUser5(driver);
+		// Se comprueba que el menú está en estado de estar logueado como usuario estándar
+		PO_NavView.checkMenuBeingInLoggedUser(driver);
+		// Se dirige a la página del listado de ofertas propias
+		driver.navigate().to(URL+"/user/list/2");
+		// Se comprueba que sale el mensaje de acción prohibida
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver,
+				PO_View.getP().getString("error.403.description", PO_Properties.getSPANISH()), PO_View.getTimeout());
+	}
+
 }
