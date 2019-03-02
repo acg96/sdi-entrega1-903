@@ -1,10 +1,14 @@
 package com.uniovi.tests;
 
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.*;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.uniovi.tests.pageobjects.*;
@@ -236,7 +240,7 @@ public class MyWallapopTests {
 	@Test
 	public void PR10() {
 		// Primero se inicia sesión como usuario estándar
-		PO_LoginView.inicioDeSesionUser(driver);
+		PO_LoginView.inicioDeSesionUser2(driver);
 		// Se clica sobre la opción de menú y se comprueba que va a la página de login
 		PO_NavView.clickOption(driver, "/logout", "text",
 				PO_NavView.getP().getString("login.title", PO_Properties.getSPANISH()));
@@ -312,7 +316,7 @@ public class MyWallapopTests {
 	@Test
 	public void PR16() {
 		// Primero se inicia sesión como usuario estándar
-		PO_LoginView.inicioDeSesionUser(driver);
+		PO_LoginView.inicioDeSesionUser2(driver);
 		// Se clica sobre la opción de menú y se comprueba que se carga
 		PO_PrivateUserView.clickOpcionMenu(driver,
 				PO_View.getP().getString("nav.menu.addOffer", PO_Properties.getSPANISH()));
@@ -329,7 +333,7 @@ public class MyWallapopTests {
 	@Test
 	public void PR17() {
 		// Primero se inicia sesión como usuario estándar
-		PO_LoginView.inicioDeSesionUser(driver);
+		PO_LoginView.inicioDeSesionUser2(driver);
 		// Se clica sobre la opción de menú y se comprueba que se carga
 		PO_PrivateUserView.clickOpcionMenu(driver,
 				PO_View.getP().getString("nav.menu.addOffer", PO_Properties.getSPANISH()));
@@ -345,7 +349,7 @@ public class MyWallapopTests {
 	@Test
 	public void PR18() {
 		// Primero se inicia sesión como usuario estándar
-		PO_LoginView.inicioDeSesionUser(driver);
+		PO_LoginView.inicioDeSesionUser2(driver);
 		// Se clica sobre la opción de menú
 		PO_PrivateUserView.clickOpcionMenu(driver,
 				PO_View.getP().getString("nav.menu.showOffers", PO_Properties.getSPANISH()));
@@ -359,7 +363,7 @@ public class MyWallapopTests {
 	@Test
 	public void PR19() {
 		// Primero se inicia sesión como usuario estándar
-		PO_LoginView.inicioDeSesionUser(driver);
+		PO_LoginView.inicioDeSesionUser2(driver);
 		// Se clica sobre la opción de menú
 		PO_PrivateUserView.clickOpcionMenu(driver,
 				PO_View.getP().getString("nav.menu.showOffers", PO_Properties.getSPANISH()));
@@ -371,7 +375,7 @@ public class MyWallapopTests {
 	@Test
 	public void PR20() {
 		// Primero se inicia sesión como usuario estándar
-		PO_LoginView.inicioDeSesionUser(driver);
+		PO_LoginView.inicioDeSesionUser2(driver);
 		// Se clica sobre la opción de menú
 		PO_PrivateUserView.clickOpcionMenu(driver,
 				PO_View.getP().getString("nav.menu.showOffers", PO_Properties.getSPANISH()));
@@ -379,4 +383,112 @@ public class MyWallapopTests {
 		PO_PrivateUserView.borrarProductosPorPosicion(driver, PO_PrivateUserView.ULTIMA_POSICION);
 	}
 
+	// PR21. Hacer búsqueda con campo vacío y ver que se muestran las que deben
+	@Test
+	public void PR21() {
+		// Primero se inicia sesión como usuario estándar (prueba5@gmail.com)
+		PO_LoginView.inicioDeSesionUser5(driver);
+		// Se clica sobre la opción de menú
+		PO_PrivateUserView.clickOpcionMenu(driver,
+				PO_View.getP().getString("nav.menu.searchOffers", PO_Properties.getSPANISH()));
+		// Sólo deberían aparecer dos ofertas [Producto 11 y Producto 12]
+		int totalEncontrado = PO_PrivateUserView.buscarProductos(driver, "");
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto 11", PO_View.getTimeout());
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto 12", PO_View.getTimeout());
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto 13", PO_View.getTimeout());
+		assertTrue("Se esperaban tres productos ha habido " + totalEncontrado, totalEncontrado == 3);
+	}
+
+	// PR22. Hacer búsqueda con una cadena que no exista y comprobar que no sale
+	// nada
+	@Test
+	public void PR22() {
+		// Primero se inicia sesión como usuario estándar (prueba5@gmail.com)
+		PO_LoginView.inicioDeSesionUser5(driver);
+		// Se clica sobre la opción de menú
+		PO_PrivateUserView.clickOpcionMenu(driver,
+				PO_View.getP().getString("nav.menu.searchOffers", PO_Properties.getSPANISH()));
+		// Se realiza la búsqueda
+		int totalEncontrado = PO_PrivateUserView.buscarProductos(driver, "f2344affs");
+		// Se comprueba que no sale nada
+		assertTrue("Se esperaban 0 productos", totalEncontrado == 0);
+	}
+
+	// PR23. Hacer búsqueda y comprar un producto que deje saldo positivo
+	@Test
+	public void PR23() {
+		// Primero se inicia sesión como usuario estándar (prueba5@gmail.com)
+		PO_LoginView.inicioDeSesionUser5(driver);
+		// Se clica sobre la opción de menú
+		PO_PrivateUserView.clickOpcionMenu(driver,
+				PO_View.getP().getString("nav.menu.searchOffers", PO_Properties.getSPANISH()));
+		// Se realiza la búsqueda
+		List<WebElement> totalEncontrado = PO_PrivateUserView.buscarProductosAComprar(driver, "11");
+		// Se comprueba que sale 1 producto
+		assertTrue("Se esperaban 1 productos", totalEncontrado.size() == 1);
+		// Se compra el producto
+		totalEncontrado.get(0).click();
+		// Se comprueba el saldo en el monedero
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Cartera: 95.5€", PO_View.getTimeout());
+	}
+
+	// PR24. Hacer búsqueda y comprar un producto que deje saldo 0
+	@Test
+	public void PR24() {
+		// Primero se inicia sesión como usuario estándar (prueba5@gmail.com)
+		PO_LoginView.inicioDeSesionUser5(driver);
+		// Se clica sobre la opción de menú
+		PO_PrivateUserView.clickOpcionMenu(driver,
+				PO_View.getP().getString("nav.menu.searchOffers", PO_Properties.getSPANISH()));
+		// Se realiza la búsqueda
+		List<WebElement> totalEncontrado = PO_PrivateUserView.buscarProductosAComprar(driver, "12");
+		// Se comprueba que sale 1 producto
+		assertTrue("Se esperaban 1 productos", totalEncontrado.size() == 1);
+		// Se compra el producto
+		totalEncontrado.get(0).click();
+		// Se comprueba el saldo en el monedero
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Cartera: 0.0€", PO_View.getTimeout());
+	}
+
+	// PR25. Hacer búsqueda y comprar un producto que tenga precio mayor al saldo
+	// disponible
+	@Test
+	public void PR25() {
+		// Primero se inicia sesión como usuario estándar (prueba5@gmail.com)
+		PO_LoginView.inicioDeSesionUser5(driver);
+		// Se clica sobre la opción de menú
+		PO_PrivateUserView.clickOpcionMenu(driver,
+				PO_View.getP().getString("nav.menu.searchOffers", PO_Properties.getSPANISH()));
+		// Se realiza la búsqueda
+		List<WebElement> totalEncontrado = PO_PrivateUserView.buscarProductosAComprar(driver, "13");
+		// Se obtiene el valor del monedero antes
+		String monederoAntes = driver.findElement(By.id("navMoney")).getText();
+		// Se comprueba que sale 1 producto
+		assertTrue("Se esperaban 1 productos", totalEncontrado.size() == 1);
+		// Se compra el producto
+		totalEncontrado.get(0).click();
+		// Se comprueba el saldo en el monedero que debiera ser el mismo que antes
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, monederoAntes, PO_View.getTimeout());
+		// Se comprueba que se ha indicado saldo insuficiente
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver,
+				PO_View.getP().getString("offer.search.notmoneyenough", PO_Properties.getSPANISH()),
+				PO_View.getTimeout());
+	}
+
+	// PR26. Ver listado de ofertas compradas y comprobar que están todas
+	@Test
+	public void PR26() {
+		// Primero se inicia sesión como usuario estándar (prueba5@gmail.com)
+		PO_LoginView.inicioDeSesionUser5(driver);
+		// Se clica sobre la opción de menú
+		PO_PrivateUserView.clickOpcionMenu(driver,
+				PO_View.getP().getString("nav.menu.boughtOffers", PO_Properties.getSPANISH()));
+		// Se obtiene el número de compras y se comprueba (2 deben ser)
+		int totalCompras= PO_PrivateUserView.buscarCompras(driver);
+		assertTrue("Deberían ser 2 compras", totalCompras == 2);
+		//Se comprueba que se muestren
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto 11", PO_View.getTimeout());
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto 12", PO_View.getTimeout());
+	}
+	
 }

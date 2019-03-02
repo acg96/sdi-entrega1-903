@@ -32,7 +32,7 @@ public class PO_LoginView extends PO_NavView {
 	 * 
 	 * @param driver
 	 */
-	public static void inicioDeSesionUser(WebDriver driver) {
+	public static void inicioDeSesionUser2(WebDriver driver) {
 		// Se comprueba que esté en la ventana principal
 		PO_HomeView.checkWelcome(driver, PO_Properties.getSPANISH());
 		// Se comprueba que esté el menú correcto
@@ -44,6 +44,28 @@ public class PO_LoginView extends PO_NavView {
 		PO_LoginView.checkFirstLoginAttempt(driver);
 		// Se rellena el formulario con datos válidos
 		PO_LoginView.fillForm(driver, "prueba2@gmail.com", "123456");
+		// Se comprueba que está logueado
+		PO_NavView.checkMenuBeingInLoggedUser(driver);
+		PO_PrivateView.checkHomePage(driver);
+	}
+	
+	/**
+	 * Iniciar sesión con el usuario prueba@gmail.com
+	 * 
+	 * @param driver
+	 */
+	public static void inicioDeSesionUser5(WebDriver driver) {
+		// Se comprueba que esté en la ventana principal
+		PO_HomeView.checkWelcome(driver, PO_Properties.getSPANISH());
+		// Se comprueba que esté el menú correcto
+		PO_NavView.checkMenuNotBeingInLogged(driver);
+		// Se clica sobre la opción de menú y se comprueba que va donde debe
+		PO_NavView.clickOption(driver, "/login", "text",
+				PO_NavView.getP().getString("login.title", PO_Properties.getSPANISH()));
+		// Se comprueba que no muestra mensaje de login incorrecto
+		PO_LoginView.checkFirstLoginAttempt(driver);
+		// Se rellena el formulario con datos válidos
+		PO_LoginView.fillForm(driver, "prueba5@gmail.com", "123456");
 		// Se comprueba que está logueado
 		PO_NavView.checkMenuBeingInLoggedUser(driver);
 		PO_PrivateView.checkHomePage(driver);

@@ -31,12 +31,12 @@
 				</thead>
 				<tbody>
 					<tr th:each="offer : ${offerList}">
-						<td th:text="${offer.title}"></td>
+						<td th:text="${offer.title}" th:id="${offer.id}+search" class="searchOffersList"></td>
 						<td th:text="${offer.details}"></td>
 						<td th:text="${offer.price}+€"></td>
 						<td th:if="${offer.purchase == null}"><a
 							th:href="${'/purchase/add/' + offer.id}"
-							th:text="#{offer.search.title.buy}"></a></td>
+							th:text="#{offer.search.title.buy}" th:id="${offer.id}+_buy" class="bListToBuy"></a></td>
 						<td th:if="${offer.purchase != null}"><p style="color:red;"
 								th:text="#{offer.search.title.soldout}"></p></td>
 					</tr>

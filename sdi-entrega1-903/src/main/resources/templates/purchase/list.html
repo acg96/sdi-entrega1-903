@@ -23,7 +23,7 @@
 				</thead>
 				<tbody>
 					<tr th:each="purchase : ${purchaseList}">
-						<td th:text="${purchase.offer.title}"></td>
+						<td th:text="${purchase.offer.title}" th:id="${purchase.id}+_bought" class="purchasesUserList"></td>
 						<td th:text="${purchase.offer.details}"></td>
 						<td th:text="${purchase.offer.price}+€"></td>
 						<td th:text="${purchase.offer.user.email}"></td>
