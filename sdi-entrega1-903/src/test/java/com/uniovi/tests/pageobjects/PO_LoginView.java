@@ -11,7 +11,7 @@ public class PO_LoginView extends PO_NavView {
 	 * Rellenar el formulario de login
 	 * 
 	 * @param driver
-	 * @param emailp con el email
+	 * @param emailp    con el email
 	 * @param passwordp con la contraseña
 	 */
 	public static void fillForm(WebDriver driver, String emailp, String passwordp) {
@@ -28,6 +28,60 @@ public class PO_LoginView extends PO_NavView {
 	}
 
 	/**
+	 * Iniciar sesión con el usuario prueba@gmail.com
+	 * 
+	 * @param driver
+	 */
+	public static void inicioDeSesionUser(WebDriver driver) {
+		// Se comprueba que esté en la ventana principal
+		PO_HomeView.checkWelcome(driver, PO_Properties.getSPANISH());
+		// Se comprueba que esté el menú correcto
+		PO_NavView.checkMenuNotBeingInLogged(driver);
+		// Se clica sobre la opción de menú y se comprueba que va donde debe
+		PO_NavView.clickOption(driver, "/login", "text",
+				PO_NavView.getP().getString("login.title", PO_Properties.getSPANISH()));
+		// Se comprueba que no muestra mensaje de login incorrecto
+		PO_LoginView.checkFirstLoginAttempt(driver);
+		// Se rellena el formulario con datos válidos
+		PO_LoginView.fillForm(driver, "prueba@gmail.com", "123456");
+		// Se comprueba que está logueado
+		PO_NavView.checkMenuBeingInLoggedUser(driver);
+		PO_PrivateView.checkHomePage(driver);
+	}
+
+	/**
+	 * Iniciar sesión con el usuario administrador
+	 * 
+	 * @param driver
+	 */
+	public static void inicioDeSesionAdmin(WebDriver driver) {
+		// Se comprueba que esté en la ventana principal
+		PO_HomeView.checkWelcome(driver, PO_Properties.getSPANISH());
+		// Se comprueba que esté el menú correcto
+		PO_NavView.checkMenuNotBeingInLogged(driver);
+		// Se clica sobre la opción de menú y se comprueba que va donde debe
+		PO_NavView.clickOption(driver, "/login", "text",
+				PO_NavView.getP().getString("login.title", PO_Properties.getSPANISH()));
+		// Se comprueba que no muestra mensaje de login incorrecto
+		PO_LoginView.checkFirstLoginAttempt(driver);
+		// Se rellena el formulario con datos válidos
+		PO_LoginView.fillForm(driver, "admin@email.com", "admin");
+		// Se comprueba que está logueado
+		PO_NavView.checkMenuBeingInLoggedAdmin(driver);
+		PO_PrivateView.checkHomePage(driver);
+	}
+
+	/**
+	 * Comprueba que esté en la página de login
+	 * 
+	 * @param driver
+	 * @param language con el identificador del lenguaje en el que comprobarlo
+	 */
+	public static void checkIsInLogInView(WebDriver driver, int language) {
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("login.title", language), getTimeout());
+	}
+
+	/**
 	 * Comprobar que sale el mensaje de login invalido además de que el menú siga el
 	 * que debe es decir, no estando logueado
 	 * 
@@ -35,7 +89,7 @@ public class PO_LoginView extends PO_NavView {
 	 */
 	public static void checkInvalidLogin(WebDriver driver) {
 		checkMenuNotBeingInLogged(driver);
-		SeleniumUtils.idPresentePagina(driver, "loginError");
+		SeleniumUtils.esperaCargaPaginaIdPresente(driver, "loginError", getTimeout());
 	}
 
 	/**
@@ -46,6 +100,6 @@ public class PO_LoginView extends PO_NavView {
 	 */
 	public static void checkFirstLoginAttempt(WebDriver driver) {
 		checkMenuNotBeingInLogged(driver);
-		SeleniumUtils.idNoPresentePagina(driver, "loginError");
+		SeleniumUtils.esperaCargaPaginaNoIdPresente(driver, "loginError", getTimeout());
 	}
 }

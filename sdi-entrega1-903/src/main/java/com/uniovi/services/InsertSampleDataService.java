@@ -39,6 +39,12 @@ public class InsertSampleDataService {
 		User user5 = new User("prueba5@gmail.com", "Lucía", "Méndez");
 		user5.setPassword("123456");
 		user5.setRole(rolesService.getRoles()[1]);
+		User user7 = new User("prueba6@gmail.com", "Rodrigo", "Ruiz");
+		user7.setPassword("123456");
+		user7.setRole(rolesService.getRoles()[1]);
+		User user8 = new User("prueba7@gmail.com", "Belén", "García");
+		user8.setPassword("123456");
+		user8.setRole(rolesService.getRoles()[1]);
 		User user6 = new User("admin@email.com", "Andrés", "Casillas");
 		user6.setPassword("admin");
 		user6.setRole(rolesService.getRoles()[0]);
@@ -49,16 +55,18 @@ public class InsertSampleDataService {
 		usersService.addUser(user4);
 		usersService.addUser(user5);
 		usersService.addUser(user6);
+		usersService.addUser(user7);
+		usersService.addUser(user8);
 		
 		Offer offer1= new Offer("Producto 1", "Hecho de madera", "26-02-2019", 2.40, user1);
 		Offer offer2= new Offer("Producto 2", "Hecho de metal", "15-01-2018", 0.90, user1);
 		Offer offer3= new Offer("Producto 3", "Hecho de hierro", "31-12-2017", 49.90, user1);
 		Offer offer4= new Offer("Producto 4", "Hecho de plastico", "15-01-2019", 14.59, user1);
-		Offer offer5= new Offer("Producto 5", "Hecho de papel", "18-01-2019", 370.10, user2);
-		Offer offer6= new Offer("Producto 6", "Hecho de cartón", "24-02-2019", 4.50, user2);
-		Offer offer7= new Offer("Producto 7", "Hecho de cristal", "02-05-2018", 1200.0, user2);
-		Offer offer8= new Offer("Producto 8", "Hecho de cerámica", "26-02-2019", 13.90, user2);
-		Offer offer9= new Offer("Producto 9", "Hecho de barro", "21-02-2019", 12.43, user3);
+		Offer offer5= new Offer("Producto 5", "Hecho de papel", "18-01-2019", 370.10, user1);
+		Offer offer6= new Offer("Producto 6", "Hecho de cartón", "24-02-2019", 4.50, user1);
+		Offer offer7= new Offer("Producto 7", "Hecho de cristal", "02-05-2018", 1200.0, user1);
+		Offer offer8= new Offer("Producto 8", "Hecho de cerámica", "26-02-2019", 13.90, user1);
+		Offer offer9= new Offer("Producto 9", "Hecho de barro", "21-02-2019", 12.43, user1);
 		
 		offersService.addOffer(offer1);
 		offersService.addOffer(offer2);

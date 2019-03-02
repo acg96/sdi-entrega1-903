@@ -65,8 +65,9 @@ public class PO_NavView extends PO_View {
 	public static void checkMenuBeingInLoggedAdmin(WebDriver driver) {
 		checkMenuBeingInLogged(driver);	
 		checkUsersMenuAppear(driver);
-		checkOffersMenuNotAppear(driver);
 		checkWalletNotAppear(driver);
+		checkOffersMenuNotAppear(driver);
+		
 	}
 	
 	/**
@@ -85,62 +86,62 @@ public class PO_NavView extends PO_View {
 	}
 	
 	static public void checkEmailNotAppear(WebDriver driver) {
-		SeleniumUtils.idNoPresentePagina(driver, "navEmail");
+		SeleniumUtils.esperaCargaPaginaNoIdPresente(driver, "navEmail", getTimeout());
 	}
 
 	static public void checkWalletNotAppear(WebDriver driver) {
-		SeleniumUtils.idNoPresentePagina(driver, "navMoney");
+		SeleniumUtils.esperaCargaPaginaNoIdPresente(driver, "navMoney", getTimeout());
 	}
 
 	static public void checkOffersMenuNotAppear(WebDriver driver) {
-		SeleniumUtils.idNoPresentePagina(driver, "offers-menu");
+		SeleniumUtils.esperaCargaPaginaNoIdPresente(driver, "offers-menu", getTimeout());
 	}
 	
 	static public void checkUsersMenuNotAppear(WebDriver driver) {
-		SeleniumUtils.idNoPresentePagina(driver, "users-menu");
+		SeleniumUtils.esperaCargaPaginaNoIdPresente(driver, "users-menu", getTimeout());
 	}
 	
 	static public void checkLanguageMenuAppear(WebDriver driver) {
-		SeleniumUtils.idPresentePagina(driver, "btnLanguage");
+		SeleniumUtils.esperaCargaPaginaIdPresente(driver, "btnLanguage", getTimeout());
 	}
 	
 	static public void checkSignUpAppear(WebDriver driver) {
-		SeleniumUtils.idPresentePagina(driver, "navSignup");
+		SeleniumUtils.esperaCargaPaginaIdPresente(driver, "navSignup", getTimeout());
 	}
 	
 	static public void checkLoginAppear(WebDriver driver) {
-		SeleniumUtils.idPresentePagina(driver, "navLogin");
+		SeleniumUtils.esperaCargaPaginaIdPresente(driver, "navLogin", getTimeout());
 	}
 	
 	static public void checkLogOutNotAppear(WebDriver driver) {
-		SeleniumUtils.idNoPresentePagina(driver, "navLogout");
+		SeleniumUtils.esperaCargaPaginaNoIdPresente(driver, "navLogout", getTimeout());
 	}
 	
 	static public void checkLogOutAppear(WebDriver driver) {
-		SeleniumUtils.idPresentePagina(driver, "navLogout");
+		SeleniumUtils.esperaCargaPaginaIdPresente(driver, "navLogout", getTimeout());
 	}
 	
 	static public void checkLoginNotAppear(WebDriver driver) {
-		SeleniumUtils.idNoPresentePagina(driver, "navLogin");
+		SeleniumUtils.esperaCargaPaginaNoIdPresente(driver, "navLogin", getTimeout());
 	}
 	
 	static public void checkSignUpNotAppear(WebDriver driver) {
-		SeleniumUtils.idNoPresentePagina(driver, "navSignup");
+		SeleniumUtils.esperaCargaPaginaNoIdPresente(driver, "navSignup", getTimeout());
 	}
 	
 	static public void checkOffersMenuAppear(WebDriver driver) {
-		SeleniumUtils.idPresentePagina(driver, "offers-menu");
+		SeleniumUtils.esperaCargaPaginaIdPresente(driver, "offers-menu", getTimeout());
 	}
 	
 	static public void checkUsersMenuAppear(WebDriver driver) {
-		SeleniumUtils.idPresentePagina(driver, "users-menu");
+		SeleniumUtils.esperaCargaPaginaIdPresente(driver, "users-menu", getTimeout());
 	}
 	
 	static public void checkEmailAppear(WebDriver driver) {
-		SeleniumUtils.idPresentePagina(driver, "navEmail");
+		SeleniumUtils.esperaCargaPaginaIdPresente(driver, "navEmail", getTimeout());
 	}
 
 	static public void checkWalletAppear(WebDriver driver) {
-		SeleniumUtils.idPresentePagina(driver, "navMoney");
+		SeleniumUtils.esperaCargaPaginaIdPresente(driver, "navMoney", getTimeout());
 	}
 }

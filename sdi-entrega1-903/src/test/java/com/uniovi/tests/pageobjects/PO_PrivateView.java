@@ -11,6 +11,6 @@ public class PO_PrivateView extends PO_NavView {
 	 * @param driver
 	 */
 	public static void checkHomePage(WebDriver driver) {
-		SeleniumUtils.idPresentePagina(driver, "privateArea");
+		SeleniumUtils.esperaCargaPaginaIdPresente(driver, "privateArea", getTimeout());
 	}
 }

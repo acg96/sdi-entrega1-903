@@ -44,6 +44,15 @@ public class PO_RegisterView extends PO_NavView {
 	}
 	
 	/**
+	 * Comprueba que esté en la página de registro
+	 * @param driver
+	 * @param language con el identificador del lenguaje en el que comprobarlo
+	 */
+	public static void checkIsInSignUpView(WebDriver driver, int language) {
+		SeleniumUtils.EsperaCargaPagina(driver, "text", p.getString("signup.title", language), getTimeout());
+	}
+	
+	/**
 	 * Comprobar que sale el mensaje en función del elemento que no era válido además de tener el
 	 * menú en el estado correcto que debe, es decir, no estando logueado
 	 * 

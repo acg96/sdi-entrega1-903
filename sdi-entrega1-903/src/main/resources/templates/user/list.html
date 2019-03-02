@@ -5,7 +5,7 @@
 	<!-- Barra de Navegación superior -->
 	<nav th:replace="fragments/nav" />
 	<div class="container">
-		<h2 th:text="#{user.listUsers.title}"></h2>
+		<h2 th:text="#{user.listUsers.title}" id="userListId"></h2>
 		<p th:text="#{user.listUsers.description}"></p>
 		<form method="post" th:action="${'/user/remove'}"
 			th:object="${userToDelete}">
@@ -24,7 +24,7 @@
 							<td><input type="checkbox" class="form-check-input"
 								th:id="${'check-' + user.id}" th:field="*{users}"
 								th:value="${user.id}" th:if="${email != user.email}"></td>
-							<td th:text="${user.email}"></td>
+							<td class="emailsList" th:text="${user.email}" th:id="${user.email}"></td>
 							<td th:text="${user.name}"></td>
 							<td th:text="${user.lastName}"></td>
 						</tr>
