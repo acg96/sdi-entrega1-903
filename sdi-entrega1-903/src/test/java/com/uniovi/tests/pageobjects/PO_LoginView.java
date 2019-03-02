@@ -43,7 +43,7 @@ public class PO_LoginView extends PO_NavView {
 		// Se comprueba que no muestra mensaje de login incorrecto
 		PO_LoginView.checkFirstLoginAttempt(driver);
 		// Se rellena el formulario con datos válidos
-		PO_LoginView.fillForm(driver, "prueba@gmail.com", "123456");
+		PO_LoginView.fillForm(driver, "prueba2@gmail.com", "123456");
 		// Se comprueba que está logueado
 		PO_NavView.checkMenuBeingInLoggedUser(driver);
 		PO_PrivateView.checkHomePage(driver);

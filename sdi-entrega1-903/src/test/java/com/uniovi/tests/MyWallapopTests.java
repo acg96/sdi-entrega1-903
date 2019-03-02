@@ -1,6 +1,5 @@
 package com.uniovi.tests;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -305,8 +304,79 @@ public class MyWallapopTests {
 		SeleniumUtils.esperaCargaPaginaIdPresente(driver, "userListId", PO_View.getTimeout());
 		// Se solicitar borrar tres usuarios y se comprueba que se hayan borrado
 		// Se solicitan borrar las posiciones 2, 3 y la última
-		Integer[] posicionesABorrar= {1, 2, PO_PrivateAdminView.ULTIMO_LISTA};
+		Integer[] posicionesABorrar = { 1, 2, PO_PrivateAdminView.ULTIMO_LISTA };
 		PO_PrivateAdminView.borrarUsuariosPorPosicion(driver, posicionesABorrar);
+	}
+
+	// PR16. Alta de oferta con datos válidos y comprobación en listado del usuario
+	@Test
+	public void PR16() {
+		// Primero se inicia sesión como usuario estándar
+		PO_LoginView.inicioDeSesionUser(driver);
+		// Se clica sobre la opción de menú y se comprueba que se carga
+		PO_PrivateUserView.clickOpcionMenu(driver,
+				PO_View.getP().getString("nav.menu.addOffer", PO_Properties.getSPANISH()));
+		SeleniumUtils.esperaCargaPaginaIdPresente(driver, "addOfferId", PO_View.getTimeout());
+		// Se rellena con datos válidos y se crea
+		PO_PrivateUserView.fillForm(driver, "Producto prueba", "Hecho con Selenium", "12-05-2016", "5.40");
+		// Se comprueba que aparece en el listado de ofertas del usuario
+		PO_PrivateUserView.clickOpcionMenu(driver,
+				PO_View.getP().getString("nav.menu.showOffers", PO_Properties.getSPANISH()));
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto prueba", PO_View.getTimeout());
+	}
+
+	// PR17. Alta de oferta con datos inválidos (título vacío)
+	@Test
+	public void PR17() {
+		// Primero se inicia sesión como usuario estándar
+		PO_LoginView.inicioDeSesionUser(driver);
+		// Se clica sobre la opción de menú y se comprueba que se carga
+		PO_PrivateUserView.clickOpcionMenu(driver,
+				PO_View.getP().getString("nav.menu.addOffer", PO_Properties.getSPANISH()));
+		SeleniumUtils.esperaCargaPaginaIdPresente(driver, "addOfferId", PO_View.getTimeout());
+		// Se rellena con datos inválidos y se crea
+		PO_PrivateUserView.fillForm(driver, " ", "Hecho con Selenium", "12-05-2016", "5.40");
+		// Se comprueba que aparece el mensaje de campo vacío
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver,
+				PO_View.getP().getString("Error.empty", PO_Properties.getSPANISH()), PO_View.getTimeout());
+	}
+
+	// PR18. Mostrar listado de ofertas del usuario y comprobar que están todas
+	@Test
+	public void PR18() {
+		// Primero se inicia sesión como usuario estándar
+		PO_LoginView.inicioDeSesionUser(driver);
+		// Se clica sobre la opción de menú
+		PO_PrivateUserView.clickOpcionMenu(driver,
+				PO_View.getP().getString("nav.menu.showOffers", PO_Properties.getSPANISH()));
+		// Se comprueba cada una de las ofertas
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto prueba", PO_View.getTimeout());
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto 10", PO_View.getTimeout());
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto 11", PO_View.getTimeout());
+	}
+
+	// PR19. Ir a la lista de ofertas y borrar la primera de ellas
+	@Test
+	public void PR19() {
+		// Primero se inicia sesión como usuario estándar
+		PO_LoginView.inicioDeSesionUser(driver);
+		// Se clica sobre la opción de menú
+		PO_PrivateUserView.clickOpcionMenu(driver,
+				PO_View.getP().getString("nav.menu.showOffers", PO_Properties.getSPANISH()));
+		// Se eliminar la primera oferta y se comprueba que no esté
+		PO_PrivateUserView.borrarProductosPorPosicion(driver, 0);
+	}
+
+	// PR20. Ir a la lista de ofertas y borrar la ultima de ellas
+	@Test
+	public void PR20() {
+		// Primero se inicia sesión como usuario estándar
+		PO_LoginView.inicioDeSesionUser(driver);
+		// Se clica sobre la opción de menú
+		PO_PrivateUserView.clickOpcionMenu(driver,
+				PO_View.getP().getString("nav.menu.showOffers", PO_Properties.getSPANISH()));
+		// Se eliminar la última oferta y se comprueba que no esté
+		PO_PrivateUserView.borrarProductosPorPosicion(driver, PO_PrivateUserView.ULTIMA_POSICION);
 	}
 
 }

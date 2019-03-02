@@ -100,6 +100,22 @@ public class SeleniumUtils {
 
 		assertTrue(resultado);
 	}
+	
+	/**
+	 * Aborta si el "texto" no está presente en la página actual tras timeout segundos.
+	 * 
+	 * @param driver: apuntando al navegador abierto actualmente.
+	 * @param texto: texto a buscar
+	 * @param timeout: el tiempo máximo que se esperará por la aparición del texto a
+	 *        buscar
+	 */
+	static public void EsperaCargaPaginaTieneTexto(WebDriver driver, String texto, int timeout) {
+		WebElement resultado = (new WebDriverWait(driver, timeout)).until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'" + texto + "')]")));
+		assertTrue(resultado != null);
+		List<WebElement> elementos = driver.findElements(By.xpath("//*[contains(text(),'" + texto + "')]"));
+		assertTrue("Texto " + texto + " no localizado!", !elementos.isEmpty());
+	}
 
 	/**
 	 * Espera por la visibilidad de un elemento/s en la vista actualmente cargandose

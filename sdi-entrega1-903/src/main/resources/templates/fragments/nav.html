@@ -16,9 +16,9 @@
 				<li><a href="/" th:text="#{nav.menu.home}"></a></li>
 				<li id="offers-menu" class="dropdown" sec:authorize="hasRole('ROLE_USER')"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#"
-					th:text="#{nav.menu.offersManagement}"><span class="caret"></span>
+					th:text="#{nav.menu.offersManagement}" id="btnOffersManagement"><span class="caret"></span>
 				</a>
-					<ul class="dropdown-menu">
+					<ul class="dropdown-menu" id="offersDropdownMenuButton">
 						<li><a href="/offer/add" th:text="#{nav.menu.addOffer}"></a></li>
 						<li><a href="/offer/list" th:text="#{nav.menu.showOffers}"></a></li>
 						<li><a href="/offer/search" th:text="#{nav.menu.searchOffers}"></a></li>

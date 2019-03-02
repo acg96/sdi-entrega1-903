@@ -67,6 +67,9 @@ public class InsertSampleDataService {
 		Offer offer7= new Offer("Producto 7", "Hecho de cristal", "02-05-2018", 1200.0, user1);
 		Offer offer8= new Offer("Producto 8", "Hecho de cerámica", "26-02-2019", 13.90, user1);
 		Offer offer9= new Offer("Producto 9", "Hecho de barro", "21-02-2019", 12.43, user1);
+		Offer offer10= new Offer("Producto 10", "Hecho de aglomerado", "13-05-2019", 12.60, user2);
+		Offer offer11= new Offer("Producto 11", "Hecho de espuma", "10-10-2019", 4.50, user2);
+		Offer offer12= new Offer("Producto 12", "Hecho de poliuretano", "05-10-2017", 1.18, user2);
 		
 		offersService.addOffer(offer1);
 		offersService.addOffer(offer2);
@@ -77,6 +80,9 @@ public class InsertSampleDataService {
 		offersService.addOffer(offer7);
 		offersService.addOffer(offer8);
 		offersService.addOffer(offer9);
+		offersService.addOffer(offer10);
+		offersService.addOffer(offer11);
+		offersService.addOffer(offer12);
 		
 		Purchase purchase1= new Purchase(user3, offer2);
 		Purchase purchase2= new Purchase(user3, offer4);

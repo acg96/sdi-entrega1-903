@@ -27,7 +27,7 @@
 						<td th:text="${offer.details}"></td>
 						<td th:text="${offer.price}+€"></td>
 						<td><a th:href="${'/offer/remove/' + offer.id}"
-							th:text="#{offer.list.title.remove}"></a></td>
+							th:text="#{offer.list.title.remove}" th:id="${offer.id}+list" class="ownOffersListId"></a></td>
 					</tr>
 				</tbody>
 			</table>
