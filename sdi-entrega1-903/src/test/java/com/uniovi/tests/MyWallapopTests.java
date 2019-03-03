@@ -18,15 +18,15 @@ import org.junit.runners.MethodSorters;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class MyWallapopTests {
-	final static String URL_LOCAL = "http://localhost:8090";
-	final static String URL_AMAZON = "";
+	final static String URL_LOCAL = "http://localhost:8080";
+	final static String URL_AMAZON = "http://ec2-34-214-22-211.us-west-2.compute.amazonaws.com:8080";
 
 	static String PathFirefox64 = "C:\\Program Files\\Mozilla Firefox\\firefox.exe";
 	static String Geckdriver024 = "C:\\Selenium\\geckodriver024win64.exe";
 	static WebDriver driver = getDriver(PathFirefox64, Geckdriver024);
 	
 	//*****************CAMBIAR AQUÍ POR OTRA URL*******************
-	static String URL = URL_LOCAL; // Cambiar por URL_AMAZON
+	static String URL = URL_AMAZON; // Cambiar por URL_LOCAL
 	//*****************CAMBIAR AQUÍ POR OTRA URL*******************
 
 	private static List<String> emails = new ArrayList<String>();
