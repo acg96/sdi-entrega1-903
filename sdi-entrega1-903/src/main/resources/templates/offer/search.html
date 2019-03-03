@@ -27,6 +27,7 @@
 						<th th:text="#{offer.search.title.details}"></th>
 						<th th:text="#{offer.search.title.price}"></th>
 						<th class="col-md-1"></th>
+						<th class="col-md-1"></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -39,6 +40,9 @@
 							th:text="#{offer.search.title.buy}" th:id="${offer.id}+_buy" class="bListToBuy"></a></td>
 						<td th:if="${offer.purchase != null}"><p style="color:red;"
 								th:text="#{offer.search.title.soldout}"></p></td>
+						<td th:if="${offer.purchase == null}"><a style="color:blue;" th:href="${'/conversation/start/'+offer.id}"
+								th:text="#{offer.search.title.chat}"></a></td>
+						<td th:if="${offer.purchase != null}"></td>
 					</tr>
 				</tbody>
 			</table>

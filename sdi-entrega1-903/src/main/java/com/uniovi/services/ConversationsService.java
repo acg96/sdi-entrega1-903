@@ -22,6 +22,15 @@ public class ConversationsService {
 		return conversations;
 	}
 	
+	public Conversation getConversationByBuyerAndOffer(User buyer, Offer offer) {
+		List<Conversation> conversations= new ArrayList<Conversation>();
+		conversationsRepository.findConversationByBuyerAndOffer(buyer, offer).forEach(conversations::add);
+		if (conversations != null && conversations.size() == 1) {
+			return conversations.get(0);
+		}
+		return null;
+	}
+	
 	public List<Conversation> getOfferConversations(Offer offer) {
 		List<Conversation> conversations = new ArrayList<Conversation>();
 		conversationsRepository.findAllByOffer(offer).forEach(conversations::add);

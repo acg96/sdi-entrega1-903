@@ -1,5 +1,6 @@
 package com.uniovi.entities;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.*;
@@ -36,6 +37,11 @@ public class Message implements Comparable<Message>{
 
 	public long getId() {
 		return id;
+	}
+	
+	public String getFormatDate() {
+		SimpleDateFormat sdf= new SimpleDateFormat("dd-MM-yyyy HH:mm");
+		return sdf.format(this.getDate());
 	}
 
 	public void setId(long id) {
