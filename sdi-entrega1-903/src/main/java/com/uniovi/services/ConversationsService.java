@@ -15,28 +15,37 @@ import com.uniovi.repositories.ConversationsRepository;
 public class ConversationsService {
 	@Autowired
 	private ConversationsRepository conversationsRepository;
-	
+
 	public List<Conversation> getBuyerConversations(User buyer) {
 		List<Conversation> conversations = new ArrayList<Conversation>();
 		conversationsRepository.findAllByBuyer(buyer).forEach(conversations::add);
 		return conversations;
 	}
-	
+
 	public Conversation getConversationByBuyerAndOffer(User buyer, Offer offer) {
-		List<Conversation> conversations= new ArrayList<Conversation>();
+		List<Conversation> conversations = new ArrayList<Conversation>();
 		conversationsRepository.findConversationByBuyerAndOffer(buyer, offer).forEach(conversations::add);
 		if (conversations != null && conversations.size() == 1) {
 			return conversations.get(0);
 		}
 		return null;
 	}
-	
+
+	public List<Conversation> getAllUserConversations(User user) {
+		List<Conversation> conversations = new ArrayList<Conversation>();
+		conversationsRepository.findAllUserConversations(user).forEach(conver -> {
+			if (!conver.getMessages().isEmpty())
+				conversations.add(conver);
+		});
+		return conversations;
+	}
+
 	public List<Conversation> getOfferConversations(Offer offer) {
 		List<Conversation> conversations = new ArrayList<Conversation>();
 		conversationsRepository.findAllByOffer(offer).forEach(conversations::add);
 		return conversations;
 	}
-	
+
 	public Conversation getConversation(Long id) {
 		return conversationsRepository.findById(id).get();
 	}

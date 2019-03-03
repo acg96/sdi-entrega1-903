@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="fragments/head" />
+<body>
+
+	<!-- Barra de Navegación superior -->
+	<nav th:replace="fragments/nav" />
+
+
+
+	<div class="container">
+		<h2 th:text="#{conversation.list.title}"></h2>
+		<div class="table-responsive">
+			<table class="table table-hover" 
+				id="tableChats">
+				<thead>
+					<tr>
+						<th th:text="#{conversation.list.offer.title}"></th>
+						<th th:text="#{conversation.list.seller.title}"></th>
+						<th class="col-md-1"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="conversation : ${conversationList}">
+						<td th:text="${conversation.offer.title}"></td>
+						<td  th:if="${conversation.offer.user.email != userAuth.email}" th:text="${conversation.offer.user.email}"></td>
+						<td  th:if="${conversation.offer.user.email == userAuth.email}" th:text="#{conversation.list.yourself}"></td>
+						<td><a style="color:blue;" th:href="${'/conversation/add/'+conversation.id}"
+								th:text="#{offer.search.title.chat}" th:id="${conversation.id}+conver" class="chatListId"></a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<footer th:replace="fragments/footer" />
+</body>
+</html>

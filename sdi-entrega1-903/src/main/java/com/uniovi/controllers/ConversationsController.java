@@ -3,6 +3,7 @@ package com.uniovi.controllers;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
+import java.security.Principal;
 import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -48,6 +49,17 @@ public class ConversationsController {
 			model.addAttribute("email", user.getEmail());
 			model.addAttribute("money", user.getMoney());
 		}
+	}
+	
+	@RequestMapping("/conversation/list")
+	public String getList(Model model, Principal principal) {
+		storeUserInformation(model);
+		String email = principal.getName();
+		User user = usersService.getUserByEmail(email);
+		List<Conversation> list= conversationsService.getAllUserConversations(user);
+		model.addAttribute("conversationList", list);
+		model.addAttribute("userAuth", user);
+		return "conversation/list";
 	}
 	
 //	@RequestMapping("/conversation/remove/{id}")

@@ -26,7 +26,7 @@ public class MyWallapopTests {
 	static WebDriver driver = getDriver(PathFirefox64, Geckdriver024);
 	
 	//*****************CAMBIAR AQUÍ POR OTRA URL*******************
-	static String URL = URL_AMAZON; // Cambiar por URL_LOCAL
+	static String URL = URL_LOCAL; // Cambiar por URL_LOCAL
 	//*****************CAMBIAR AQUÍ POR OTRA URL*******************
 
 	private static List<String> emails = new ArrayList<String>();

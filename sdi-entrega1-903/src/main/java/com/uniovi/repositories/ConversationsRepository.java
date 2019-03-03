@@ -15,4 +15,7 @@ public interface ConversationsRepository extends CrudRepository<Conversation, Lo
 	
 	@Query("SELECT c FROM Conversation c WHERE c.buyer=?1 and c.offer=?2")
 	List<Conversation> findConversationByBuyerAndOffer(User buyer, Offer offer);
+	
+	@Query("SELECT c FROM Conversation c WHERE c.offer.user=?1 or c.buyer=?1")
+	List<Conversation> findAllUserConversations(User user);
 }

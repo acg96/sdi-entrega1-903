@@ -1,4 +1,4 @@
-/*C262*/SET SCHEMA PUBLIC
+/*C32*/SET SCHEMA PUBLIC
 alter table conversation drop constraint FKkypkkr66d2u1y1id2xq9cjyex
 alter table conversation drop constraint FKpnhoy6pokrno4qqomfm9ob27r
 alter table message drop constraint FK6yskk3hxw5sklwgi25y6d5u1l
@@ -25,28 +25,120 @@ alter table message add constraint FK6yskk3hxw5sklwgi25y6d5u1l foreign key (conv
 alter table offer add constraint FKo0rdvexlxmyakcvw8b5aqidlk foreign key (user_id) references user
 alter table purchase add constraint FK86i0stm7cqsglqptdvjij1k3m foreign key (user_id) references user
 alter table purchase add constraint FK8b5b4vp8smfuvge8vgx767b43 foreign key (offer_id) references offer
-INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$oKetc6NdASkWb3.1O7fmYuX4vHoN1DN1FKxHdcuLGx0Xle9g.7ea.','ROLE_USER')
+DISCONNECT
+/*C33*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C34*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C35*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C36*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C37*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C38*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C39*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C40*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C41*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C42*/SET SCHEMA PUBLIC
+alter table conversation drop constraint FKkypkkr66d2u1y1id2xq9cjyex
+alter table conversation drop constraint FKpnhoy6pokrno4qqomfm9ob27r
+alter table message drop constraint FK6yskk3hxw5sklwgi25y6d5u1l
+alter table offer drop constraint FKo0rdvexlxmyakcvw8b5aqidlk
+alter table purchase drop constraint FK86i0stm7cqsglqptdvjij1k3m
+alter table purchase drop constraint FK8b5b4vp8smfuvge8vgx767b43
+drop table conversation if exists
+drop table message if exists
+drop table offer if exists
+drop table purchase if exists
+drop table user if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table conversation (id bigint not null, user_id bigint, offer_id bigint, primary key (id))
+create table message (id bigint not null, author varchar(255), date timestamp, text varchar(255), conversation_id bigint, primary key (id))
+create table offer (id bigint not null, date varchar(255), details varchar(255), price double, title varchar(255), user_id bigint, primary key (id))
+create table purchase (id bigint not null, user_id bigint, offer_id bigint, primary key (id))
+create table user (id bigint not null, email varchar(255), last_name varchar(255), money double, name varchar(255), password varchar(255), role varchar(255), primary key (id))
+alter table conversation add constraint UKfo61xvlxvutyxjoatgmxvdj64 unique (user_id, offer_id)
+alter table user add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
+alter table conversation add constraint FKkypkkr66d2u1y1id2xq9cjyex foreign key (user_id) references user
+alter table conversation add constraint FKpnhoy6pokrno4qqomfm9ob27r foreign key (offer_id) references offer
+alter table message add constraint FK6yskk3hxw5sklwgi25y6d5u1l foreign key (conversation_id) references conversation
+alter table offer add constraint FKo0rdvexlxmyakcvw8b5aqidlk foreign key (user_id) references user
+alter table purchase add constraint FK86i0stm7cqsglqptdvjij1k3m foreign key (user_id) references user
+alter table purchase add constraint FK8b5b4vp8smfuvge8vgx767b43 foreign key (offer_id) references offer
+DISCONNECT
+/*C43*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C44*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C45*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C46*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C47*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C48*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C49*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C50*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C51*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C52*/SET SCHEMA PUBLIC
+alter table conversation drop constraint FKkypkkr66d2u1y1id2xq9cjyex
+alter table conversation drop constraint FKpnhoy6pokrno4qqomfm9ob27r
+alter table message drop constraint FK6yskk3hxw5sklwgi25y6d5u1l
+alter table offer drop constraint FKo0rdvexlxmyakcvw8b5aqidlk
+alter table purchase drop constraint FK86i0stm7cqsglqptdvjij1k3m
+alter table purchase drop constraint FK8b5b4vp8smfuvge8vgx767b43
+drop table conversation if exists
+drop table message if exists
+drop table offer if exists
+drop table purchase if exists
+drop table user if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table conversation (id bigint not null, user_id bigint, offer_id bigint, primary key (id))
+create table message (id bigint not null, author varchar(255), date timestamp, text varchar(255), conversation_id bigint, primary key (id))
+create table offer (id bigint not null, date varchar(255), details varchar(255), price double, title varchar(255), user_id bigint, primary key (id))
+create table purchase (id bigint not null, user_id bigint, offer_id bigint, primary key (id))
+create table user (id bigint not null, email varchar(255), last_name varchar(255), money double, name varchar(255), password varchar(255), role varchar(255), primary key (id))
+alter table conversation add constraint UKfo61xvlxvutyxjoatgmxvdj64 unique (user_id, offer_id)
+alter table user add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
+alter table conversation add constraint FKkypkkr66d2u1y1id2xq9cjyex foreign key (user_id) references user
+alter table conversation add constraint FKpnhoy6pokrno4qqomfm9ob27r foreign key (offer_id) references offer
+alter table message add constraint FK6yskk3hxw5sklwgi25y6d5u1l foreign key (conversation_id) references conversation
+alter table offer add constraint FKo0rdvexlxmyakcvw8b5aqidlk foreign key (user_id) references user
+alter table purchase add constraint FK86i0stm7cqsglqptdvjij1k3m foreign key (user_id) references user
+alter table purchase add constraint FK8b5b4vp8smfuvge8vgx767b43 foreign key (offer_id) references offer
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$ItuVmJrVhhxVJJS8nyUGd.YvqzJEC0dIswgvptU4CCxEX/3r6jj.2','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
 COMMIT
-INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$2b6bUUKywG1Pg4DouMYLpe63skV6MYtxTlN29bRQlZAN6kqyI7Trq','ROLE_USER')
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$l/K1GaUg3jh9bVtlXCmGueYtfx7CJvw.gS4maazN.Opb.NVzZxg82','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
 COMMIT
-INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$H7VRHLVGY1Y4PIhRx9W9bewwDF5MutV.9OPwNsbIIxZPFuJR6vk12','ROLE_USER')
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$HJp/TFED8g2M31l7HQrSve61AV1Bu93u.tFIpJd0lCF3d/.hvlJEm','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
 COMMIT
-INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$6du71t9AXV0NkOQMuWh.ce8geaS11i3Mt5UmWBTT6r.iJf3rZgPg2','ROLE_USER')
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$HRsVEyxV2OHB9E8206cUn.qBUo4BFlde.C0tZDmzPZHYE6JFsJ1L6','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
 COMMIT
-INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$JPc3z.f45uAkBezocbH0FeUy7nTGBj/0MqSEIcjPjcujG8hXFyxk2','ROLE_USER')
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$4b3bQ3sI27cJ2tFtL9tpQe5oCR4LY9cvDAkl0hkbDpD8lyUQzJa9O','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
 COMMIT
-INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$4wXYxCYEpl0I7xnpPO53Bu1aQ8S7CETQFeFK0rsIijZsYFY6rIra.','ROLE_ADMIN')
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$SXTLO3A0vC7VwZ51EOJsO.bimd3Ka2KH43uCIHN8J4Vg6JVf1FicW','ROLE_ADMIN')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
 COMMIT
-INSERT INTO USER VALUES(7,'prueba6@gmail.com','Ruiz',100.0E0,'Rodrigo','$2a$10$Bxkis6SYmltNhuCCk70nx.5iNRv1Gdrem/aoyH.Q8Q36RPx0ZJG4u','ROLE_USER')
+INSERT INTO USER VALUES(7,'prueba6@gmail.com','Ruiz',100.0E0,'Rodrigo','$2a$10$/vFzPTfK6QKVc1NEPr4OKu.v06dkbCfDX7ZMteyDnUlX4197I/12q','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
 COMMIT
-INSERT INTO USER VALUES(8,'prueba7@gmail.com','Garc\u00eda',100.0E0,'Bel\u00e9n','$2a$10$gd8Ld6tymBBTfmHWL1ODX.bU3oen5omC1PRjk5E4LB5WuqWdoM/N2','ROLE_USER')
+INSERT INTO USER VALUES(8,'prueba7@gmail.com','Garc\u00eda',100.0E0,'Bel\u00e9n','$2a$10$BantdPD8BHwCqHSWQGUGMekGinhRHQMHU7yWkU6O8wEwyy6U666T6','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 9
 COMMIT
 INSERT INTO OFFER VALUES(9,'26-02-2019','Hecho de madera',2.4E0,'Producto 1',1)
@@ -91,10 +183,10 @@ COMMIT
 INSERT INTO CONVERSATION VALUES(22,5,21)
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 23
 COMMIT
-INSERT INTO MESSAGE VALUES(23,'Luc\u00eda M\u00e9ndez','2019-03-03 14:15:30.183000','Hola',22)
+INSERT INTO MESSAGE VALUES(23,'Luc\u00eda M\u00e9ndez','2019-03-03 16:03:55.827000','Hola',22)
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 24
 COMMIT
-INSERT INTO MESSAGE VALUES(24,'Sara Garc\u00eda','2019-03-03 14:15:30.183000','Buenas!',22)
+INSERT INTO MESSAGE VALUES(24,'Sara Garc\u00eda','2019-03-03 16:03:55.827000','Buenas!',22)
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 25
 COMMIT
 INSERT INTO PURCHASE VALUES(25,3,10)
@@ -113,37 +205,43 @@ INSERT INTO PURCHASE VALUES(29,2,17)
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 30
 COMMIT
 DELETE FROM USER WHERE ID=2
-INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',85.17E0,'Sara','$2a$10$2b6bUUKywG1Pg4DouMYLpe63skV6MYtxTlN29bRQlZAN6kqyI7Trq','ROLE_USER')
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',85.17E0,'Sara','$2a$10$l/K1GaUg3jh9bVtlXCmGueYtfx7CJvw.gS4maazN.Opb.NVzZxg82','ROLE_USER')
 COMMIT
 DELETE FROM USER WHERE ID=3
-INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',70.61E0,'Sof\u00eda','$2a$10$H7VRHLVGY1Y4PIhRx9W9bewwDF5MutV.9OPwNsbIIxZPFuJR6vk12','ROLE_USER')
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',70.61E0,'Sof\u00eda','$2a$10$HJp/TFED8g2M31l7HQrSve61AV1Bu93u.tFIpJd0lCF3d/.hvlJEm','ROLE_USER')
 COMMIT
-INSERT INTO CONVERSATION VALUES(30,1,20)
+INSERT INTO CONVERSATION VALUES(30,3,20)
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 31
 COMMIT
-INSERT INTO CONVERSATION VALUES(31,6,20)
+INSERT INTO MESSAGE VALUES(31,'Sof\u00eda Zamora','2019-03-03 16:06:27.773000','Holaaa',30)
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 32
 COMMIT
+INSERT INTO CONVERSATION VALUES(32,2,11)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 33
+COMMIT
+INSERT INTO MESSAGE VALUES(33,'Sara Garc\u00eda','2019-03-03 16:07:04.781000','Holaaa',32)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 34
+COMMIT
+/*C53*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C266*/SET SCHEMA PUBLIC
+/*C55*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C265*/SET SCHEMA PUBLIC
+/*C56*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C264*/SET SCHEMA PUBLIC
+/*C52*/DISCONNECT
+/*C54*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C271*/SET SCHEMA PUBLIC
+/*C57*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C268*/SET SCHEMA PUBLIC
+/*C58*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C269*/SET SCHEMA PUBLIC
+/*C60*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C263*/SET SCHEMA PUBLIC
+/*C59*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C267*/SET SCHEMA PUBLIC
+/*C61*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C270*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C272*/SET SCHEMA PUBLIC
+/*C62*/SET SCHEMA PUBLIC
 alter table conversation drop constraint FKkypkkr66d2u1y1id2xq9cjyex
 alter table conversation drop constraint FKpnhoy6pokrno4qqomfm9ob27r
 alter table message drop constraint FK6yskk3hxw5sklwgi25y6d5u1l
@@ -170,28 +268,28 @@ alter table message add constraint FK6yskk3hxw5sklwgi25y6d5u1l foreign key (conv
 alter table offer add constraint FKo0rdvexlxmyakcvw8b5aqidlk foreign key (user_id) references user
 alter table purchase add constraint FK86i0stm7cqsglqptdvjij1k3m foreign key (user_id) references user
 alter table purchase add constraint FK8b5b4vp8smfuvge8vgx767b43 foreign key (offer_id) references offer
-INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$HvLHf2s4t4nAoA1Z75kvW.w548P2j.x7pD1.84y18g.6uQptNf8ui','ROLE_USER')
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$ATCLX67rQQr42gie.yR0Iu3DitWqNJkIc/nNifvJuOBTnnuq2teFm','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
 COMMIT
-INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$ANUxXcY4nUN5L/h3VQcI8eP09oYMzsHThAilVCMfLMjXtB37FRMcC','ROLE_USER')
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$9EHNRDel5xSJsmL4VFi7xOHZa.u5uudPPqWQeLwANTinJxV/h6jK2','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
 COMMIT
-INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$LyH0g7SUZzKd.p44Jmn2UOwj2Tzk5bmQxX5JnJ1hSGlvu9ASdTJyO','ROLE_USER')
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$Ga4aXNw1JowECy315uOi/O32K4CyJ6x0WqHoweBMPSF2HnWdj3rS.','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
 COMMIT
-INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$zJmW4J6sDcgegKqiBIWQguLu.o90mPKthLjLZndkozJVvAsY8hoQa','ROLE_USER')
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$iwzsZACCyaJKJboj26y55OekiCmilGb9BYM0EXFyP9jUCa9ciGCc2','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
 COMMIT
-INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$ePC5EEQ6dZLYAJH8hwJ7Q.CY.atc/Vql7eTH476jUn186S85i72kO','ROLE_USER')
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$Dx3ThXCV.fkcju/Lqx0GDOp9kSzDJcZ1/XxcbZzqYU7NzJKKYLwMy','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
 COMMIT
-INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$DYXhohcR9VO97llcaJQv0OREPSpowfoPzfWm6tbgaSm1g3B8Po042','ROLE_ADMIN')
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$Ia7eX8kLS2IAoqO4mdhBHO6ba7Z0xbzXgCbkCq3tFjXcNfP3wvyoi','ROLE_ADMIN')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
 COMMIT
-INSERT INTO USER VALUES(7,'prueba6@gmail.com','Ruiz',100.0E0,'Rodrigo','$2a$10$NbTmDzkOz15DWtadcl14w.clqci01HwPTfpsj.1ySpbhmnKZSkFbO','ROLE_USER')
+INSERT INTO USER VALUES(7,'prueba6@gmail.com','Ruiz',100.0E0,'Rodrigo','$2a$10$JpfBICJQj7XJABXCxX2soOapBWVDULRD.EvKoKTeFGSWd9v7zfyma','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
 COMMIT
-INSERT INTO USER VALUES(8,'prueba7@gmail.com','Garc\u00eda',100.0E0,'Bel\u00e9n','$2a$10$XyoMYgXO39vhIDLku0Uq6.SNreUzu8orqaRlTntzH.NmujLx5teyW','ROLE_USER')
+INSERT INTO USER VALUES(8,'prueba7@gmail.com','Garc\u00eda',100.0E0,'Bel\u00e9n','$2a$10$CZmnk00UXhzfOd7tJzP9m.myYXe3hEnHgFpBEgnbH./3SZibZhIGO','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 9
 COMMIT
 INSERT INTO OFFER VALUES(9,'26-02-2019','Hecho de madera',2.4E0,'Producto 1',1)
@@ -236,10 +334,10 @@ COMMIT
 INSERT INTO CONVERSATION VALUES(22,5,21)
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 23
 COMMIT
-INSERT INTO MESSAGE VALUES(23,'Luc\u00eda M\u00e9ndez','2019-03-03 14:18:09.237000','Hola',22)
+INSERT INTO MESSAGE VALUES(23,'Luc\u00eda M\u00e9ndez','2019-03-03 16:08:47.081000','Hola',22)
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 24
 COMMIT
-INSERT INTO MESSAGE VALUES(24,'Sara Garc\u00eda','2019-03-03 14:18:09.237000','Buenas!',22)
+INSERT INTO MESSAGE VALUES(24,'Sara Garc\u00eda','2019-03-03 16:08:47.081000','Buenas!',22)
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 25
 COMMIT
 INSERT INTO PURCHASE VALUES(25,3,10)
@@ -258,34 +356,49 @@ INSERT INTO PURCHASE VALUES(29,2,17)
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 30
 COMMIT
 DELETE FROM USER WHERE ID=2
-INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',85.17E0,'Sara','$2a$10$ANUxXcY4nUN5L/h3VQcI8eP09oYMzsHThAilVCMfLMjXtB37FRMcC','ROLE_USER')
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',85.17E0,'Sara','$2a$10$9EHNRDel5xSJsmL4VFi7xOHZa.u5uudPPqWQeLwANTinJxV/h6jK2','ROLE_USER')
 COMMIT
 DELETE FROM USER WHERE ID=3
-INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',70.61E0,'Sof\u00eda','$2a$10$LyH0g7SUZzKd.p44Jmn2UOwj2Tzk5bmQxX5JnJ1hSGlvu9ASdTJyO','ROLE_USER')
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',70.61E0,'Sof\u00eda','$2a$10$Ga4aXNw1JowECy315uOi/O32K4CyJ6x0WqHoweBMPSF2HnWdj3rS.','ROLE_USER')
 COMMIT
-INSERT INTO CONVERSATION VALUES(30,1,20)
+INSERT INTO CONVERSATION VALUES(30,3,19)
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 31
 COMMIT
-/*C273*/SET SCHEMA PUBLIC
+INSERT INTO MESSAGE VALUES(31,'Sof\u00eda Zamora','2019-03-03 16:09:27.070000','Holaa',30)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 32
+COMMIT
+INSERT INTO CONVERSATION VALUES(32,2,11)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 33
+COMMIT
+INSERT INTO MESSAGE VALUES(33,'Sara Garc\u00eda','2019-03-03 16:10:32.261000','Holaaaaassss',32)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 34
+COMMIT
+INSERT INTO MESSAGE VALUES(34,'Sara Garc\u00eda','2019-03-03 16:10:46.993000','asds',22)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 35
+COMMIT
+INSERT INTO CONVERSATION VALUES(35,2,13)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 36
+COMMIT
+/*C63*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C272*/DISCONNECT
-/*C274*/SET SCHEMA PUBLIC
+/*C65*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C275*/SET SCHEMA PUBLIC
+/*C62*/DISCONNECT
+/*C66*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C279*/SET SCHEMA PUBLIC
+/*C68*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C277*/SET SCHEMA PUBLIC
+/*C70*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C278*/SET SCHEMA PUBLIC
+/*C67*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C276*/SET SCHEMA PUBLIC
+/*C64*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C280*/SET SCHEMA PUBLIC
+/*C71*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C281*/SET SCHEMA PUBLIC
+/*C69*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C282*/SET SCHEMA PUBLIC
+/*C72*/SET SCHEMA PUBLIC
 alter table conversation drop constraint FKkypkkr66d2u1y1id2xq9cjyex
 alter table conversation drop constraint FKpnhoy6pokrno4qqomfm9ob27r
 alter table message drop constraint FK6yskk3hxw5sklwgi25y6d5u1l
@@ -312,28 +425,28 @@ alter table message add constraint FK6yskk3hxw5sklwgi25y6d5u1l foreign key (conv
 alter table offer add constraint FKo0rdvexlxmyakcvw8b5aqidlk foreign key (user_id) references user
 alter table purchase add constraint FK86i0stm7cqsglqptdvjij1k3m foreign key (user_id) references user
 alter table purchase add constraint FK8b5b4vp8smfuvge8vgx767b43 foreign key (offer_id) references offer
-INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$TDIAoC9GCstPxbr.HvIXXOj8gjptWmhwHmdGjUJlcORvk/DYO.aSK','ROLE_USER')
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$vB/6JGYdX4IfqeWuwuOL7Om8Ax5AtcpjLXRAmR4wCg5kRbLs0HImu','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
 COMMIT
-INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$9Xq79Y2/5K2LsWK.v0xFSOl2z7DFCnRENrEa52kARqCaKzGxU3tiG','ROLE_USER')
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$zOIaUKhust5B8HzzV4mjL./lq6DJuOcsHG9p5h/Po.bROnMb9oEtC','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
 COMMIT
-INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$u9N6pxSCw/Srx1se3lPIieGNECZrgConjbp4U0W7Zz6bkkFKMP5uO','ROLE_USER')
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$FdZi/7ObBnspQTOPzUQDC.qo8lUUQ.SRSFNzHBcC/6ZqKe/GLZK8q','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
 COMMIT
-INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$NE3FvdQgVytj05ddQNqDOuUs66Q3e0g3/Qo/0wd3i8i5AnQRcwjAe','ROLE_USER')
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$z8ZFmEla.E5ww6ubYK2MoeESCj8PD29uLyCyS91rxzFLTG6f92AIu','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
 COMMIT
-INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$UwG5tGqjqOnGm14k/otbpufz89IITbkdovYvyRdjXM8yImyEdG4DG','ROLE_USER')
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$p4nQX1ugP4gFaKqK9mBIROVzhyhO3WaE9A07/Wq78dzw14gNIoK.C','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
 COMMIT
-INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$wa7.7yOO/q9qIMj1Ey42cOsOpVYDWXiq4ib4DJKVENOtzwCdZrdXG','ROLE_ADMIN')
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$LWjcYPxpmJ8ppZbSraGQBexTecrp8vrzbionuFfrVtHc1lmGGKUa6','ROLE_ADMIN')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
 COMMIT
-INSERT INTO USER VALUES(7,'prueba6@gmail.com','Ruiz',100.0E0,'Rodrigo','$2a$10$2olGSU0RJTaCckHMNGiBQe/z2TepAkCvbGZ8x8JhvHWEIHTS9aodK','ROLE_USER')
+INSERT INTO USER VALUES(7,'prueba6@gmail.com','Ruiz',100.0E0,'Rodrigo','$2a$10$jELQ8LWTl2KB9raMJMHai.KfSkFLIbwyfTAsxUWIy0SpNZ1Wj9lJK','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
 COMMIT
-INSERT INTO USER VALUES(8,'prueba7@gmail.com','Garc\u00eda',100.0E0,'Bel\u00e9n','$2a$10$PpUuIP7XHn4SjgmhPe44Oube8tVnvplrO8.s94mPr5yn2mBG/ipEC','ROLE_USER')
+INSERT INTO USER VALUES(8,'prueba7@gmail.com','Garc\u00eda',100.0E0,'Bel\u00e9n','$2a$10$s5K4alxm96r3Fc1mWq4XYu1D1Z45vOK.KtMLX2l1W.StH/Jjt4.wi','ROLE_USER')
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 9
 COMMIT
 INSERT INTO OFFER VALUES(9,'26-02-2019','Hecho de madera',2.4E0,'Producto 1',1)
@@ -378,10 +491,10 @@ COMMIT
 INSERT INTO CONVERSATION VALUES(22,5,21)
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 23
 COMMIT
-INSERT INTO MESSAGE VALUES(23,'Luc\u00eda M\u00e9ndez','2019-03-03 14:20:39.793000','Hola',22)
+INSERT INTO MESSAGE VALUES(23,'Luc\u00eda M\u00e9ndez','2019-03-03 16:17:58.936000','Hola',22)
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 24
 COMMIT
-INSERT INTO MESSAGE VALUES(24,'Sara Garc\u00eda','2019-03-03 14:20:39.793000','Buenas!',22)
+INSERT INTO MESSAGE VALUES(24,'Sara Garc\u00eda','2019-03-03 16:17:58.936000','Buenas!',22)
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 25
 COMMIT
 INSERT INTO PURCHASE VALUES(25,3,10)
@@ -400,27 +513,317 @@ INSERT INTO PURCHASE VALUES(29,2,17)
 ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 30
 COMMIT
 DELETE FROM USER WHERE ID=2
-INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',85.17E0,'Sara','$2a$10$9Xq79Y2/5K2LsWK.v0xFSOl2z7DFCnRENrEa52kARqCaKzGxU3tiG','ROLE_USER')
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',85.17E0,'Sara','$2a$10$zOIaUKhust5B8HzzV4mjL./lq6DJuOcsHG9p5h/Po.bROnMb9oEtC','ROLE_USER')
 COMMIT
 DELETE FROM USER WHERE ID=3
-INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',70.61E0,'Sof\u00eda','$2a$10$u9N6pxSCw/Srx1se3lPIieGNECZrgConjbp4U0W7Zz6bkkFKMP5uO','ROLE_USER')
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',70.61E0,'Sof\u00eda','$2a$10$FdZi/7ObBnspQTOPzUQDC.qo8lUUQ.SRSFNzHBcC/6ZqKe/GLZK8q','ROLE_USER')
 COMMIT
-/*C283*/SET SCHEMA PUBLIC
+/*C74*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C284*/SET SCHEMA PUBLIC
+/*C79*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C282*/DISCONNECT
-/*C285*/SET SCHEMA PUBLIC
+/*C72*/DISCONNECT
+/*C76*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C287*/SET SCHEMA PUBLIC
+/*C75*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C286*/SET SCHEMA PUBLIC
+/*C73*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C290*/SET SCHEMA PUBLIC
+/*C77*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C288*/SET SCHEMA PUBLIC
+/*C80*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C289*/SET SCHEMA PUBLIC
+/*C81*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C291*/SET SCHEMA PUBLIC
+/*C78*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C82*/SET SCHEMA PUBLIC
+alter table conversation drop constraint FKkypkkr66d2u1y1id2xq9cjyex
+alter table conversation drop constraint FKpnhoy6pokrno4qqomfm9ob27r
+alter table message drop constraint FK6yskk3hxw5sklwgi25y6d5u1l
+alter table offer drop constraint FKo0rdvexlxmyakcvw8b5aqidlk
+alter table purchase drop constraint FK86i0stm7cqsglqptdvjij1k3m
+alter table purchase drop constraint FK8b5b4vp8smfuvge8vgx767b43
+drop table conversation if exists
+drop table message if exists
+drop table offer if exists
+drop table purchase if exists
+drop table user if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table conversation (id bigint not null, user_id bigint, offer_id bigint, primary key (id))
+create table message (id bigint not null, author varchar(255), date timestamp, text varchar(255), conversation_id bigint, primary key (id))
+create table offer (id bigint not null, date varchar(255), details varchar(255), price double, title varchar(255), user_id bigint, primary key (id))
+create table purchase (id bigint not null, user_id bigint, offer_id bigint, primary key (id))
+create table user (id bigint not null, email varchar(255), last_name varchar(255), money double, name varchar(255), password varchar(255), role varchar(255), primary key (id))
+alter table conversation add constraint UKfo61xvlxvutyxjoatgmxvdj64 unique (user_id, offer_id)
+alter table user add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
+alter table conversation add constraint FKkypkkr66d2u1y1id2xq9cjyex foreign key (user_id) references user
+alter table conversation add constraint FKpnhoy6pokrno4qqomfm9ob27r foreign key (offer_id) references offer
+alter table message add constraint FK6yskk3hxw5sklwgi25y6d5u1l foreign key (conversation_id) references conversation
+alter table offer add constraint FKo0rdvexlxmyakcvw8b5aqidlk foreign key (user_id) references user
+alter table purchase add constraint FK86i0stm7cqsglqptdvjij1k3m foreign key (user_id) references user
+alter table purchase add constraint FK8b5b4vp8smfuvge8vgx767b43 foreign key (offer_id) references offer
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$HmY.9XTk0oLIyNV96L3dDuGBIQ1cZjOg6UYCPkM1gJa/Ui4/uDNM.','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$cCEqcFKhn42sdv/PKh63oef1VK2qsTwWIxYkIuM4PSWWPLEkDTUsq','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$Q9aMBqCgAqijFzjSUjo8GeoiPW1qqAApn5Z1iW5Yp2FrLmlFmnhLq','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$4mQlYui4EFHKTUEJFfRFCu/3T0LUxfzbkcJlMZuYeonuW.2MinVd.','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$ShsFvY8D3LNbNOjoODah0eLNuSylvyiGJiomtBwMg5dtcP4WcWPK6','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$TidKNEovuoSoZtADs2O2VuuObc18DWrLKbZ94Lg0qpEw08dYvVwfC','ROLE_ADMIN')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+INSERT INTO USER VALUES(7,'prueba6@gmail.com','Ruiz',100.0E0,'Rodrigo','$2a$10$mFafs9nWY8EKpZJ.VNl1GekANrRXVVWZxsS3LLqKqJ3PRIljnYxUa','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
+COMMIT
+INSERT INTO USER VALUES(8,'prueba7@gmail.com','Garc\u00eda',100.0E0,'Bel\u00e9n','$2a$10$VMLka8cB8A56ESGckhHQOeTujxHHvR7bEN2/MKew8wmg/.seIlzqa','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 9
+COMMIT
+INSERT INTO OFFER VALUES(9,'26-02-2019','Hecho de madera',2.4E0,'Producto 1',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 10
+COMMIT
+INSERT INTO OFFER VALUES(10,'15-01-2018','Hecho de metal',0.9E0,'Producto 2',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 11
+COMMIT
+INSERT INTO OFFER VALUES(11,'31-12-2017','Hecho de hierro',49.9E0,'Producto 3',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 12
+COMMIT
+INSERT INTO OFFER VALUES(12,'15-01-2019','Hecho de plastico',14.59E0,'Producto 4',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 13
+COMMIT
+INSERT INTO OFFER VALUES(13,'18-01-2019','Hecho de papel',370.1E0,'Producto 5',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 14
+COMMIT
+INSERT INTO OFFER VALUES(14,'24-02-2019','Hecho de cart\u00f3n',4.5E0,'Producto 6',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 15
+COMMIT
+INSERT INTO OFFER VALUES(15,'02-05-2018','Hecho de cristal',1200.0E0,'Producto 7',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 16
+COMMIT
+INSERT INTO OFFER VALUES(16,'26-02-2019','Hecho de cer\u00e1mica',13.9E0,'Producto 8',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 17
+COMMIT
+INSERT INTO OFFER VALUES(17,'21-02-2019','Hecho de barro',12.43E0,'Producto 9',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 18
+COMMIT
+INSERT INTO OFFER VALUES(18,'13-05-2019','Hecho de aglomerado',12.6E0,'Producto 10',2)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 19
+COMMIT
+INSERT INTO OFFER VALUES(19,'10-10-2019','Hecho de espuma',4.5E0,'Producto 11',2)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 20
+COMMIT
+INSERT INTO OFFER VALUES(20,'05-10-2017','Hecho de poliuretano',95.5E0,'Producto 12',2)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 21
+COMMIT
+INSERT INTO OFFER VALUES(21,'02-12-2019','Hecho de serr\u00edn',100.86E0,'Producto 13',2)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 22
+COMMIT
+INSERT INTO CONVERSATION VALUES(22,5,21)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 23
+COMMIT
+INSERT INTO MESSAGE VALUES(23,'Luc\u00eda M\u00e9ndez','2019-03-03 16:19:24.222000','Hola',22)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 24
+COMMIT
+INSERT INTO MESSAGE VALUES(24,'Sara Garc\u00eda','2019-03-03 16:19:24.222000','Buenas!',22)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 25
+COMMIT
+INSERT INTO PURCHASE VALUES(25,3,10)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 26
+COMMIT
+INSERT INTO PURCHASE VALUES(26,3,12)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 27
+COMMIT
+INSERT INTO PURCHASE VALUES(27,3,16)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 28
+COMMIT
+INSERT INTO PURCHASE VALUES(28,2,9)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 29
+COMMIT
+INSERT INTO PURCHASE VALUES(29,2,17)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 30
+COMMIT
+DELETE FROM USER WHERE ID=2
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',85.17E0,'Sara','$2a$10$cCEqcFKhn42sdv/PKh63oef1VK2qsTwWIxYkIuM4PSWWPLEkDTUsq','ROLE_USER')
+COMMIT
+DELETE FROM USER WHERE ID=3
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',70.61E0,'Sof\u00eda','$2a$10$Q9aMBqCgAqijFzjSUjo8GeoiPW1qqAApn5Z1iW5Yp2FrLmlFmnhLq','ROLE_USER')
+COMMIT
+DISCONNECT
+/*C90*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C85*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C83*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C84*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C89*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C87*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C86*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C88*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C91*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C92*/SET SCHEMA PUBLIC
+alter table conversation drop constraint FKkypkkr66d2u1y1id2xq9cjyex
+alter table conversation drop constraint FKpnhoy6pokrno4qqomfm9ob27r
+alter table message drop constraint FK6yskk3hxw5sklwgi25y6d5u1l
+alter table offer drop constraint FKo0rdvexlxmyakcvw8b5aqidlk
+alter table purchase drop constraint FK86i0stm7cqsglqptdvjij1k3m
+alter table purchase drop constraint FK8b5b4vp8smfuvge8vgx767b43
+drop table conversation if exists
+drop table message if exists
+drop table offer if exists
+drop table purchase if exists
+drop table user if exists
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table conversation (id bigint not null, user_id bigint, offer_id bigint, primary key (id))
+create table message (id bigint not null, author varchar(255), date timestamp, text varchar(255), conversation_id bigint, primary key (id))
+create table offer (id bigint not null, date varchar(255), details varchar(255), price double, title varchar(255), user_id bigint, primary key (id))
+create table purchase (id bigint not null, user_id bigint, offer_id bigint, primary key (id))
+create table user (id bigint not null, email varchar(255), last_name varchar(255), money double, name varchar(255), password varchar(255), role varchar(255), primary key (id))
+alter table conversation add constraint UKfo61xvlxvutyxjoatgmxvdj64 unique (user_id, offer_id)
+alter table user add constraint UK_ob8kqyqqgmefl0aco34akdtpe unique (email)
+alter table conversation add constraint FKkypkkr66d2u1y1id2xq9cjyex foreign key (user_id) references user
+alter table conversation add constraint FKpnhoy6pokrno4qqomfm9ob27r foreign key (offer_id) references offer
+alter table message add constraint FK6yskk3hxw5sklwgi25y6d5u1l foreign key (conversation_id) references conversation
+alter table offer add constraint FKo0rdvexlxmyakcvw8b5aqidlk foreign key (user_id) references user
+alter table purchase add constraint FK86i0stm7cqsglqptdvjij1k3m foreign key (user_id) references user
+alter table purchase add constraint FK8b5b4vp8smfuvge8vgx767b43 foreign key (offer_id) references offer
+INSERT INTO USER VALUES(1,'prueba@gmail.com','Gonz\u00e1lez',100.0E0,'Daniel','$2a$10$/8qlfpkmKLmmeUzoNB.DKuEnFJ70MjfZxxttntfW1RgsAEPc/i2EW','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 2
+COMMIT
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',100.0E0,'Sara','$2a$10$fkXdwamf3aYS0sOSuJ4I2uQZXR9OggfLP368n7X/uLrm620OPPlpu','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 3
+COMMIT
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',100.0E0,'Sof\u00eda','$2a$10$0vhoKEpSBHAHGFKlmyJ50OhjYQysXJjttgSrBRWRDx210YyaGrx76','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 4
+COMMIT
+INSERT INTO USER VALUES(4,'prueba4@gmail.com','Rodr\u00edguez',100.0E0,'Raul','$2a$10$/aKUzXYc6IRy00msM5An4e2k9JIVvYIk30sUqcwAD5N7Uu3wg/IHW','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 5
+COMMIT
+INSERT INTO USER VALUES(5,'prueba5@gmail.com','M\u00e9ndez',100.0E0,'Luc\u00eda','$2a$10$dA6xfisFMdRdMXfpuFIEPuM3.zGKdPXFaiKKRYERBE62IIiB0r7T.','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 6
+COMMIT
+INSERT INTO USER VALUES(6,'admin@email.com','Casillas',100.0E0,'Andr\u00e9s','$2a$10$GB6f9y6WiI9Fn3c15mhPMutPypK8dHExBYIqOg/SfeEoJuO2wHGhC','ROLE_ADMIN')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 7
+COMMIT
+INSERT INTO USER VALUES(7,'prueba6@gmail.com','Ruiz',100.0E0,'Rodrigo','$2a$10$WE56UAoi32HZtL2BQSCLzuHhlsdwEYg02twoUXn5R/BHdPgmxiiqm','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 8
+COMMIT
+INSERT INTO USER VALUES(8,'prueba7@gmail.com','Garc\u00eda',100.0E0,'Bel\u00e9n','$2a$10$X3XWsbOq32VdWcoTCnBIfOSur8xE0CmZQDEFKc.4.o6/8VcNSMo4q','ROLE_USER')
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 9
+COMMIT
+INSERT INTO OFFER VALUES(9,'26-02-2019','Hecho de madera',2.4E0,'Producto 1',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 10
+COMMIT
+INSERT INTO OFFER VALUES(10,'15-01-2018','Hecho de metal',0.9E0,'Producto 2',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 11
+COMMIT
+INSERT INTO OFFER VALUES(11,'31-12-2017','Hecho de hierro',49.9E0,'Producto 3',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 12
+COMMIT
+INSERT INTO OFFER VALUES(12,'15-01-2019','Hecho de plastico',14.59E0,'Producto 4',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 13
+COMMIT
+INSERT INTO OFFER VALUES(13,'18-01-2019','Hecho de papel',370.1E0,'Producto 5',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 14
+COMMIT
+INSERT INTO OFFER VALUES(14,'24-02-2019','Hecho de cart\u00f3n',4.5E0,'Producto 6',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 15
+COMMIT
+INSERT INTO OFFER VALUES(15,'02-05-2018','Hecho de cristal',1200.0E0,'Producto 7',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 16
+COMMIT
+INSERT INTO OFFER VALUES(16,'26-02-2019','Hecho de cer\u00e1mica',13.9E0,'Producto 8',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 17
+COMMIT
+INSERT INTO OFFER VALUES(17,'21-02-2019','Hecho de barro',12.43E0,'Producto 9',1)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 18
+COMMIT
+INSERT INTO OFFER VALUES(18,'13-05-2019','Hecho de aglomerado',12.6E0,'Producto 10',2)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 19
+COMMIT
+INSERT INTO OFFER VALUES(19,'10-10-2019','Hecho de espuma',4.5E0,'Producto 11',2)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 20
+COMMIT
+INSERT INTO OFFER VALUES(20,'05-10-2017','Hecho de poliuretano',95.5E0,'Producto 12',2)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 21
+COMMIT
+INSERT INTO OFFER VALUES(21,'02-12-2019','Hecho de serr\u00edn',100.86E0,'Producto 13',2)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 22
+COMMIT
+INSERT INTO CONVERSATION VALUES(22,5,21)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 23
+COMMIT
+INSERT INTO MESSAGE VALUES(23,'Luc\u00eda M\u00e9ndez','2019-03-03 16:20:39.295000','Hola',22)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 24
+COMMIT
+INSERT INTO MESSAGE VALUES(24,'Sara Garc\u00eda','2019-03-03 16:20:39.295000','Buenas!',22)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 25
+COMMIT
+INSERT INTO PURCHASE VALUES(25,3,10)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 26
+COMMIT
+INSERT INTO PURCHASE VALUES(26,3,12)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 27
+COMMIT
+INSERT INTO PURCHASE VALUES(27,3,16)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 28
+COMMIT
+INSERT INTO PURCHASE VALUES(28,2,9)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 29
+COMMIT
+INSERT INTO PURCHASE VALUES(29,2,17)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 30
+COMMIT
+DELETE FROM USER WHERE ID=2
+INSERT INTO USER VALUES(2,'prueba2@gmail.com','Garc\u00eda',85.17E0,'Sara','$2a$10$fkXdwamf3aYS0sOSuJ4I2uQZXR9OggfLP368n7X/uLrm620OPPlpu','ROLE_USER')
+COMMIT
+DELETE FROM USER WHERE ID=3
+INSERT INTO USER VALUES(3,'prueba3@gmail.com','Zamora',70.61E0,'Sof\u00eda','$2a$10$0vhoKEpSBHAHGFKlmyJ50OhjYQysXJjttgSrBRWRDx210YyaGrx76','ROLE_USER')
+COMMIT
+INSERT INTO CONVERSATION VALUES(30,3,19)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 31
+COMMIT
+INSERT INTO MESSAGE VALUES(31,'Sof\u00eda Zamora','2019-03-03 16:22:07.242000','Holaaa',30)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 32
+COMMIT
+INSERT INTO CONVERSATION VALUES(32,2,11)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 33
+COMMIT
+INSERT INTO MESSAGE VALUES(33,'Sara Garc\u00eda','2019-03-03 16:22:28.036000','Qu\u00e9 tal?',32)
+ALTER SEQUENCE PUBLIC.HIBERNATE_SEQUENCE RESTART WITH 34
+COMMIT
+/*C101*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C92*/DISCONNECT
+/*C96*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C94*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C95*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C93*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C97*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C99*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C100*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C98*/SET SCHEMA PUBLIC
 DISCONNECT
