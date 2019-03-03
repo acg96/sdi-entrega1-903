@@ -24,6 +24,9 @@ public class User {
 	
 	@OneToMany(mappedBy = "buyer", cascade = CascadeType.ALL)
 	private Set<Purchase> purchases;
+	
+	@OneToMany(mappedBy = "buyer", cascade = CascadeType.ALL)
+	private Set<Conversation> conversations;
 
 	private String password;
 
@@ -42,6 +45,14 @@ public class User {
 	
 	public void setOffers(Set<Offer> offers) {
 		this.offers = offers;
+	}
+
+	public Set<Conversation> getConversations() {
+		return conversations;
+	}
+
+	public void setConversations(Set<Conversation> conversations) {
+		this.conversations = conversations;
 	}
 
 	public Set<Purchase> getPurchases() {

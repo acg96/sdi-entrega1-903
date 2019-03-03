@@ -4,6 +4,8 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.uniovi.entities.Conversation;
+import com.uniovi.entities.Message;
 import com.uniovi.entities.Offer;
 import com.uniovi.entities.Purchase;
 import com.uniovi.entities.User;
@@ -21,6 +23,12 @@ public class InsertSampleDataService {
 	
 	@Autowired
 	private PurchasesService purchasesService;
+	
+	@Autowired
+	private ConversationsService conversationsService;
+	
+	@Autowired
+	private MessagesService messagesService;
 
 	@PostConstruct
 	public void init() {
@@ -85,6 +93,14 @@ public class InsertSampleDataService {
 		offersService.addOffer(offer11);
 		offersService.addOffer(offer12);
 		offersService.addOffer(offer13);
+		
+		Conversation conversation1= new Conversation(user5, offer13);
+		conversationsService.addConversation(conversation1);
+		
+		Message message1= new Message(user5.getFullName(), "Hola", conversation1);
+		Message message2= new Message(user2.getFullName(), "Buenas!", conversation1);
+		messagesService.addMessage(message1);
+		messagesService.addMessage(message2);
 		
 		Purchase purchase1= new Purchase(user3, offer2);
 		Purchase purchase2= new Purchase(user3, offer4);

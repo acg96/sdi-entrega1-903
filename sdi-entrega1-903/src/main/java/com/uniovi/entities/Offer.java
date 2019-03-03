@@ -2,6 +2,7 @@ package com.uniovi.entities;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -24,6 +25,9 @@ public class Offer {
 	@JoinColumn(name = "user_id")
 	private User user;
 	
+	@OneToMany(mappedBy = "offer", cascade = CascadeType.ALL)
+	private Set<Conversation> conversations;
+	
 	public Offer() {
 	}
 	
@@ -35,6 +39,14 @@ public class Offer {
 		this.setUser(user);
 	}
 	
+	public Set<Conversation> getConversations() {
+		return conversations;
+	}
+
+	public void setConversations(Set<Conversation> conversations) {
+		this.conversations = conversations;
+	}
+
 	public String getDate() {
 		return date;
 	}
