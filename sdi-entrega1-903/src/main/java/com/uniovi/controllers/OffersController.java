@@ -50,9 +50,23 @@ public class OffersController {
 		}
 	}
 	
+	private boolean checkOfferOwner(Long idOffer) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user= usersService.getUserByEmail(auth.getName());
+		List<Offer> list= offersService.getUserOffers(user);
+		for (Offer o : list) {
+			if (o.getId() == idOffer) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	@RequestMapping("/offer/remove/{id}")
 	public String removeOffer(@PathVariable Long id) {
-		offersService.deleteOffer(id);
+		if (checkOfferOwner(id)) {
+			offersService.deleteOffer(id);
+		}
 		return "redirect:/offer/list";
 	}
 

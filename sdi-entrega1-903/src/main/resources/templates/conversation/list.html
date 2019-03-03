@@ -18,6 +18,7 @@
 						<th th:text="#{conversation.list.offer.title}"></th>
 						<th th:text="#{conversation.list.seller.title}"></th>
 						<th class="col-md-1"></th>
+						<th class="col-md-1"></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -26,7 +27,10 @@
 						<td  th:if="${conversation.offer.user.email != userAuth.email}" th:text="${conversation.offer.user.email}"></td>
 						<td  th:if="${conversation.offer.user.email == userAuth.email}" th:text="#{conversation.list.yourself}"></td>
 						<td><a style="color:blue;" th:href="${'/conversation/add/'+conversation.id}"
-								th:text="#{offer.search.title.chat}" th:id="${conversation.id}+conver" class="chatListId"></a>
+								th:text="#{conversation.list.chat}" th:id="${conversation.id}+conver" class="chatListId"></a>
+						</td>
+						<td><a style="color:red;" th:href="${'/conversation/remove/'+conversation.id}"
+								th:text="#{conversation.list.remove}" th:id="${conversation.id}+remove" class="removeListId"></a>
 						</td>
 					</tr>
 				</tbody>

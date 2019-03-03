@@ -62,11 +62,22 @@ public class ConversationsController {
 		return "conversation/list";
 	}
 	
-//	@RequestMapping("/conversation/remove/{id}")
-//	public String removeConversation(@PathVariable Long id) {
-//		conversationsService.deleteConversation(id);
-//		return "redirect:/conversation/list";
-//	}
+	@RequestMapping("/conversation/remove/{id}")
+	public String removeConversation(@PathVariable Long id) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user= usersService.getUserByEmail(auth.getName());
+		Conversation conversation= null;
+		try {
+			conversation= conversationsService.getConversation(id);
+		}catch(NoSuchElementException ex) {
+			return "redirect:/conversation/list";
+		}
+		
+		if (checkConversationOwner(user, conversation)) {
+			conversationsService.deleteConversation(id);
+		}
+		return "redirect:/conversation/list";
+	}
 	
 	private boolean checkConversationOwner(User user, Conversation conversation) {
 		if (conversation.getBuyer().getEmail().equals(user.getEmail())) {
@@ -178,12 +189,17 @@ public class ConversationsController {
 		}catch(NoSuchElementException ex) {
 			//Si no existe la oferta
 			if (offer == null) {
-				return "purchase/list";
+				return "redirect:/purchase/list";
 			}
 		}
+		//Si la oferta ya está vendida
+		if (offer.getPurchase() != null) {
+			return "redirect:/purchase/list";
+		}
+		
 		//Si el usuario intenta chatear consigo mismo
 		if (offer.getUser().getEmail().equals(user.getEmail())) {
-			return "purchase/list";
+			return "redirect:/purchase/list";
 		}
 		
 		if (conversation == null) { //Se crea una nueva conversacion
