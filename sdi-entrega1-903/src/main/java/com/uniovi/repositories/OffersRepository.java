@@ -18,5 +18,7 @@ public interface OffersRepository extends CrudRepository<Offer, Long> {
 	
 	@Query("SELECT o FROM Offer o WHERE o.user!=?1")
 	Page<Offer> searchAllOffers(Pageable pageable, User user);
-
+	
+	@Query("SELECT o FROM Offer o WHERE o.star='true' and o.user!=?1")
+	List<Offer> searchStarredOffers(User user);
 }

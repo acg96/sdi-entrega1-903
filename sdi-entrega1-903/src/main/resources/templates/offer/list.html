@@ -11,26 +11,35 @@
 	<div class="container">
 		<h2 th:text="#{offer.list.title}"></h2>
 		<div class="table-responsive">
-			<table class="table table-hover" 
-				id="tableOffers">
-				<thead>
-					<tr>
-						<th th:text="#{offer.list.title.title}"></th>
-						<th th:text="#{offer.list.title.details}"></th>
-						<th th:text="#{offer.list.title.price}"></th>
-						<th class="col-md-1"></th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="offer : ${offerList}">
-						<td th:text="${offer.title}"></td>
-						<td th:text="${offer.details}"></td>
-						<td th:text="${offer.price}+€"></td>
-						<td><a th:href="${'/offer/remove/' + offer.id}"
-							th:text="#{offer.list.title.remove}" th:id="${offer.id}+list" class="ownOffersListId"></a></td>
-					</tr>
-				</tbody>
-			</table>
+			<span class="text-danger" th:if="${errorStar == 0}" th:text="#{offer.list.correctStar}"></span>
+			<span class="text-danger" th:if="${errorStar == 1}" th:text="#{offer.add.error.notMoneyEnough}"></span>
+				<table class="table table-hover" id="tableOffers">
+					<thead>
+						<tr>
+							<th th:text="#{offer.list.title.title}"></th>
+							<th th:text="#{offer.list.title.details}"></th>
+							<th th:text="#{offer.list.title.price}"></th>
+							<th class="col-md-1"></th>
+							<th class="col-md-1"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="offer : ${offerList}">
+							<td th:text="${offer.title}"></td>
+							<td th:text="${offer.details}"></td>
+							<td th:text="${offer.price}+€"></td>
+							<td><a th:href="${'/offer/remove/' + offer.id}"
+								th:text="#{offer.list.title.remove}" th:id="${offer.id}+listRem"
+								class="ownOffersListIdRem"></a></td>
+							<td th:if="${offer.star == false}"><a
+								th:href="${'/offer/star/' + offer.id}"
+								th:text="#{offer.list.title.star}" th:id="${offer.id}+listDest"
+								class="listIdStar"></a></td>
+							<td th:if="${offer.star == true}"><span
+								th:text="#{offer.list.title.alreadyStar}"></span></td>
+						</tr>
+					</tbody>
+				</table>
 		</div>
 	</div>
 

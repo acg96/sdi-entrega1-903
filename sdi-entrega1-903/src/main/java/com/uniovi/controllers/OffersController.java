@@ -62,6 +62,31 @@ public class OffersController {
 		return false;
 	}
 	
+	@RequestMapping("/offer/star/{id}")
+	public String starOffer(@PathVariable Long id, Model model) {
+		if (checkOfferOwner(id)) {
+			Offer offer= offersService.getOffer(id);
+			if (offer.getStar()) {
+				return "redirect:/offer/list";
+			}
+			try {
+				offer.setStarLater();
+				offersService.addOffer(offer);
+				model.addAttribute("errorStar", 0);
+				//Mensaje de se ha destacado correctamente
+			}catch(IllegalStateException ex) {
+				//Mensaje de falta de fondos
+				model.addAttribute("errorStar", 1);
+			}
+		}
+		storeUserInformation(model);
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user = usersService.getUserByEmail(auth.getName());
+		List<Offer> offers= offersService.getUserOffers(user);
+		model.addAttribute("offerList", offers);
+		return "offer/list";
+	}
+	
 	@RequestMapping("/offer/remove/{id}")
 	public String removeOffer(@PathVariable Long id) {
 		if (checkOfferOwner(id)) {
@@ -79,9 +104,15 @@ public class OffersController {
 		}
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user= usersService.getUserByEmail(auth.getName());
-		offer.setUser(user);
-		offersService.addOffer(offer);
-		return "redirect:/offer/list";
+		try {
+			offer.setUserNewRecord(user);
+			offersService.addOffer(offer);
+			return "redirect:/offer/list";			
+		}catch(IllegalStateException ex) {
+			//Se ha intentado marcar como destacada sin tener fondos el usuario
+			model.addAttribute("errorFondos", 1);
+			return "offer/add";
+		}		
 	}
 	
 	@RequestMapping("/offer/list")

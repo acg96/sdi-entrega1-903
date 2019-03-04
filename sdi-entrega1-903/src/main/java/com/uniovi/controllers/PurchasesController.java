@@ -49,7 +49,9 @@ public class PurchasesController {
 		Offer offer= offersService.getOffer(id);
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User buyer= usersService.getUserByEmail(auth.getName());
-		
+		if (offer.getPurchase() != null) {
+			return "redirect:/offer/search";
+		}
 		try {
 			Purchase purchase= new Purchase(buyer, offer);	
 			purchasesService.addPurchase(purchase);

@@ -1,6 +1,8 @@
 package com.uniovi.controllers;
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.*;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.uniovi.auxiliar.UserToDelete;
 import com.uniovi.entities.*;
+import com.uniovi.services.OffersService;
 import com.uniovi.services.RolesService;
 import com.uniovi.services.SecurityService;
 import com.uniovi.services.UsersService;
@@ -25,6 +28,8 @@ public class UsersController {
 	private UsersService usersService;
 	@Autowired
 	private SecurityService securityService;
+	@Autowired
+	private OffersService offersService;
 	@Autowired
 	private SignUpFormValidator signUpFormValidator;
 	@Autowired
@@ -102,6 +107,10 @@ public class UsersController {
 	@RequestMapping(value = { "/home" }, method = RequestMethod.GET)
 	public String home(Model model) {
 		this.storeUserInformation(model);
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		User user= usersService.getUserByEmail(auth.getName());
+		List<Offer> list= offersService.getStarredOffers(user);
+		model.addAttribute("offerList", list);
 		return "home";
 	}
 

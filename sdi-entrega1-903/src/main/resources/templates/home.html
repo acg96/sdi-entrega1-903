@@ -10,6 +10,35 @@
 		</span>
 		<span sec:authentication="principal.username" th:inline="text"></span>
 	</div>
+	<div class="table-responsive" th:if="${!offerList.isEmpty()}" sec:authorize="hasRole('ROLE_USER')">
+			<h3 th:text="#{home.title.starred}"></h3>
+			<table class="table table-hover" id="tableSearch">
+				<thead>
+					<tr>
+						<th th:text="#{offer.search.title.title}"></th>
+						<th th:text="#{offer.search.title.details}"></th>
+						<th th:text="#{offer.search.title.price}"></th>
+						<th class="col-md-1"></th>
+						<th class="col-md-1"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="offer : ${offerList}">
+						<td th:text="${offer.title}" th:id="${offer.id}+search" class="searchOffersList"></td>
+						<td th:text="${offer.details}"></td>
+						<td th:text="${offer.price}+€"></td>
+						<td th:if="${offer.purchase == null}"><a
+							th:href="${'/purchase/add/' + offer.id}"
+							th:text="#{offer.search.title.buy}" th:id="${offer.id}+_buy" class="bListToBuy"></a></td>
+						<td th:if="${offer.purchase != null}"><p style="color:red;"
+								th:text="#{offer.search.title.soldout}"></p></td>
+						<td th:if="${offer.purchase == null}"><a style="color:blue;" th:href="${'/conversation/start/'+offer.id}"
+								th:text="#{offer.search.title.chat}"></a></td>
+						<td th:if="${offer.purchase != null}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	<footer th:replace="fragments/footer" />
 </body>
 </html>

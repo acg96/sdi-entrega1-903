@@ -15,6 +15,7 @@ public class Offer {
 	private String details;
 	private String date;
 	private Double price;
+	private Boolean star;
 	@Transient
 	private Date availableDate;
 	
@@ -29,6 +30,7 @@ public class Offer {
 	private Set<Conversation> conversations;
 	
 	public Offer() {
+		this.setStar(false);
 	}
 	
 	public Offer(String title, String details, String date, Double price, User user) {
@@ -36,7 +38,47 @@ public class Offer {
 		this.setDetails(details);
 		this.setDate(date);
 		this.setPrice(price);
+		this.setStar(false);
+		this.setUserNewRecord(user);		
+	}
+	
+	public Offer(String title, String details, String date, Double price, User user, Boolean star) {
+		this.setTitle(title);
+		this.setDetails(details);
+		this.setDate(date);
+		this.setPrice(price);
+		this.setStar(star);
+		this.setUserNewRecord(user);		
+	}
+	
+	public void setStarLater() {
+		if (user.getMoney() >= 20) {
+			this.setStar(true);
+			user.setMoney(user.getMoney()-20);
+		}
+		else {
+			throw new IllegalStateException("El usuario no tiene fondos");
+		}
+	}
+	
+	public void setUserNewRecord(User user) {
+		if (star) { //Si está marcada como destacada se comprueba monedero
+			if (user.getMoney() >= 20) {
+				user.setMoney(user.getMoney()-20);
+			}
+			else {
+				throw new IllegalStateException("El usuario no tiene fondos");
+			}
+		}
 		this.setUser(user);
+	}
+	
+	public void setStar(Boolean star) {
+		this.star= star;
+	}
+	
+	public boolean getStar() {
+		return this.star;
 	}
 	
 	public Set<Conversation> getConversations() {
@@ -124,6 +166,6 @@ public class Offer {
 	@Override
 	public String toString() {
 		return "Offer [id=" + id + ", title=" + title + ", details=" + details + ", availableDate=" + availableDate
-				+ ", price=" + price + "]";
+				+ ", price=" + price + ", star=" + star + "]";
 	}
 }

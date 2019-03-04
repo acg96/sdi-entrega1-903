@@ -24,6 +24,10 @@ public class OffersService {
 		return offer;
 	}
 	
+	public List<Offer> getStarredOffers(User user){
+		return offersRepository.searchStarredOffers(user);
+	}
+	
 	public Page<Offer> searchOffersByTitle(Pageable pageable, String searchText, User user) {
 		Page<Offer> offers = new PageImpl<Offer>(new LinkedList<Offer>());
 		searchText = "%"+searchText+"%";
