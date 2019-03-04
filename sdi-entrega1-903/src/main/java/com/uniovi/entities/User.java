@@ -116,7 +116,7 @@ public class User {
 	}
 	
 	public void setMoney(Double money) {
-		this.money= money;
+		this.money= Math.round(money * 100) / 100.0;
 	}
 
 	public String getLastName() {
