@@ -59,7 +59,12 @@ public class UsersService {
 	public int deleteUsers(UserToDelete users) {
 		int hayBorrado = DELETED_FALSE;
 		for (User u : users.getUsers()) {
-			deleteUser(u.getId());
+			try {
+				deleteUser(u.getId());
+			}catch(Exception ex) { //Excepción por detached
+				usersRepository.findById(u.getId()); //Se quita de detached
+				deleteUser(u.getId()); //Se vuelve a borrar
+			}	
 			hayBorrado = DELETED_TRUE;
 		}
 		return hayBorrado;

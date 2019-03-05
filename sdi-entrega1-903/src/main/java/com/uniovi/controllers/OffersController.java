@@ -55,7 +55,7 @@ public class OffersController {
 		User user= usersService.getUserByEmail(auth.getName());
 		List<Offer> list= offersService.getUserOffers(user);
 		for (Offer o : list) {
-			if (o.getId() == idOffer) {
+			if (o.getId().equals(idOffer)) {
 				return true;
 			}
 		}

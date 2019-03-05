@@ -6,16 +6,16 @@
 		<!-- Anterior (si la hay ) -->
 		<li class="page-item" th:if='${page.getNumber()-1 >= 0}'><a
 			class="page-link" th:href="@{'?page='+${page.getNumber()-1} }"
-			th:text="${page.getNumber()}"></a></li>
+			th:text="${page.getNumber()}" th:id="${page.getNumber()}+pag"></a></li>
 		<!-- Actual -->
 		<li class="page-item active"><a class="page-link"
 			th:href="@{'?page='+${page.getNumber()} }"
-			th:text="${page.getNumber()+1}"></a></li>
+			th:text="${page.getNumber()+1}" th:id="${page.getNumber()+1}+pag"></a></li>
 		<!-- Siguiente (si la hay) -->
 		<li class="page-item"
 			th:if='${page.getNumber()+1 <= page.getTotalPages()-1}'><a
 			class="page-link" th:href="@{'?page='+${page.getNumber()+1} }"
-			th:text="${page.getNumber()+2}"></a></li>
+			th:text="${page.getNumber()+2}" th:id="${page.getNumber()+2}+pag"></a></li>
 		<!-- Última -->
 		<li class="page-item"><a class="page-link"
 			th:href="@{'?page='+${page.getTotalPages()-1}}"
