@@ -2,14 +2,14 @@ package com.uniovi.auxiliar;
 
 import java.util.List;
 
-
 import com.uniovi.entities.User;
 
 public class UserToDelete {
 	private Long id;
 	private List<User> users;
-	
-	public UserToDelete() {}
+
+	public UserToDelete() {
+	}
 
 	public Long getId() {
 		return id;
@@ -26,6 +26,5 @@ public class UserToDelete {
 	public void setUsers(List<User> users) {
 		this.users = users;
 	}
-	
-	
+
 }

@@ -6,8 +6,6 @@
 	<!-- Barra de Navegación superior -->
 	<nav th:replace="fragments/nav" />
 
-
-
 	<div class="container">
 		<h2 th:text="#{offer.search.title}"></h2>
 		<form class="navbar-form" action="/offer/search">
@@ -18,7 +16,8 @@
 			<button type="submit" class="btn btn-default"
 				th:text="#{offer.search.searchButton}"></button>
 		</form>
-		<span class="text-danger" th:if="${nomoney==1}" th:text="#{offer.search.notmoneyenough}"></span>
+		<span class="text-danger" th:if="${nomoney==1}"
+			th:text="#{offer.search.notmoneyenough}"></span>
 		<div class="table-responsive">
 			<table class="table table-hover" id="tableSearch">
 				<thead>
@@ -32,16 +31,20 @@
 				</thead>
 				<tbody>
 					<tr th:each="offer : ${offerList}">
-						<td th:text="${offer.title}" th:id="${offer.id}+search" class="searchOffersList"></td>
+						<td th:text="${offer.title}" th:id="${offer.id}+search"
+							class="searchOffersList"></td>
 						<td th:text="${offer.details}"></td>
 						<td th:text="${offer.price}+€"></td>
 						<td th:if="${offer.purchase == null}"><a
 							th:href="${'/purchase/add/' + offer.id}"
-							th:text="#{offer.search.title.buy}" th:id="${offer.id}+_buy" class="bListToBuy"></a></td>
-						<td th:if="${offer.purchase != null}"><p style="color:red;"
+							th:text="#{offer.search.title.buy}" th:id="${offer.id}+_buy"
+							class="bListToBuy"></a></td>
+						<td th:if="${offer.purchase != null}"><p style="color: red;"
 								th:text="#{offer.search.title.soldout}"></p></td>
-						<td th:if="${offer.purchase == null}"><a style="color:blue;" th:href="${'/conversation/start/'+offer.id}"
-								th:text="#{offer.search.title.chat}"></a></td>
+						<td th:if="${offer.purchase == null}"><a style="color: blue;"
+							th:href="${'/conversation/start/'+offer.id}"
+							th:text="#{offer.search.title.chat}" th:id="${offer.id}+_chat"
+							class="chatList"></a></td>
 						<td th:if="${offer.purchase != null}"></td>
 					</tr>
 				</tbody>

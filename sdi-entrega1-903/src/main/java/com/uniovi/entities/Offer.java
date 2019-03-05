@@ -18,69 +18,67 @@ public class Offer {
 	private Boolean star;
 	@Transient
 	private Date availableDate;
-	
+
 	@OneToOne(mappedBy = "offer", cascade = CascadeType.REMOVE)
 	private Purchase purchase;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
-	
+
 	@OneToMany(mappedBy = "offer", cascade = CascadeType.ALL)
 	private Set<Conversation> conversations;
-	
+
 	public Offer() {
 		this.setStar(false);
 	}
-	
+
 	public Offer(String title, String details, String date, Double price, User user) {
 		this.setTitle(title);
 		this.setDetails(details);
 		this.setDate(date);
 		this.setPrice(price);
 		this.setStar(false);
-		this.setUserNewRecord(user);		
+		this.setUserNewRecord(user);
 	}
-	
+
 	public Offer(String title, String details, String date, Double price, User user, Boolean star) {
 		this.setTitle(title);
 		this.setDetails(details);
 		this.setDate(date);
 		this.setPrice(price);
 		this.setStar(star);
-		this.setUserNewRecord(user);		
+		this.setUserNewRecord(user);
 	}
-	
+
 	public void setStarLater() {
 		if (user.getMoney() >= 20) {
 			this.setStar(true);
-			user.setMoney(user.getMoney()-20);
-		}
-		else {
+			user.setMoney(user.getMoney() - 20);
+		} else {
 			throw new IllegalStateException("El usuario no tiene fondos");
 		}
 	}
-	
+
 	public void setUserNewRecord(User user) {
-		if (star) { //Si está marcada como destacada se comprueba monedero
+		if (star) { // Si está marcada como destacada se comprueba monedero
 			if (user.getMoney() >= 20) {
-				user.setMoney(user.getMoney()-20);
-			}
-			else {
+				user.setMoney(user.getMoney() - 20);
+			} else {
 				throw new IllegalStateException("El usuario no tiene fondos");
 			}
 		}
 		this.setUser(user);
 	}
-	
+
 	public void setStar(Boolean star) {
-		this.star= star;
+		this.star = star;
 	}
-	
+
 	public boolean getStar() {
 		return this.star;
 	}
-	
+
 	public Set<Conversation> getConversations() {
 		return conversations;
 	}
@@ -104,21 +102,21 @@ public class Offer {
 	public void setDate(String date) {
 		this.date = date;
 		try {
-			String[] array= date.split("-");
-			Calendar cld= Calendar.getInstance();
+			String[] array = date.split("-");
+			Calendar cld = Calendar.getInstance();
 			cld.add(Calendar.HOUR, 0);
 			cld.add(Calendar.MILLISECOND, 0);
 			cld.add(Calendar.MINUTE, 0);
 			cld.add(Calendar.SECOND, 0);
 			cld.add(Calendar.DAY_OF_MONTH, Integer.valueOf(array[0]));
-			cld.add(Calendar.MONTH, Integer.valueOf(array[1])-1);
+			cld.add(Calendar.MONTH, Integer.valueOf(array[1]) - 1);
 			cld.add(Calendar.YEAR, Integer.valueOf(array[2]));
-			this.availableDate= cld.getTime();
-		}catch(Exception ex) {
-			this.availableDate= null;
+			this.availableDate = cld.getTime();
+		} catch (Exception ex) {
+			this.availableDate = null;
 		}
 	}
-	
+
 	public User getUser() {
 		return user;
 	}
@@ -160,7 +158,7 @@ public class Offer {
 	}
 
 	public void setPrice(Double price) {
-		this.price = Math.round(price*100)/100.0;
+		this.price = Math.round(price * 100) / 100.0;
 	}
 
 	@Override

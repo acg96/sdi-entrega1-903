@@ -46,42 +46,41 @@ public class MyWallapopTests {
 	static String PathFirefox64 = "C:\\Program Files\\Mozilla Firefox\\firefox.exe";
 	static String Geckdriver024 = "C:\\Selenium\\geckodriver024win64.exe";
 	static WebDriver driver = getDriver(PathFirefox64, Geckdriver024);
-	
-	//*****************CAMBIAR AQUÍ POR OTRA URL*******************
-	static String URL = URL_LOCAL; // Cambiar por URL_LOCAL
-	//*****************CAMBIAR AQUÍ POR OTRA URL*******************
 
-	
+	// *****************CAMBIAR AQUÍ POR OTRA URL*******************
+	static String URL = URL_LOCAL; // Cambiar por URL_LOCAL
+	// *****************CAMBIAR AQUÍ POR OTRA URL*******************
+
 	@Autowired
 	private UsersService usersService;
-	
+
 	@Autowired
 	private OffersService offersService;
 
 	@Autowired
 	private RolesService rolesService;
-	
+
 	@Autowired
 	private PurchasesService purchasesService;
-	
+
 	@Autowired
 	private ConversationsService conversationsService;
-	
+
 	@Autowired
 	private MessagesService messagesService;
-	
+
 	@Autowired
 	private UsersRepository usersRepository;
-	
+
 	@Autowired
 	private PurchasesRepository purchasesRepository;
-	
+
 	@Autowired
 	private OffersRepository offersRepository;
-	
+
 	@Autowired
 	private MessagesRepository messagesRepository;
-	
+
 	@Autowired
 	private ConversationsRepository conversationsRepository;
 
@@ -115,16 +114,14 @@ public class MyWallapopTests {
 	static public void end() {
 		driver.quit(); // Cierra el navegador
 	}
-	
-	
-	
+
 	public void initDB() {
 		messagesRepository.deleteAll();
 		conversationsRepository.deleteAll();
 		purchasesRepository.deleteAll();
 		offersRepository.deleteAll();
-		usersRepository.deleteAll();		
-		
+		usersRepository.deleteAll();
+
 		User user1 = new User("prueba@gmail.com", "Daniel", "González");
 		user1.setPassword("123456");
 		user1.setRole(rolesService.getRoles()[1]);
@@ -143,30 +140,38 @@ public class MyWallapopTests {
 		User userAdmin = new User("admin@email.com", "Andrés", "Casillas");
 		userAdmin.setPassword("admin");
 		userAdmin.setRole(rolesService.getRoles()[0]);
-		
+		User user6 = new User("prueba6@gmail.com", "Josefa", "Méndez");
+		user6.setPassword("123456");
+		user6.setMoney(20.0);
+		user6.setRole(rolesService.getRoles()[1]);
+
 		usersService.addUser(user1);
 		usersService.addUser(user2);
 		usersService.addUser(user3);
 		usersService.addUser(user4);
 		usersService.addUser(user5);
+		usersService.addUser(user6);
 		usersService.addUser(userAdmin);
-		
-		Offer offer1= new Offer("Producto 1", "Hecho de madera", "26-02-2019", 2.40, user1);
-		Offer offer2= new Offer("Producto 2", "Hecho de metal", "15-01-2018", 0.90, user1);
-		Offer offer3= new Offer("Producto 3", "Hecho de hierro", "31-12-2017", 58.40, user1);
-		Offer offer4= new Offer("Producto 4", "Hecho de plastico", "15-01-2019", 14.59, user2);
-		Offer offer5= new Offer("Producto 5", "Hecho de papel", "18-01-2019", 37.10, user2);
-		Offer offer6= new Offer("Producto 6", "Hecho de cartón", "24-02-2019", 4.50, user2);
-		Offer offer7= new Offer("Producto 7", "Hecho de cristal", "02-05-2018", 60.0, user3);
-		Offer offer8= new Offer("Producto 8", "Hecho de cerámica", "26-02-2019", 13.90, user3);
-		Offer offer9= new Offer("Producto 9", "Hecho de barro", "21-02-2019", 12.43, user3);
-		Offer offer10= new Offer("Producto 10", "Hecho de aglomerado", "13-05-2019", 12.60, user4);
-		Offer offer11= new Offer("Producto 11", "Hecho de espuma", "10-10-2019", 4.50, user4);
-		Offer offer12= new Offer("Producto 12", "Hecho de poliuretano", "05-10-2017", 60.50, user4);
-		Offer offer13= new Offer("Producto 13", "Hecho de serrín", "02-12-2019", 10.86, user5);
-		Offer offer14= new Offer("Producto 14", "Hecho de vinilo", "19-12-2014", 4.53, user5);
-		Offer offer15= new Offer("Producto 15", "Hecho de corcho", "10-04-2020", 10.72, user5);
-		
+
+		Offer offer1 = new Offer("Producto 1", "Hecho de madera", "26-02-2019", 2.40, user1);
+		Offer offer2 = new Offer("Producto 2", "Hecho de metal", "15-01-2018", 0.90, user1);
+		Offer offer3 = new Offer("Producto 3", "Hecho de hierro", "31-12-2017", 58.40, user1);
+		Offer offer4 = new Offer("Producto 4", "Hecho de plastico", "15-01-2019", 14.59, user2);
+		Offer offer5 = new Offer("Producto 5", "Hecho de papel", "18-01-2019", 37.10, user2);
+		Offer offer6 = new Offer("Producto 6", "Hecho de cartón", "24-02-2019", 4.50, user2);
+		Offer offer7 = new Offer("Producto 7", "Hecho de cristal", "02-05-2018", 60.0, user3);
+		Offer offer8 = new Offer("Producto 8", "Hecho de cerámica", "26-02-2019", 13.90, user3);
+		Offer offer9 = new Offer("Producto 9", "Hecho de barro", "21-02-2019", 12.43, user3);
+		Offer offer10 = new Offer("Producto 10", "Hecho de aglomerado", "13-05-2019", 12.60, user4);
+		Offer offer11 = new Offer("Producto 11", "Hecho de espuma", "10-10-2019", 4.50, user4);
+		Offer offer12 = new Offer("Producto 12", "Hecho de poliuretano", "05-10-2017", 60.50, user4);
+		Offer offer13 = new Offer("Producto 13", "Hecho de serrín", "02-12-2019", 10.86, user5);
+		Offer offer14 = new Offer("Producto 14", "Hecho de vinilo", "19-12-2014", 4.53, user5);
+		Offer offer15 = new Offer("Producto 15", "Hecho de corcho", "10-04-2020", 10.72, user5);
+		Offer offer16 = new Offer("Producto 16", "Hecho de mensajes", "10-01-2021", 10.72, user3);
+		Offer offer17 = new Offer("Producto 17", "Prueba de destacar con 20€", "10-01-2021", 10.72, user6);
+		Offer offer18 = new Offer("Producto 18", "Prueba de destacar con menos de 20€", "10-01-2021", 10.72, user6);
+
 		offersService.addOffer(offer1);
 		offersService.addOffer(offer2);
 		offersService.addOffer(offer3);
@@ -182,23 +187,26 @@ public class MyWallapopTests {
 		offersService.addOffer(offer13);
 		offersService.addOffer(offer14);
 		offersService.addOffer(offer15);
-		
-		Conversation conversation1= new Conversation(user5, offer1);//1
-		Conversation conversation2= new Conversation(user5, offer2);//1
-		Conversation conversation3= new Conversation(user5, offer3);//1
-		Conversation conversation4= new Conversation(user3, offer4);//2
-		Conversation conversation5= new Conversation(user3, offer5);//2
-		Conversation conversation6= new Conversation(user3, offer6);//2
-		Conversation conversation7= new Conversation(user1, offer7);//3
-		Conversation conversation8= new Conversation(user1, offer8);//3
-		Conversation conversation9= new Conversation(user1, offer9);//3
-		Conversation conversation10= new Conversation(user2, offer10);//4
-		Conversation conversation11= new Conversation(user2, offer11);//4
-		Conversation conversation12= new Conversation(user2, offer12);//4
-		Conversation conversation13= new Conversation(user4, offer13);//5
-		Conversation conversation14= new Conversation(user4, offer14);//5
-		Conversation conversation15= new Conversation(user4, offer15);//5
-		
+		offersService.addOffer(offer16);
+		offersService.addOffer(offer17);
+		offersService.addOffer(offer18);
+
+		Conversation conversation1 = new Conversation(user5, offer1);// 1
+		Conversation conversation2 = new Conversation(user5, offer2);// 1
+		Conversation conversation3 = new Conversation(user5, offer3);// 1
+		Conversation conversation4 = new Conversation(user3, offer4);// 2
+		Conversation conversation5 = new Conversation(user3, offer5);// 2
+		Conversation conversation6 = new Conversation(user3, offer6);// 2
+		Conversation conversation7 = new Conversation(user1, offer7);// 3
+		Conversation conversation8 = new Conversation(user1, offer8);// 3
+		Conversation conversation9 = new Conversation(user1, offer9);// 3
+		Conversation conversation10 = new Conversation(user2, offer10);// 4
+		Conversation conversation11 = new Conversation(user2, offer11);// 4
+		Conversation conversation12 = new Conversation(user2, offer12);// 4
+		Conversation conversation13 = new Conversation(user4, offer13);// 5
+		Conversation conversation14 = new Conversation(user4, offer14);// 5
+		Conversation conversation15 = new Conversation(user4, offer15);// 5
+
 		conversationsService.addConversation(conversation1);
 		conversationsService.addConversation(conversation2);
 		conversationsService.addConversation(conversation3);
@@ -214,82 +222,82 @@ public class MyWallapopTests {
 		conversationsService.addConversation(conversation13);
 		conversationsService.addConversation(conversation14);
 		conversationsService.addConversation(conversation15);
-		
-		Message message1= new Message(user5.getFullName(), "Hola 51", conversation1);
-		Message message2= new Message(user1.getFullName(), "Buenas! 11", conversation1);
-		Message message3= new Message(user5.getFullName(), "¿Qué tal? 51", conversation1);
-		Message message4= new Message(user1.getFullName(), "Bien 11", conversation1);
-		
-		Message message5= new Message(user5.getFullName(), "Hola 52", conversation2);
-		Message message6= new Message(user1.getFullName(), "Buenas! 12", conversation2);
-		Message message7= new Message(user5.getFullName(), "¿Qué tal? 52", conversation2);
-		Message message8= new Message(user1.getFullName(), "Bien 12", conversation2);
-		
-		Message message9= new Message(user5.getFullName(), "Hola 53", conversation3);
-		Message message10= new Message(user1.getFullName(), "Buenas! 13", conversation3);
-		Message message11= new Message(user5.getFullName(), "¿Qué tal? 53", conversation3);
-		Message message12= new Message(user1.getFullName(), "Bien 13", conversation3);
-		
-		Message message13= new Message(user3.getFullName(), "Hola 34", conversation4);
-		Message message14= new Message(user2.getFullName(), "Buenas! 24", conversation4);
-		Message message15= new Message(user3.getFullName(), "¿Qué tal? 34", conversation4);
-		Message message16= new Message(user2.getFullName(), "Bien 24", conversation4);
-		
-		Message message17= new Message(user3.getFullName(), "Hola 35", conversation5);
-		Message message18= new Message(user2.getFullName(), "Buenas! 25", conversation5);
-		Message message19= new Message(user3.getFullName(), "¿Qué tal? 35", conversation5);
-		Message message20= new Message(user2.getFullName(), "Bien 25", conversation5);
-		
-		Message message21= new Message(user3.getFullName(), "Hola 36", conversation6);
-		Message message22= new Message(user2.getFullName(), "Buenas! 26", conversation6);
-		Message message23= new Message(user3.getFullName(), "¿Qué tal? 36", conversation6);
-		Message message24= new Message(user2.getFullName(), "Bien 26", conversation6);
-		
-		Message message25= new Message(user1.getFullName(), "Hola 17", conversation7);
-		Message message26= new Message(user3.getFullName(), "Buenas! 37", conversation7);
-		Message message27= new Message(user1.getFullName(), "¿Qué tal? 17", conversation7);
-		Message message28= new Message(user3.getFullName(), "Bien 37", conversation7);
-		
-		Message message29= new Message(user1.getFullName(), "Hola 18", conversation8);
-		Message message30= new Message(user3.getFullName(), "Buenas! 38", conversation8);
-		Message message31= new Message(user1.getFullName(), "¿Qué tal? 18", conversation8);
-		Message message32= new Message(user3.getFullName(), "Bien 38", conversation8);
 
-		Message message33= new Message(user1.getFullName(), "Hola 19", conversation9);
-		Message message34= new Message(user3.getFullName(), "Buenas! 39", conversation9);
-		Message message35= new Message(user1.getFullName(), "¿Qué tal? 19", conversation9);
-		Message message36= new Message(user3.getFullName(), "Bien 39", conversation9);
-		
-		Message message37= new Message(user2.getFullName(), "Hola 210", conversation10);
-		Message message38= new Message(user4.getFullName(), "Buenas! 410", conversation10);
-		Message message39= new Message(user2.getFullName(), "¿Qué tal? 210", conversation10);
-		Message message40= new Message(user4.getFullName(), "Bien 410", conversation10);
-		
-		Message message41= new Message(user2.getFullName(), "Hola 211", conversation11);
-		Message message42= new Message(user4.getFullName(), "Buenas! 411", conversation11);
-		Message message43= new Message(user2.getFullName(), "¿Qué tal? 211", conversation11);
-		Message message44= new Message(user4.getFullName(), "Bien 411", conversation11);
-		
-		Message message45= new Message(user2.getFullName(), "Hola 212", conversation12);
-		Message message46= new Message(user4.getFullName(), "Buenas! 412", conversation12);
-		Message message47= new Message(user2.getFullName(), "¿Qué tal? 212", conversation12);
-		Message message48= new Message(user4.getFullName(), "Bien 412", conversation12);
-		
-		Message message49= new Message(user4.getFullName(), "Hola 413", conversation13);
-		Message message50= new Message(user5.getFullName(), "Buenas! 513", conversation13);
-		Message message51= new Message(user4.getFullName(), "¿Qué tal? 413", conversation13);
-		Message message52= new Message(user5.getFullName(), "Bien 513", conversation13);
-		
-		Message message53= new Message(user4.getFullName(), "Hola 414", conversation14);
-		Message message54= new Message(user5.getFullName(), "Buenas! 514", conversation14);
-		Message message55= new Message(user4.getFullName(), "¿Qué tal? 414", conversation14);
-		Message message56= new Message(user5.getFullName(), "Bien 514", conversation14);
-		
-		Message message57= new Message(user4.getFullName(), "Hola 415", conversation15);
-		Message message58= new Message(user5.getFullName(), "Buenas! 515", conversation15);
-		Message message59= new Message(user4.getFullName(), "¿Qué tal? 415", conversation15);
-		Message message60= new Message(user5.getFullName(), "Bien 515", conversation15);
-		
+		Message message1 = new Message(user5.getFullName(), "Hola 51", conversation1);
+		Message message2 = new Message(user1.getFullName(), "Buenas! 11", conversation1);
+		Message message3 = new Message(user5.getFullName(), "¿Qué tal? 51", conversation1);
+		Message message4 = new Message(user1.getFullName(), "Bien 11", conversation1);
+
+		Message message5 = new Message(user5.getFullName(), "Hola 52", conversation2);
+		Message message6 = new Message(user1.getFullName(), "Buenas! 12", conversation2);
+		Message message7 = new Message(user5.getFullName(), "¿Qué tal? 52", conversation2);
+		Message message8 = new Message(user1.getFullName(), "Bien 12", conversation2);
+
+		Message message9 = new Message(user5.getFullName(), "Hola 53", conversation3);
+		Message message10 = new Message(user1.getFullName(), "Buenas! 13", conversation3);
+		Message message11 = new Message(user5.getFullName(), "¿Qué tal? 53", conversation3);
+		Message message12 = new Message(user1.getFullName(), "Bien 13", conversation3);
+
+		Message message13 = new Message(user3.getFullName(), "Hola 34", conversation4);
+		Message message14 = new Message(user2.getFullName(), "Buenas! 24", conversation4);
+		Message message15 = new Message(user3.getFullName(), "¿Qué tal? 34", conversation4);
+		Message message16 = new Message(user2.getFullName(), "Bien 24", conversation4);
+
+		Message message17 = new Message(user3.getFullName(), "Hola 35", conversation5);
+		Message message18 = new Message(user2.getFullName(), "Buenas! 25", conversation5);
+		Message message19 = new Message(user3.getFullName(), "¿Qué tal? 35", conversation5);
+		Message message20 = new Message(user2.getFullName(), "Bien 25", conversation5);
+
+		Message message21 = new Message(user3.getFullName(), "Hola 36", conversation6);
+		Message message22 = new Message(user2.getFullName(), "Buenas! 26", conversation6);
+		Message message23 = new Message(user3.getFullName(), "¿Qué tal? 36", conversation6);
+		Message message24 = new Message(user2.getFullName(), "Bien 26", conversation6);
+
+		Message message25 = new Message(user1.getFullName(), "Hola 17", conversation7);
+		Message message26 = new Message(user3.getFullName(), "Buenas! 37", conversation7);
+		Message message27 = new Message(user1.getFullName(), "¿Qué tal? 17", conversation7);
+		Message message28 = new Message(user3.getFullName(), "Bien 37", conversation7);
+
+		Message message29 = new Message(user1.getFullName(), "Hola 18", conversation8);
+		Message message30 = new Message(user3.getFullName(), "Buenas! 38", conversation8);
+		Message message31 = new Message(user1.getFullName(), "¿Qué tal? 18", conversation8);
+		Message message32 = new Message(user3.getFullName(), "Bien 38", conversation8);
+
+		Message message33 = new Message(user1.getFullName(), "Hola 19", conversation9);
+		Message message34 = new Message(user3.getFullName(), "Buenas! 39", conversation9);
+		Message message35 = new Message(user1.getFullName(), "¿Qué tal? 19", conversation9);
+		Message message36 = new Message(user3.getFullName(), "Bien 39", conversation9);
+
+		Message message37 = new Message(user2.getFullName(), "Hola 210", conversation10);
+		Message message38 = new Message(user4.getFullName(), "Buenas! 410", conversation10);
+		Message message39 = new Message(user2.getFullName(), "¿Qué tal? 210", conversation10);
+		Message message40 = new Message(user4.getFullName(), "Bien 410", conversation10);
+
+		Message message41 = new Message(user2.getFullName(), "Hola 211", conversation11);
+		Message message42 = new Message(user4.getFullName(), "Buenas! 411", conversation11);
+		Message message43 = new Message(user2.getFullName(), "¿Qué tal? 211", conversation11);
+		Message message44 = new Message(user4.getFullName(), "Bien 411", conversation11);
+
+		Message message45 = new Message(user2.getFullName(), "Hola 212", conversation12);
+		Message message46 = new Message(user4.getFullName(), "Buenas! 412", conversation12);
+		Message message47 = new Message(user2.getFullName(), "¿Qué tal? 212", conversation12);
+		Message message48 = new Message(user4.getFullName(), "Bien 412", conversation12);
+
+		Message message49 = new Message(user4.getFullName(), "Hola 413", conversation13);
+		Message message50 = new Message(user5.getFullName(), "Buenas! 513", conversation13);
+		Message message51 = new Message(user4.getFullName(), "¿Qué tal? 413", conversation13);
+		Message message52 = new Message(user5.getFullName(), "Bien 513", conversation13);
+
+		Message message53 = new Message(user4.getFullName(), "Hola 414", conversation14);
+		Message message54 = new Message(user5.getFullName(), "Buenas! 514", conversation14);
+		Message message55 = new Message(user4.getFullName(), "¿Qué tal? 414", conversation14);
+		Message message56 = new Message(user5.getFullName(), "Bien 514", conversation14);
+
+		Message message57 = new Message(user4.getFullName(), "Hola 415", conversation15);
+		Message message58 = new Message(user5.getFullName(), "Buenas! 515", conversation15);
+		Message message59 = new Message(user4.getFullName(), "¿Qué tal? 415", conversation15);
+		Message message60 = new Message(user5.getFullName(), "Bien 515", conversation15);
+
 		messagesService.addMessage(message1);
 		messagesService.addMessage(message2);
 		messagesService.addMessage(message3);
@@ -350,18 +358,18 @@ public class MyWallapopTests {
 		messagesService.addMessage(message58);
 		messagesService.addMessage(message59);
 		messagesService.addMessage(message60);
-		
-		Purchase purchase1= new Purchase(user1, offer10);//4
-		Purchase purchase2= new Purchase(user1, offer11);//4
-		Purchase purchase3= new Purchase(user2, offer1);//1
-		Purchase purchase4= new Purchase(user2, offer2);//1
-		Purchase purchase5= new Purchase(user3, offer14);//5
-		Purchase purchase6= new Purchase(user3, offer15);//5
-		Purchase purchase7= new Purchase(user4, offer8);//3
-		Purchase purchase8= new Purchase(user4, offer9);//3
-		Purchase purchase9= new Purchase(user5, offer5);//2
-		Purchase purchase10= new Purchase(user5, offer6);//2
-		
+
+		Purchase purchase1 = new Purchase(user1, offer10);// 4
+		Purchase purchase2 = new Purchase(user1, offer11);// 4
+		Purchase purchase3 = new Purchase(user2, offer1);// 1
+		Purchase purchase4 = new Purchase(user2, offer2);// 1
+		Purchase purchase5 = new Purchase(user3, offer14);// 5
+		Purchase purchase6 = new Purchase(user3, offer15);// 5
+		Purchase purchase7 = new Purchase(user4, offer8);// 3
+		Purchase purchase8 = new Purchase(user4, offer9);// 3
+		Purchase purchase9 = new Purchase(user5, offer5);// 2
+		Purchase purchase10 = new Purchase(user5, offer6);// 2
+
 		purchasesService.addPurchase(purchase1);
 		purchasesService.addPurchase(purchase2);
 		purchasesService.addPurchase(purchase3);
@@ -372,17 +380,16 @@ public class MyWallapopTests {
 		purchasesService.addPurchase(purchase8);
 		purchasesService.addPurchase(purchase9);
 		purchasesService.addPurchase(purchase10);
-		
-		//Para que se actualice el dinero del monedero
+
+		// Para que se actualice el dinero del monedero
 		usersService.updateUser(user1);
 		usersService.updateUser(user2);
 		usersService.updateUser(user3);
 		usersService.updateUser(user4);
 		usersService.updateUser(user5);
+		usersService.updateUser(user6);
 		usersService.updateUser(userAdmin);
 	}
-	
-	
 
 	// PR01. Registro de usuario con datos válidos
 	@Test
@@ -557,7 +564,7 @@ public class MyWallapopTests {
 	@Test
 	public void PR10() {
 		// Primero se inicia sesión como usuario estándar
-		PO_LoginView.inicioDeSesionUser2(driver);
+		PO_LoginView.inicioDeSesionUser(driver, "prueba2@gmail.com", "123456");
 		// Se clica sobre la opción de menú y se comprueba que va a la página de login
 		PO_NavView.clickOption(driver, "/logout", "text",
 				PO_NavView.getP().getString("login.title", PO_Properties.getSPANISH()));
@@ -585,12 +592,13 @@ public class MyWallapopTests {
 				PO_View.getP().getString("nav.menu.showUsers", PO_Properties.getSPANISH()));
 		SeleniumUtils.esperaCargaPaginaIdPresente(driver, "userListId", PO_View.getTimeout());
 		// Se comprueba que coincidan con los emails que debería haber
-		List<String> emails= new ArrayList<String>();
+		List<String> emails = new ArrayList<String>();
 		emails.add("prueba@gmail.com");
 		emails.add("prueba2@gmail.com");
 		emails.add("prueba3@gmail.com");
 		emails.add("prueba4@gmail.com");
 		emails.add("prueba5@gmail.com");
+		emails.add("prueba6@gmail.com");
 		emails.add("admin@email.com");
 		PO_PrivateAdminView.checkUsersInList(driver, emails);
 	}
@@ -640,13 +648,13 @@ public class MyWallapopTests {
 	@Test
 	public void PR16() {
 		// Primero se inicia sesión como usuario estándar
-		PO_LoginView.inicioDeSesionUser2(driver);
+		PO_LoginView.inicioDeSesionUser(driver, "prueba2@gmail.com", "123456");
 		// Se clica sobre la opción de menú y se comprueba que se carga
 		PO_PrivateUserView.clickOpcionMenu(driver,
 				PO_View.getP().getString("nav.menu.addOffer", PO_Properties.getSPANISH()));
 		SeleniumUtils.esperaCargaPaginaIdPresente(driver, "addOfferId", PO_View.getTimeout());
 		// Se rellena con datos válidos y se crea
-		PO_PrivateUserView.fillForm(driver, "Producto prueba", "Hecho con Selenium", "12-05-2016", "5.40");
+		PO_PrivateUserView.fillForm(driver, "Producto prueba", "Hecho con Selenium", "12-05-2016", "5.40", false);
 		// Se comprueba que aparece en el listado de ofertas del usuario
 		PO_PrivateUserView.clickOpcionMenu(driver,
 				PO_View.getP().getString("nav.menu.showOffers", PO_Properties.getSPANISH()));
@@ -657,13 +665,13 @@ public class MyWallapopTests {
 	@Test
 	public void PR17() {
 		// Primero se inicia sesión como usuario estándar
-		PO_LoginView.inicioDeSesionUser2(driver);
+		PO_LoginView.inicioDeSesionUser(driver, "prueba2@gmail.com", "123456");
 		// Se clica sobre la opción de menú y se comprueba que se carga
 		PO_PrivateUserView.clickOpcionMenu(driver,
 				PO_View.getP().getString("nav.menu.addOffer", PO_Properties.getSPANISH()));
 		SeleniumUtils.esperaCargaPaginaIdPresente(driver, "addOfferId", PO_View.getTimeout());
 		// Se rellena con datos inválidos y se crea
-		PO_PrivateUserView.fillForm(driver, " ", "Hecho con Selenium", "12-05-2016", "5.40");
+		PO_PrivateUserView.fillForm(driver, " ", "Hecho con Selenium", "12-05-2016", "5.40", false);
 		// Se comprueba que aparece el mensaje de campo vacío
 		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver,
 				PO_View.getP().getString("Error.empty", PO_Properties.getSPANISH()), PO_View.getTimeout());
@@ -673,7 +681,7 @@ public class MyWallapopTests {
 	@Test
 	public void PR18() {
 		// Primero se inicia sesión como usuario estándar
-		PO_LoginView.inicioDeSesionUser2(driver);
+		PO_LoginView.inicioDeSesionUser(driver, "prueba2@gmail.com", "123456");
 		// Se clica sobre la opción de menú
 		PO_PrivateUserView.clickOpcionMenu(driver,
 				PO_View.getP().getString("nav.menu.showOffers", PO_Properties.getSPANISH()));
@@ -687,7 +695,7 @@ public class MyWallapopTests {
 	@Test
 	public void PR19() {
 		// Primero se inicia sesión como usuario estándar
-		PO_LoginView.inicioDeSesionUser2(driver);
+		PO_LoginView.inicioDeSesionUser(driver, "prueba2@gmail.com", "123456");
 		// Se clica sobre la opción de menú
 		PO_PrivateUserView.clickOpcionMenu(driver,
 				PO_View.getP().getString("nav.menu.showOffers", PO_Properties.getSPANISH()));
@@ -699,7 +707,7 @@ public class MyWallapopTests {
 	@Test
 	public void PR20() {
 		// Primero se inicia sesión como usuario estándar
-		PO_LoginView.inicioDeSesionUser2(driver);
+		PO_LoginView.inicioDeSesionUser(driver, "prueba2@gmail.com", "123456");
 		// Se clica sobre la opción de menú
 		PO_PrivateUserView.clickOpcionMenu(driver,
 				PO_View.getP().getString("nav.menu.showOffers", PO_Properties.getSPANISH()));
@@ -711,7 +719,7 @@ public class MyWallapopTests {
 	@Test
 	public void PR21() {
 		// Primero se inicia sesión como usuario estándar (prueba5@gmail.com)
-		PO_LoginView.inicioDeSesionUser5(driver);
+		PO_LoginView.inicioDeSesionUser(driver, "prueba5@gmail.com", "123456");
 		// Se clica sobre la opción de menú
 		PO_PrivateUserView.clickOpcionMenu(driver,
 				PO_View.getP().getString("nav.menu.searchOffers", PO_Properties.getSPANISH()));
@@ -723,17 +731,20 @@ public class MyWallapopTests {
 		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto 3", PO_View.getTimeout());
 		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto 4", PO_View.getTimeout());
 		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto 5", PO_View.getTimeout());
-		driver.findElement(By.id("2pag")).click(); //Se va a página 2
+		driver.findElement(By.id("2pag")).click(); // Se va a página 2
 		// Sólo deberían aparecer otras 5 en la segunda página
 		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto 6", PO_View.getTimeout());
 		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto 7", PO_View.getTimeout());
 		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto 8", PO_View.getTimeout());
 		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto 9", PO_View.getTimeout());
 		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto 10", PO_View.getTimeout());
-		driver.findElement(By.id("3pag")).click(); //Se va a página 3
+		driver.findElement(By.id("3pag")).click(); // Se va a página 3
 		// Sólo deberían aparecer 2 ofertas en la última página
 		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto 11", PO_View.getTimeout());
 		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto 12", PO_View.getTimeout());
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto 16", PO_View.getTimeout());
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto 17", PO_View.getTimeout());
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto 18", PO_View.getTimeout());
 	}
 
 	// PR22. Hacer búsqueda con una cadena que no exista y comprobar que no sale
@@ -741,7 +752,7 @@ public class MyWallapopTests {
 	@Test
 	public void PR22() {
 		// Primero se inicia sesión como usuario estándar (prueba5@gmail.com)
-		PO_LoginView.inicioDeSesionUser5(driver);
+		PO_LoginView.inicioDeSesionUser(driver, "prueba5@gmail.com", "123456");
 		// Se clica sobre la opción de menú
 		PO_PrivateUserView.clickOpcionMenu(driver,
 				PO_View.getP().getString("nav.menu.searchOffers", PO_Properties.getSPANISH()));
@@ -755,7 +766,7 @@ public class MyWallapopTests {
 	@Test
 	public void PR23() {
 		// Primero se inicia sesión como usuario estándar (prueba5@gmail.com)
-		PO_LoginView.inicioDeSesionUser5(driver);
+		PO_LoginView.inicioDeSesionUser(driver, "prueba5@gmail.com", "123456");
 		// Se clica sobre la opción de menú
 		PO_PrivateUserView.clickOpcionMenu(driver,
 				PO_View.getP().getString("nav.menu.searchOffers", PO_Properties.getSPANISH()));
@@ -773,7 +784,7 @@ public class MyWallapopTests {
 	@Test
 	public void PR24() {
 		// Primero se inicia sesión como usuario estándar (prueba5@gmail.com)
-		PO_LoginView.inicioDeSesionUser5(driver);
+		PO_LoginView.inicioDeSesionUser(driver, "prueba5@gmail.com", "123456");
 		// Se clica sobre la opción de menú
 		PO_PrivateUserView.clickOpcionMenu(driver,
 				PO_View.getP().getString("nav.menu.searchOffers", PO_Properties.getSPANISH()));
@@ -792,16 +803,16 @@ public class MyWallapopTests {
 	@Test
 	public void PR25() {
 		// Primero se inicia sesión como usuario estándar (prueba5@gmail.com)
-		PO_LoginView.inicioDeSesionUser5(driver);
+		PO_LoginView.inicioDeSesionUser(driver, "prueba5@gmail.com", "123456");
 		// Se clica sobre la opción de menú
 		PO_PrivateUserView.clickOpcionMenu(driver,
 				PO_View.getP().getString("nav.menu.searchOffers", PO_Properties.getSPANISH()));
 		// Se realiza la búsqueda
-		List<WebElement> totalEncontrado = PO_PrivateUserView.buscarProductosAComprar(driver, "7");
+		List<WebElement> totalEncontrado = PO_PrivateUserView.buscarProductosAComprar(driver, "Producto 7");
 		// Se obtiene el valor del monedero antes
 		String monederoAntes = driver.findElement(By.id("navMoney")).getText();
 		// Se comprueba que sale 1 producto
-		assertTrue("Se esperaban 1 productos", totalEncontrado.size() == 1);
+		assertTrue("Se esperaban 1 productos hubo " + totalEncontrado.size(), totalEncontrado.size() == 1);
 		// Se compra el producto
 		totalEncontrado.get(0).click();
 		// Se comprueba el saldo en el monedero que debiera ser el mismo que antes
@@ -816,7 +827,7 @@ public class MyWallapopTests {
 	@Test
 	public void PR26() {
 		// Primero se inicia sesión como usuario estándar (prueba5@gmail.com)
-		PO_LoginView.inicioDeSesionUser5(driver);
+		PO_LoginView.inicioDeSesionUser(driver, "prueba5@gmail.com", "123456");
 		// Se clica sobre la opción de menú
 		PO_PrivateUserView.clickOpcionMenu(driver,
 				PO_View.getP().getString("nav.menu.boughtOffers", PO_Properties.getSPANISH()));
@@ -836,7 +847,7 @@ public class MyWallapopTests {
 		PO_HomeView.checkChangeIdiom(driver);
 
 		// Se comprueba el home y el listado de opciones de menú del usuario
-		PO_LoginView.inicioDeSesionUser2(driver);
+		PO_LoginView.inicioDeSesionUser(driver, "prueba2@gmail.com", "123456");
 		PO_PrivateView.checkChangeIdiomHome(driver);
 		PO_PrivateUserView.checkChangeIdiomUserMenu(driver);
 
@@ -860,7 +871,7 @@ public class MyWallapopTests {
 		// Se comprueba que el menú está en estado de no estar logueado
 		PO_NavView.checkMenuNotBeingInLogged(driver);
 		// Se dirige a la página del listado de usuarios
-		driver.navigate().to(URL+"/user/list/2");
+		driver.navigate().to(URL + "/user/list/2");
 		// Se comprueba que se está en la página de login
 		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver,
 				PO_View.getP().getString("login.title", PO_Properties.getSPANISH()), PO_View.getTimeout());
@@ -873,24 +884,179 @@ public class MyWallapopTests {
 		// Se comprueba que el menú está en estado de no estar logueado
 		PO_NavView.checkMenuNotBeingInLogged(driver);
 		// Se dirige a la página del listado de ofertas propias
-		driver.navigate().to(URL+"/offer/list");
+		driver.navigate().to(URL + "/offer/list");
 		// Se comprueba que se está en la página de login
 		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver,
 				PO_View.getP().getString("login.title", PO_Properties.getSPANISH()), PO_View.getTimeout());
 	}
 
-	// PR30. Estando autenticado como usuario estándar intentar acceder al listado de usuarios
+	// PR30. Estando autenticado como usuario estándar intentar acceder al listado
+	// de usuarios
 	@Test
 	public void PR30() {
-		//Se inicia sesión como usuario estándar
-		PO_LoginView.inicioDeSesionUser5(driver);
-		// Se comprueba que el menú está en estado de estar logueado como usuario estándar
+		// Se inicia sesión como usuario estándar
+		PO_LoginView.inicioDeSesionUser(driver, "prueba5@gmail.com", "123456");
+		// Se comprueba que el menú está en estado de estar logueado como usuario
+		// estándar
 		PO_NavView.checkMenuBeingInLoggedUser(driver);
 		// Se dirige a la página del listado de ofertas propias
-		driver.navigate().to(URL+"/user/list/2");
+		driver.navigate().to(URL + "/user/list/2");
 		// Se comprueba que sale el mensaje de acción prohibida
 		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver,
 				PO_View.getP().getString("error.403.description", PO_Properties.getSPANISH()), PO_View.getTimeout());
 	}
 
+	// PR31. Hacer búsqueda de oferta y enviar mensaje a una oferta concreta que
+	// tenga el chat sin iniciar
+	@Test
+	public void PR31() {
+		// Primero se inicia sesión como usuario estándar (prueba5@gmail.com)
+		PO_LoginView.inicioDeSesionUser(driver, "prueba5@gmail.com", "123456");
+		// Se clica sobre la opción de menú
+		PO_PrivateUserView.clickOpcionMenu(driver,
+				PO_View.getP().getString("nav.menu.searchOffers", PO_Properties.getSPANISH()));
+		// Se realiza la búsqueda
+		List<WebElement> totalEncontrado = PO_PrivateUserView.buscarProductosAChatear(driver, "16");
+		// Se comprueba que sale 1 producto
+		assertTrue("Se esperaban 1 productos", totalEncontrado.size() == 1);
+		// Se abre el chat
+		totalEncontrado.get(0).click();
+		// Se añade un mensaje
+		PO_PrivateUserView.addMessage(driver, "Mensaje de test");
+		// Se comprueba que está el mensaje
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Mensaje de test", PO_View.getTimeout());
+	}
+
+	// PR32. Sobre el listado de conversaciones enviar un mensaje a una conversación
+	// ya abierta
+	@Test
+	public void PR32() {
+		// Primero se inicia sesión como usuario estándar (prueba5@gmail.com)
+		PO_LoginView.inicioDeSesionUser(driver, "prueba5@gmail.com", "123456");
+		// Se clica sobre la opción de menú
+		PO_PrivateUserView.clickOpcionMenu(driver,
+				PO_View.getP().getString("nav.menu.conversationList", PO_Properties.getSPANISH()));
+		// Se selecciona el primer chat y se abre
+		PO_PrivateUserView.buscarChats(driver).get(0).click();
+		// Se añade un mensaje
+		PO_PrivateUserView.addMessage(driver, "Mensaje de test 32");
+		// Se comprueba que está el mensaje
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Mensaje de test 32", PO_View.getTimeout());
+	}
+
+	// PR33. Mostrar el listado de conversaciones abiertas y comprobar que tiene las
+	// que debe
+	@Test
+	public void PR33() {
+		// Primero se inicia sesión como usuario estándar (prueba5@gmail.com)
+		PO_LoginView.inicioDeSesionUser(driver, "prueba5@gmail.com", "123456");
+		// Se clica sobre la opción de menú
+		PO_PrivateUserView.clickOpcionMenu(driver,
+				PO_View.getP().getString("nav.menu.conversationList", PO_Properties.getSPANISH()));
+		// Se obtiene el listado de chats
+		List<WebElement> list = PO_PrivateUserView.buscarChats(driver);
+		// Se comprueba su numero
+		assertTrue("Debería tener 6 conversaciones", list.size() == 6);
+		// Se comprueba que están los que deben
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto 1", PO_View.getTimeout());
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto 2", PO_View.getTimeout());
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto 3", PO_View.getTimeout());
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto 13", PO_View.getTimeout());
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto 14", PO_View.getTimeout());
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto 15", PO_View.getTimeout());
+	}
+
+	// PR34. Mostrar el listado de conversaciones abiertas y eliminar la primera
+	@Test
+	public void PR34() {
+		// Primero se inicia sesión como usuario estándar (prueba5@gmail.com)
+		PO_LoginView.inicioDeSesionUser(driver, "prueba5@gmail.com", "123456");
+		// Se clica sobre la opción de menú
+		PO_PrivateUserView.clickOpcionMenu(driver,
+				PO_View.getP().getString("nav.menu.conversationList", PO_Properties.getSPANISH()));
+		// Se elimina la primera
+		PO_PrivateUserView.borrarChatPorPosicion(driver, 0);
+	}
+
+	// PR35. Mostrar el listado de conversaciones abiertas y eliminar la última
+	@Test
+	public void PR35() {
+		// Primero se inicia sesión como usuario estándar (prueba5@gmail.com)
+		PO_LoginView.inicioDeSesionUser(driver, "prueba5@gmail.com", "123456");
+		// Se clica sobre la opción de menú
+		PO_PrivateUserView.clickOpcionMenu(driver,
+				PO_View.getP().getString("nav.menu.conversationList", PO_Properties.getSPANISH()));
+		// Se elimina la primera
+		PO_PrivateUserView.borrarChatPorPosicion(driver, PO_PrivateUserView.ULTIMA_POSICION);
+	}
+
+	// PR36. Alta de oferta destacada
+	@Test
+	public void PR36() {
+		// Primero se inicia sesión como usuario estándar
+		PO_LoginView.inicioDeSesionUser(driver, "prueba2@gmail.com", "123456");
+		// Se clica sobre la opción de menú y se comprueba que se carga
+		PO_PrivateUserView.clickOpcionMenu(driver,
+				PO_View.getP().getString("nav.menu.addOffer", PO_Properties.getSPANISH()));
+		SeleniumUtils.esperaCargaPaginaIdPresente(driver, "addOfferId", PO_View.getTimeout());
+		// Se rellena con datos válidos y se crea
+		PO_PrivateUserView.fillForm(driver, "Producto prueba", "Hecho con Selenium", "12-05-2016", "5.40", true);
+		// Se comprueba que se han cargado correctamente los 20€
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Cartera: 76.7€", PO_View.getTimeout());
+		// Se cierra sesión
+		driver.manage().deleteAllCookies();
+		driver.navigate().to(URL);
+		// Se inicia como otro usuario y automáticamente carga el home donde están las
+		// destacadas
+		PO_LoginView.inicioDeSesionUser(driver, "prueba5@gmail.com", "123456");
+		// Se comprueba que aparece en el listado de ofertas del usuario
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Producto prueba", PO_View.getTimeout());
+	}
+
+	// PR37. Ir a la lista de ofertas y destacar una oferta teniendo 20€ de saldo
+	@Test
+	public void PR37() {
+		// Primero se inicia sesión como usuario estándar
+		PO_LoginView.inicioDeSesionUser(driver, "prueba6@gmail.com", "123456");
+		// Se comprueba que hay 20€
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Cartera: 20.0€", PO_View.getTimeout());
+		// Se clica sobre la opción de menú
+		PO_PrivateUserView.clickOpcionMenu(driver,
+				PO_View.getP().getString("nav.menu.showOffers", PO_Properties.getSPANISH()));
+		// Se destaca el primero
+		PO_PrivateUserView.destacarProductosPorPosicion(driver, 0, true);
+		// Se comprueba que quedan 0€
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Cartera: 0.0€", PO_View.getTimeout());
+		// Se cierra sesión
+		driver.manage().deleteAllCookies();
+		driver.navigate().to(URL);
+		// Se inicia como otro usuario y automáticamente carga el home donde están las
+		// destacadas
+		PO_LoginView.inicioDeSesionUser(driver, "prueba5@gmail.com", "123456");
+		// Se comprueba que aparece en el listado de ofertas del usuario
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Prueba de destacar con 20€", PO_View.getTimeout());
+	}
+
+	// PR38. Ir a la lista de ofertas y destacar una oferta no teniendo suficiente
+	// saldo
+	@Test
+	public void PR38() {
+		// Primero se inicia sesión como usuario estándar
+		PO_LoginView.inicioDeSesionUser(driver, "prueba6@gmail.com", "123456");
+		// Se comprueba que hay 20€
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Cartera: 20.0€", PO_View.getTimeout());
+		// Se clica sobre la opción de menú
+		PO_PrivateUserView.clickOpcionMenu(driver,
+				PO_View.getP().getString("nav.menu.showOffers", PO_Properties.getSPANISH()));
+		// Se destaca el primero
+		PO_PrivateUserView.destacarProductosPorPosicion(driver, 0, true);
+		// Se comprueba que quedan 0€
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver, "Cartera: 0.0€", PO_View.getTimeout());
+		// Se destaca el primero de nuevo ahora que hay 0€ para que salga el mensaje
+		PO_PrivateUserView.destacarProductosPorPosicion(driver, 0, false);
+		// Se comprueba que aparece el mensaje
+		SeleniumUtils.EsperaCargaPaginaTieneTexto(driver,
+				PO_View.getP().getString("offer.add.error.notMoneyEnough", PO_Properties.getSPANISH()),
+				PO_View.getTimeout());
+	}
 }

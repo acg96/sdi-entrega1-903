@@ -20,7 +20,7 @@ public class PurchasesService {
 		purchaseRepository.findAll().forEach(purchases::add);
 		return purchases;
 	}
-	
+
 	public List<Purchase> getUserPurchases(User buyer) {
 		List<Purchase> purchases = new ArrayList<Purchase>();
 		purchaseRepository.findAllByBuyer(buyer).forEach(purchases::add);

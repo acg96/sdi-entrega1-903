@@ -100,9 +100,10 @@ public class SeleniumUtils {
 
 		assertTrue(resultado);
 	}
-	
+
 	/**
-	 * Aborta si el "texto" no está presente en la página actual tras timeout segundos.
+	 * Aborta si el "texto" no está presente en la página actual tras timeout
+	 * segundos.
 	 * 
 	 * @param driver: apuntando al navegador abierto actualmente.
 	 * @param texto: texto a buscar

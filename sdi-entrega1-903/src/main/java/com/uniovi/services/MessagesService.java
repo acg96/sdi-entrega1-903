@@ -14,13 +14,13 @@ import com.uniovi.repositories.MessagesRepository;
 public class MessagesService {
 	@Autowired
 	private MessagesRepository messagesRepository;
-	
+
 	public List<Message> getConversationMessages(Conversation conversation) {
 		List<Message> messages = new ArrayList<Message>();
 		messagesRepository.findAllByConversation(conversation).forEach(messages::add);
 		return messages;
 	}
-	
+
 	public Message getMessage(Long id) {
 		return messagesRepository.findById(id).get();
 	}

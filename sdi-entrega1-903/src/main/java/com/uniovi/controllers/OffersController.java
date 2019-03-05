@@ -31,7 +31,7 @@ public class OffersController {
 
 	@Autowired
 	private HttpSession httpSession;
-	
+
 	@Autowired
 	private OffersService offersService;
 
@@ -40,20 +40,20 @@ public class OffersController {
 
 	@Autowired
 	private UsersService usersService;
-	
+
 	private void storeUserInformation(Model model) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User user= usersService.getUserByEmail(auth.getName());
+		User user = usersService.getUserByEmail(auth.getName());
 		if (user != null) {
 			model.addAttribute("email", user.getEmail());
 			model.addAttribute("money", user.getMoney());
 		}
 	}
-	
+
 	private boolean checkOfferOwner(Long idOffer) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User user= usersService.getUserByEmail(auth.getName());
-		List<Offer> list= offersService.getUserOffers(user);
+		User user = usersService.getUserByEmail(auth.getName());
+		List<Offer> list = offersService.getUserOffers(user);
 		for (Offer o : list) {
 			if (o.getId().equals(idOffer)) {
 				return true;
@@ -61,11 +61,11 @@ public class OffersController {
 		}
 		return false;
 	}
-	
+
 	@RequestMapping("/offer/star/{id}")
 	public String starOffer(@PathVariable Long id, Model model) {
 		if (checkOfferOwner(id)) {
-			Offer offer= offersService.getOffer(id);
+			Offer offer = offersService.getOffer(id);
 			if (offer.getStar()) {
 				return "redirect:/offer/list";
 			}
@@ -73,20 +73,20 @@ public class OffersController {
 				offer.setStarLater();
 				offersService.addOffer(offer);
 				model.addAttribute("errorStar", 0);
-				//Mensaje de se ha destacado correctamente
-			}catch(IllegalStateException ex) {
-				//Mensaje de falta de fondos
+				// Mensaje de se ha destacado correctamente
+			} catch (IllegalStateException ex) {
+				// Mensaje de falta de fondos
 				model.addAttribute("errorStar", 1);
 			}
 		}
 		storeUserInformation(model);
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		User user = usersService.getUserByEmail(auth.getName());
-		List<Offer> offers= offersService.getUserOffers(user);
+		List<Offer> offers = offersService.getUserOffers(user);
 		model.addAttribute("offerList", offers);
 		return "offer/list";
 	}
-	
+
 	@RequestMapping("/offer/remove/{id}")
 	public String removeOffer(@PathVariable Long id) {
 		if (checkOfferOwner(id)) {
@@ -97,50 +97,51 @@ public class OffersController {
 
 	@RequestMapping(value = "/offer/add", method = RequestMethod.POST)
 	public String setOffer(@ModelAttribute Offer offer, BindingResult result, Model model) {
-		storeUserInformation(model);		
+		storeUserInformation(model);
 		addOfferFormValidator.validate(offer, result);
 		if (result.hasErrors()) {
 			return "offer/add";
 		}
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User user= usersService.getUserByEmail(auth.getName());
+		User user = usersService.getUserByEmail(auth.getName());
 		try {
 			offer.setUserNewRecord(user);
 			offersService.addOffer(offer);
-			return "redirect:/offer/list";			
-		}catch(IllegalStateException ex) {
-			//Se ha intentado marcar como destacada sin tener fondos el usuario
+			return "redirect:/offer/list";
+		} catch (IllegalStateException ex) {
+			// Se ha intentado marcar como destacada sin tener fondos el usuario
 			model.addAttribute("errorFondos", 1);
 			return "offer/add";
-		}		
+		}
 	}
-	
+
 	@RequestMapping("/offer/list")
 	public String getList(Model model, Principal principal) {
 		storeUserInformation(model);
 		String email = principal.getName();
 		User user = usersService.getUserByEmail(email);
-		List<Offer> offers= offersService.getUserOffers(user);
+		List<Offer> offers = offersService.getUserOffers(user);
 		model.addAttribute("offerList", offers);
 		return "offer/list";
 	}
-	
+
 	@RequestMapping("/offer/search")
-	public String getProductsToBuy(Model model, Pageable pageable, Principal principal, @RequestParam(value = "", required = false) String searchText) {
+	public String getProductsToBuy(Model model, Pageable pageable, Principal principal,
+			@RequestParam(value = "", required = false) String searchText) {
 		storeUserInformation(model);
 		String email = principal.getName();
 		User user = usersService.getUserByEmail(email);
 		Page<Offer> offers = new PageImpl<Offer>(new LinkedList<Offer>());
-		
+
 		if (searchText != null && !searchText.isEmpty()) {
 			offers = offersService.searchOffersByTitle(pageable, searchText, user);
 		} else {
 			offers = offersService.getAllOffers(pageable, user);
 		}
-		Object money= httpSession.getAttribute("money");
+		Object money = httpSession.getAttribute("money");
 		if (money != null) {
 			httpSession.setAttribute("money", null);
-			model.addAttribute("nomoney", (Integer)money);
+			model.addAttribute("nomoney", (Integer) money);
 		}
 		model.addAttribute("offerList", offers.getContent());
 		model.addAttribute("page", offers);
@@ -150,8 +151,8 @@ public class OffersController {
 	@RequestMapping(value = "/offer/add")
 	public String getOffer(Model model) {
 		storeUserInformation(model);
-		SimpleDateFormat sdf= new SimpleDateFormat("dd-MM-yyyy");
-		Date systemDate= new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+		Date systemDate = new Date();
 		model.addAttribute("systemDate", sdf.format(systemDate));
 		model.addAttribute("offer", new Offer());
 		return "offer/add";

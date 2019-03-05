@@ -39,39 +39,42 @@ public class PO_NavView extends PO_View {
 		elementos = SeleniumUtils.EsperaCargaPagina(driver, "id", textLanguage, getTimeout());
 		elementos.get(0).click();
 	}
-	
+
 	static void checkMenuBeingInLogged(WebDriver driver) {
 		checkLogOutAppear(driver);
 		checkLoginNotAppear(driver);
 		checkSignUpNotAppear(driver);
-		checkEmailAppear(driver);		
+		checkEmailAppear(driver);
 	}
-	
+
 	/**
 	 * Comprueba el estado del menú estando logueado como usuario normal
+	 * 
 	 * @param driver
 	 */
 	public static void checkMenuBeingInLoggedUser(WebDriver driver) {
-		checkMenuBeingInLogged(driver);	
+		checkMenuBeingInLogged(driver);
 		checkUsersMenuNotAppear(driver);
 		checkOffersMenuAppear(driver);
 		checkWalletAppear(driver);
 	}
-	
+
 	/**
 	 * Comprueba el estado del menú estando logueado como usuario administrador
+	 * 
 	 * @param driver
 	 */
 	public static void checkMenuBeingInLoggedAdmin(WebDriver driver) {
-		checkMenuBeingInLogged(driver);	
+		checkMenuBeingInLogged(driver);
 		checkUsersMenuAppear(driver);
 		checkWalletNotAppear(driver);
 		checkOffersMenuNotAppear(driver);
-		
+
 	}
-	
+
 	/**
 	 * Comprueba el estado del menú no estando logueado
+	 * 
 	 * @param driver
 	 */
 	public static void checkMenuNotBeingInLogged(WebDriver driver) {
@@ -84,7 +87,7 @@ public class PO_NavView extends PO_View {
 		checkLoginAppear(driver);
 		checkLogOutNotAppear(driver);
 	}
-	
+
 	static public void checkEmailNotAppear(WebDriver driver) {
 		SeleniumUtils.esperaCargaPaginaNoIdPresente(driver, "navEmail", getTimeout());
 	}
@@ -96,47 +99,47 @@ public class PO_NavView extends PO_View {
 	static public void checkOffersMenuNotAppear(WebDriver driver) {
 		SeleniumUtils.esperaCargaPaginaNoIdPresente(driver, "offers-menu", getTimeout());
 	}
-	
+
 	static public void checkUsersMenuNotAppear(WebDriver driver) {
 		SeleniumUtils.esperaCargaPaginaNoIdPresente(driver, "users-menu", getTimeout());
 	}
-	
+
 	static public void checkLanguageMenuAppear(WebDriver driver) {
 		SeleniumUtils.esperaCargaPaginaIdPresente(driver, "btnLanguage", getTimeout());
 	}
-	
+
 	static public void checkSignUpAppear(WebDriver driver) {
 		SeleniumUtils.esperaCargaPaginaIdPresente(driver, "navSignup", getTimeout());
 	}
-	
+
 	static public void checkLoginAppear(WebDriver driver) {
 		SeleniumUtils.esperaCargaPaginaIdPresente(driver, "navLogin", getTimeout());
 	}
-	
+
 	static public void checkLogOutNotAppear(WebDriver driver) {
 		SeleniumUtils.esperaCargaPaginaNoIdPresente(driver, "navLogout", getTimeout());
 	}
-	
+
 	static public void checkLogOutAppear(WebDriver driver) {
 		SeleniumUtils.esperaCargaPaginaIdPresente(driver, "navLogout", getTimeout());
 	}
-	
+
 	static public void checkLoginNotAppear(WebDriver driver) {
 		SeleniumUtils.esperaCargaPaginaNoIdPresente(driver, "navLogin", getTimeout());
 	}
-	
+
 	static public void checkSignUpNotAppear(WebDriver driver) {
 		SeleniumUtils.esperaCargaPaginaNoIdPresente(driver, "navSignup", getTimeout());
 	}
-	
+
 	static public void checkOffersMenuAppear(WebDriver driver) {
 		SeleniumUtils.esperaCargaPaginaIdPresente(driver, "offers-menu", getTimeout());
 	}
-	
+
 	static public void checkUsersMenuAppear(WebDriver driver) {
 		SeleniumUtils.esperaCargaPaginaIdPresente(driver, "users-menu", getTimeout());
 	}
-	
+
 	static public void checkEmailAppear(WebDriver driver) {
 		SeleniumUtils.esperaCargaPaginaIdPresente(driver, "navEmail", getTimeout());
 	}

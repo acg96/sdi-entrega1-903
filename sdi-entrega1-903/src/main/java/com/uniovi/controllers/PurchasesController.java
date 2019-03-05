@@ -22,7 +22,7 @@ import com.uniovi.services.UsersService;
 
 @Controller
 public class PurchasesController {
-	
+
 	@Autowired
 	private HttpSession httpSession;
 
@@ -34,10 +34,10 @@ public class PurchasesController {
 
 	@Autowired
 	private UsersService usersService;
-	
+
 	private void storeUserInformation(Model model) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User user= usersService.getUserByEmail(auth.getName());
+		User user = usersService.getUserByEmail(auth.getName());
 		if (user != null) {
 			model.addAttribute("email", user.getEmail());
 			model.addAttribute("money", user.getMoney());
@@ -46,28 +46,28 @@ public class PurchasesController {
 
 	@RequestMapping(value = "/purchase/add/{id}")
 	public String setPurchase(@PathVariable Long id, Model model) {
-		Offer offer= offersService.getOffer(id);
+		Offer offer = offersService.getOffer(id);
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User buyer= usersService.getUserByEmail(auth.getName());
+		User buyer = usersService.getUserByEmail(auth.getName());
 		if (offer.getPurchase() != null) {
 			return "redirect:/offer/search";
 		}
 		try {
-			Purchase purchase= new Purchase(buyer, offer);	
+			Purchase purchase = new Purchase(buyer, offer);
 			purchasesService.addPurchase(purchase);
-		}catch(RuntimeException ex) {
-			httpSession.setAttribute("money", (Integer)1);
+		} catch (RuntimeException ex) {
+			httpSession.setAttribute("money", (Integer) 1);
 			return "redirect:/offer/search";
 		}
 		return "redirect:/purchase/list";
 	}
-	
+
 	@RequestMapping("/purchase/list")
 	public String getList(Model model, Principal principal) {
 		storeUserInformation(model);
 		String email = principal.getName();
 		User user = usersService.getUserByEmail(email);
-		List<Purchase> purchases= purchasesService.getUserPurchases(user);
+		List<Purchase> purchases = purchasesService.getUserPurchases(user);
 		model.addAttribute("purchaseList", purchases);
 		return "purchase/list";
 	}

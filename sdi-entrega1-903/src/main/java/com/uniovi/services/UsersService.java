@@ -16,7 +16,7 @@ import com.uniovi.repositories.UsersRepository;
 public class UsersService {
 	public static int DELETED_FALSE = 0;
 	public static int DELETED_TRUE = 1;
-	
+
 	@Autowired
 	private UsersRepository usersRepository;
 
@@ -43,7 +43,7 @@ public class UsersService {
 		}
 		usersRepository.save(user);
 	}
-	
+
 	public void updateUser(User user) {
 		usersRepository.save(user);
 	}
@@ -55,16 +55,16 @@ public class UsersService {
 	public void deleteUser(Long id) {
 		usersRepository.deleteById(id);
 	}
-	
+
 	public int deleteUsers(UserToDelete users) {
 		int hayBorrado = DELETED_FALSE;
 		for (User u : users.getUsers()) {
 			try {
 				deleteUser(u.getId());
-			}catch(Exception ex) { //Excepción por detached
-				usersRepository.findById(u.getId()); //Se quita de detached
-				deleteUser(u.getId()); //Se vuelve a borrar
-			}	
+			} catch (Exception ex) { // Excepción por detached
+				usersRepository.findById(u.getId()); // Se quita de detached
+				deleteUser(u.getId()); // Se vuelve a borrar
+			}
 			hayBorrado = DELETED_TRUE;
 		}
 		return hayBorrado;

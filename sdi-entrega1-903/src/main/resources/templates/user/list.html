@@ -24,17 +24,18 @@
 							<td><input type="checkbox" class="form-check-input"
 								th:id="${'check-' + user.id}" th:field="*{users}"
 								th:value="${user.id}" th:if="${email != user.email}"></td>
-							<td class="emailsList" th:text="${user.email}" th:id="${user.email}"></td>
+							<td class="emailsList" th:text="${user.email}"
+								th:id="${user.email}"></td>
 							<td th:text="${user.name}"></td>
 							<td th:text="${user.lastName}"></td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
-			<p class="text-danger"
-				th:if="${deleted == 0}" th:text="#{user.listUsers.shouldSelectOption}"></p>
-			<p class="text-danger"
-				th:if="${deleted == 1}" th:text="#{user.listUsers.deleteCorrect}"></p>
+			<p class="text-danger" th:if="${deleted == 0}"
+				th:text="#{user.listUsers.shouldSelectOption}"></p>
+			<p class="text-danger" th:if="${deleted == 1}"
+				th:text="#{user.listUsers.deleteCorrect}"></p>
 			<button type="submit" class="btn btn-primary"
 				th:text="#{user.listUsers.removeButton}"></button>
 		</form>

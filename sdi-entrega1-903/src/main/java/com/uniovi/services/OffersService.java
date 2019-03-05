@@ -23,29 +23,29 @@ public class OffersService {
 		offersRepository.findAll().forEach(offer::add);
 		return offer;
 	}
-	
-	public List<Offer> getStarredOffers(User user){
+
+	public List<Offer> getStarredOffers(User user) {
 		return offersRepository.searchStarredOffers(user);
 	}
-	
+
 	public Page<Offer> searchOffersByTitle(Pageable pageable, String searchText, User user) {
 		Page<Offer> offers = new PageImpl<Offer>(new LinkedList<Offer>());
-		searchText = "%"+searchText+"%";
-		offers= offersRepository.searchOffersByTitle(pageable, searchText, user);
+		searchText = "%" + searchText + "%";
+		offers = offersRepository.searchOffersByTitle(pageable, searchText, user);
 		return offers;
 	}
-	
+
 	public Page<Offer> getAllOffers(Pageable pageable, User user) {
 		Page<Offer> offers = offersRepository.searchAllOffers(pageable, user);
 		return offers;
 	}
-	
+
 	public List<Offer> getUserOffers(User user) {
 		List<Offer> offer = new ArrayList<Offer>();
 		offersRepository.findAllByUser(user).forEach(offer::add);
 		return offer;
 	}
-	
+
 	public Offer getOffer(Long id) {
 		return offersRepository.findById(id).get();
 	}

@@ -16,16 +16,16 @@ public class AddOfferFormValidator implements Validator {
 	public boolean supports(Class<?> aClass) {
 		return Offer.class.equals(aClass);
 	}
-	
+
 	private boolean checkDate(String date) {
 		try {
-            DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-            df.setLenient(false);
-            df.parse(date);
-            return true;
-        } catch (ParseException e) {
-            return false;
-        }
+			DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+			df.setLenient(false);
+			df.parse(date);
+			return true;
+		} catch (ParseException e) {
+			return false;
+		}
 	}
 
 	@Override

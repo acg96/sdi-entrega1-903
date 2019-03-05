@@ -6,41 +6,40 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Entity
-public class Message implements Comparable<Message>{
-	
+public class Message implements Comparable<Message> {
+
 	@Id
 	@GeneratedValue
 	private long id;
-	
+
 	private String author;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date date;
-	
+
 	private String text;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "conversation_id")
 	private Conversation conversation;
-	
 
 	public Message(String author, String text, Conversation conversation) {
 		super();
-		this.author= author;
-		this.date= new Date();
-		this.text= text;
-		this.conversation= conversation;
+		this.author = author;
+		this.date = new Date();
+		this.text = text;
+		this.conversation = conversation;
 	}
-	
+
 	public Message() {
 	}
 
 	public long getId() {
 		return id;
 	}
-	
+
 	public String getFormatDate() {
-		SimpleDateFormat sdf= new SimpleDateFormat("dd-MM-yyyy HH:mm");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm");
 		return sdf.format(this.getDate());
 	}
 
@@ -89,5 +88,5 @@ public class Message implements Comparable<Message>{
 	public int compareTo(Message o) {
 		return this.getDate().compareTo(o.getDate());
 	}
-	
+
 }

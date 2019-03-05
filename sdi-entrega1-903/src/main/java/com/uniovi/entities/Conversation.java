@@ -5,41 +5,37 @@ import java.util.List;
 
 import javax.persistence.*;
 
-@Table(
-	    uniqueConstraints=
-	        @UniqueConstraint(columnNames={"user_id", "offer_id"})
-	)
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = { "user_id", "offer_id" }))
 @Entity
 public class Conversation {
-	
+
 	@Id
 	@GeneratedValue
 	private long id;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User buyer;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "offer_id")
 	private Offer offer;
-	
+
 	@OneToMany(mappedBy = "conversation", cascade = CascadeType.ALL)
 	private List<Message> messages;
 
-
 	public Conversation(User buyer, Offer offer, List<Message> messages) {
 		super();
-		this.buyer= buyer;
-		this.offer= offer;
-		this.messages= messages;
+		this.buyer = buyer;
+		this.offer = offer;
+		this.messages = messages;
 	}
-	
+
 	public Conversation(User buyer, Offer offer) {
 		super();
-		this.buyer= buyer;
-		this.offer= offer;
-		this.messages= new ArrayList<Message>();
+		this.buyer = buyer;
+		this.offer = offer;
+		this.messages = new ArrayList<Message>();
 	}
 
 	public Conversation() {
@@ -81,5 +77,5 @@ public class Conversation {
 	public String toString() {
 		return "Conversation [id=" + id + ", messages=" + messages + "]";
 	}
-	
+
 }

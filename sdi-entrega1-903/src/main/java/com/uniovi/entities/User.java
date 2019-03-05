@@ -7,8 +7,8 @@ import javax.persistence.*;
 
 @Entity
 public class User {
-	private static final double DEFAULT_MONEY=100;
-	
+	private static final double DEFAULT_MONEY = 100;
+
 	@Id
 	@GeneratedValue
 	private long id;
@@ -18,13 +18,13 @@ public class User {
 	private String lastName;
 	private String role;
 	private Double money;
-	
+
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private Set<Offer> offers;
-	
+
 	@OneToMany(mappedBy = "buyer", cascade = CascadeType.ALL)
 	private Set<Purchase> purchases;
-	
+
 	@OneToMany(mappedBy = "buyer", cascade = CascadeType.ALL)
 	private Set<Conversation> conversations;
 
@@ -35,14 +35,14 @@ public class User {
 
 	public User(String email, String name, String lastName) {
 		super();
-		this.email= email;
+		this.email = email;
 		this.name = name;
 		this.lastName = lastName;
-		this.money= DEFAULT_MONEY;
-		this.purchases= new HashSet<Purchase>();
-		this.offers= new HashSet<Offer>();
+		this.money = DEFAULT_MONEY;
+		this.purchases = new HashSet<Purchase>();
+		this.offers = new HashSet<Offer>();
 	}
-	
+
 	public void setOffers(Set<Offer> offers) {
 		this.offers = offers;
 	}
@@ -68,7 +68,7 @@ public class User {
 	}
 
 	public User() {
-		this.money= DEFAULT_MONEY;
+		this.money = DEFAULT_MONEY;
 	}
 
 	public long getId() {
@@ -110,13 +110,13 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public Double getMoney() {
 		return this.money;
 	}
-	
+
 	public void setMoney(Double money) {
-		this.money= Math.round(money * 100) / 100.0;
+		this.money = Math.round(money * 100) / 100.0;
 	}
 
 	public String getLastName() {

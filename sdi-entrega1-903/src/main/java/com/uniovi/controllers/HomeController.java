@@ -12,19 +12,19 @@ import com.uniovi.services.UsersService;
 
 @Controller
 public class HomeController {
-	
+
 	@Autowired
 	private UsersService usersService;
-	
+
 	private void storeUserInformation(Model model) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User user= usersService.getUserByEmail(auth.getName());
+		User user = usersService.getUserByEmail(auth.getName());
 		if (user != null) {
 			model.addAttribute("email", user.getEmail());
 			model.addAttribute("money", user.getMoney());
 		}
 	}
-	
+
 	@RequestMapping("/")
 	public String index(Model model) {
 		storeUserInformation(model);

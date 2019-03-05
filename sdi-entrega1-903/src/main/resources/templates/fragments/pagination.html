@@ -19,6 +19,7 @@
 		<!-- Última -->
 		<li class="page-item"><a class="page-link"
 			th:href="@{'?page='+${page.getTotalPages()-1}}"
-			th:text="#{pagination.last}" th:if='${page.getNumber() < page.getTotalPages()-1}'></a></li>
+			th:text="#{pagination.last}"
+			th:if='${page.getNumber() < page.getTotalPages()-1}'></a></li>
 	</ul>
 </div>

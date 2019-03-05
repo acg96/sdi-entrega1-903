@@ -7,14 +7,16 @@
 		<h2 th:text="#{login.title}"></h2>
 		<form class="form-horizontal" method="post" action="/login">
 			<div class="form-group">
-				<label class="control-label col-sm-2" for="username" th:text="#{login.title.email}"></label>
+				<label class="control-label col-sm-2" for="username"
+					th:text="#{login.title.email}"></label>
 				<div class="col-sm-10">
 					<input type="text" class="form-control" name="username"
 						placeholder="example@domain.com" required="true" />
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="control-label col-sm-2" for="password" th:text="#{login.title.password}"></label>
+				<label class="control-label col-sm-2" for="password"
+					th:text="#{login.title.password}"></label>
 				<div class="col-sm-10">
 					<input type="password" class="form-control" name="password"
 						placeholder="" required="true" />
@@ -22,9 +24,10 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
-					<p class="text-danger"
-				th:if="${error == 1}" th:text="#{user.login.incorrect}" id="loginError"></p>
-					<button type="submit" class="btn btn-primary" th:text="#{login.submit}"></button>
+					<p class="text-danger" th:if="${error == 1}"
+						th:text="#{user.login.incorrect}" id="loginError"></p>
+					<button type="submit" class="btn btn-primary"
+						th:text="#{login.submit}"></button>
 				</div>
 			</div>
 			<input type="hidden" name="${_csrf.parameterName}"

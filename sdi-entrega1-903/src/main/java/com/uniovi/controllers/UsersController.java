@@ -1,6 +1,5 @@
 package com.uniovi.controllers;
 
-
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,10 +33,10 @@ public class UsersController {
 	private SignUpFormValidator signUpFormValidator;
 	@Autowired
 	private RolesService rolesService;
-	
+
 	private void storeUserInformation(Model model) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User user= usersService.getUserByEmail(auth.getName());
+		User user = usersService.getUserByEmail(auth.getName());
 		if (user != null) {
 			model.addAttribute("email", user.getEmail());
 			model.addAttribute("money", user.getMoney());
@@ -56,7 +55,7 @@ public class UsersController {
 	@RequestMapping("/user/remove")
 	public String delete(Model model, @ModelAttribute("userToDelete") UserToDelete users) {
 		this.storeUserInformation(model);
-		int hayBorrado= usersService.deleteUsers(users);
+		int hayBorrado = usersService.deleteUsers(users);
 		return "redirect:/user/list/" + hayBorrado;
 	}
 
@@ -82,20 +81,19 @@ public class UsersController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login(Model model) {		
+	public String login(Model model) {
 		if (securityService.authenticationCorrect(usersService)) {
 			return "redirect:home";
 		} else {
 			return "login";
-		}		
+		}
 	}
-	
+
 	@RequestMapping(value = "/login/error", method = RequestMethod.GET)
 	public String loginError(Model model, HttpServletRequest request) {
 		if (securityService.authenticationCorrect(usersService)) {
 			return "redirect:/home";
-		}
-		else {
+		} else {
 			if (request.getHeader("referer") == null) {
 				return "redirect:/login";
 			}
@@ -108,8 +106,8 @@ public class UsersController {
 	public String home(Model model) {
 		this.storeUserInformation(model);
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User user= usersService.getUserByEmail(auth.getName());
-		List<Offer> list= offersService.getStarredOffers(user);
+		User user = usersService.getUserByEmail(auth.getName());
+		List<Offer> list = offersService.getStarredOffers(user);
 		model.addAttribute("offerList", list);
 		return "home";
 	}

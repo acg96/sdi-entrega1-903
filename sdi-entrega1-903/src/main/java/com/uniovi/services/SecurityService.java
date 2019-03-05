@@ -45,27 +45,29 @@ public class SecurityService {
 
 	public boolean authenticationCorrect(UsersService users) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		User user= users.getUserByEmail(auth.getName());
-		
-		if (user == null) return false;
-		
-		if (!roleCorrects(user)) return false;
-		
+		User user = users.getUserByEmail(auth.getName());
+
+		if (user == null)
+			return false;
+
+		if (!roleCorrects(user))
+			return false;
+
 		return true;
 	}
-	
+
 	private boolean roleCorrects(User user) {
 		@SuppressWarnings("unchecked")
 		Collection<SimpleGrantedAuthority> authorities = (Collection<SimpleGrantedAuthority>) SecurityContextHolder
 				.getContext().getAuthentication().getAuthorities();
-		
-		if (authorities.size() != 1 ) return false;
-		
+
+		if (authorities.size() != 1)
+			return false;
+
 		for (SimpleGrantedAuthority s : authorities) {
 			if (s.getAuthority().equals(user.getRole())) {
 				return true;
-			}
-			else {
+			} else {
 				return false;
 			}
 		}
