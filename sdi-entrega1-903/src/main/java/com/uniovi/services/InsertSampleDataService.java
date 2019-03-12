@@ -9,6 +9,11 @@ import com.uniovi.entities.Message;
 import com.uniovi.entities.Offer;
 import com.uniovi.entities.Purchase;
 import com.uniovi.entities.User;
+import com.uniovi.repositories.ConversationsRepository;
+import com.uniovi.repositories.MessagesRepository;
+import com.uniovi.repositories.OffersRepository;
+import com.uniovi.repositories.PurchasesRepository;
+import com.uniovi.repositories.UsersRepository;
 
 @Service
 public class InsertSampleDataService {
@@ -29,9 +34,30 @@ public class InsertSampleDataService {
 
 	@Autowired
 	private MessagesService messagesService;
+	
+	@Autowired
+	private UsersRepository usersRepository;
+
+	@Autowired
+	private PurchasesRepository purchasesRepository;
+
+	@Autowired
+	private OffersRepository offersRepository;
+
+	@Autowired
+	private MessagesRepository messagesRepository;
+
+	@Autowired
+	private ConversationsRepository conversationsRepository;
 
 	@PostConstruct
 	public void init() {
+		messagesRepository.deleteAll();
+		conversationsRepository.deleteAll();
+		purchasesRepository.deleteAll();
+		offersRepository.deleteAll();
+		usersRepository.deleteAll();
+		
 		User user1 = new User("prueba@gmail.com", "Daniel", "González");
 		user1.setPassword("123456");
 		user1.setRole(rolesService.getRoles()[1]);
